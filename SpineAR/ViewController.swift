@@ -13,6 +13,9 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    var nodeModel:SCNNode!
+    let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +26,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
+        // makes edges smooth
+        sceneView.antialiasingMode = .multisampling4X
+        
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        //let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spine-model1.scn")!
+        
+        nodeModel =  scene.rootNode.childNode(
+            withName: nodeName, recursively: true)
         
         // Set the scene to the view
         sceneView.scene = scene

@@ -13,6 +13,7 @@
 		7D44B0AC1F85816300CBAA45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D44B0AA1F85816300CBAA45 /* Main.storyboard */; };
 		7D44B0AE1F85816300CBAA45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D44B0AD1F85816300CBAA45 /* Assets.xcassets */; };
 		7D44B0B11F85816300CBAA45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D44B0AF1F85816300CBAA45 /* LaunchScreen.storyboard */; };
+		7D44B0B91F85858000CBAA45 /* Spine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D44B0B81F85858000CBAA45 /* Spine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7D44B0AD1F85816300CBAA45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D44B0B01F85816300CBAA45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D44B0B21F85816300CBAA45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D44B0B81F85858000CBAA45 /* Spine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				7D44B0A41F85816300CBAA45 /* AppDelegate.swift */,
+				7D44B0B81F85858000CBAA45 /* Spine.swift */,
 				7D44B0A61F85816300CBAA45 /* art.scnassets */,
 				7D44B0A81F85816300CBAA45 /* ViewController.swift */,
 				7D44B0AA1F85816300CBAA45 /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D44B0B91F85858000CBAA45 /* Spine.swift in Sources */,
 				7D44B0A91F85816300CBAA45 /* ViewController.swift in Sources */,
 				7D44B0A51F85816300CBAA45 /* AppDelegate.swift in Sources */,
 			);
@@ -279,6 +283,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42W6XQB2U5;
 				INFOPLIST_FILE = SpineAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SpineEd.SpineAR;
@@ -293,6 +298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42W6XQB2U5;
 				INFOPLIST_FILE = SpineAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SpineEd.SpineAR;
