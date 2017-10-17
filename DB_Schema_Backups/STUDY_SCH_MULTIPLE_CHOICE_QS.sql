@@ -24,8 +24,9 @@ DROP TABLE IF EXISTS `MULTIPLE_CHOICE_QS`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `MULTIPLE_CHOICE_QS` (
   `MCQ_ID` int(11) NOT NULL,
+  `CASE_ID` varchar(45) DEFAULT NULL COMMENT 'This MCQ may or may not belong to a case. \n0  for no case. ',
   `EDU_LVL` int(2) DEFAULT NULL,
-  `QUESTION` varchar(45) NOT NULL,
+  `QUESTION` varchar(450) NOT NULL,
   `OPTION_A` varchar(45) DEFAULT NULL,
   `OPTION_A_TRUE` varchar(45) DEFAULT NULL,
   `OPTION_B` varchar(45) DEFAULT NULL,
@@ -34,7 +35,7 @@ CREATE TABLE `MULTIPLE_CHOICE_QS` (
   `OPTION_C_TRUE` varchar(45) DEFAULT NULL,
   `OPTION_D` varchar(45) DEFAULT NULL,
   `OPTION_D_TRUE` varchar(45) DEFAULT NULL,
-  `FURTHER_DETAIL` varchar(45) DEFAULT NULL,
+  `FURTHER_DETAIL` varchar(450) DEFAULT NULL,
   `ANATC_REGION_ID` int(11) DEFAULT NULL,
   `CREATED_BY` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`MCQ_ID`),
@@ -49,7 +50,7 @@ CREATE TABLE `MULTIPLE_CHOICE_QS` (
 
 LOCK TABLES `MULTIPLE_CHOICE_QS` WRITE;
 /*!40000 ALTER TABLE `MULTIPLE_CHOICE_QS` DISABLE KEYS */;
-INSERT INTO `MULTIPLE_CHOICE_QS` VALUES (1,1,'BLAH?','BLAH!',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,'root@localhost'),(2,1,'testing','testing',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'root@localhost');
+INSERT INTO `MULTIPLE_CHOICE_QS` VALUES (1,'0',3,'Diffuse idiopathic skeletal hyperostosis ','Occurs in populations under the age of 40','false','is associated with marginal syndesmophytes','false','Ankylosis of the facets is rare','true','Is more common in the left thoracic spine ','false','Diffuse Idiopathic skeletal hyperostosis – common disorder, unknown etiology characterized by back pain and stiffness. Usually over 50 years, white population, most common RIGHT THORACIC spine (T7-11) but can occur anywhere, fusion anteriorly without ankyloses of facets and preservation of disc height.NON MARGINAL syndesmophytes and three successive levels involving 4 contiguous vertebrae.',NULL,'root@localhost'),(2,'0',3,'Which of the following are risk factors for development of diffuse idiopathic skeletal hyperostosis? Select all that are appropriate.','Hypertension','false','Gout','true','Dyslipidemia','true','Type 2 Diabeted Mellitis','true',NULL,NULL,'root@localhost'),(3,NULL,NULL,'testing',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `MULTIPLE_CHOICE_QS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-14 19:14:27
+-- Dump completed on 2017-10-17 11:07:19

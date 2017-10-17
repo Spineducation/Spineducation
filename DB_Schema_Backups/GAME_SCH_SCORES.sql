@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
--- Host: 127.0.0.1    Database: STUDY_SCH
+-- Host: 127.0.0.1    Database: GAME_SCH
 -- ------------------------------------------------------
 -- Server version	5.7.19
 
@@ -16,28 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `CASE_CATG`
+-- Table structure for table `SCORES`
 --
 
-DROP TABLE IF EXISTS `CASE_CATG`;
+DROP TABLE IF EXISTS `SCORES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `CASE_CATG` (
-  `CASE_CATG_ID` int(11) NOT NULL,
-  `CATG_DESC` varchar(45) NOT NULL,
+CREATE TABLE `SCORES` (
+  `SCORE` int(11) NOT NULL,
   `CREATED_BY` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`CASE_CATG_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`SCORE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `CASE_CATG`
+-- Dumping data for table `SCORES`
 --
 
-LOCK TABLES `CASE_CATG` WRITE;
-/*!40000 ALTER TABLE `CASE_CATG` DISABLE KEYS */;
-INSERT INTO `CASE_CATG` VALUES (1,'ADULT',NULL),(2,'PEDIATRIC',NULL),(3,'DEGENERATIVE',NULL),(4,'DEFORMITY',NULL),(5,'INFECTION',NULL),(6,'TUMOUR',NULL),(7,'TRAUMA',NULL),(8,'BASIC SCIENCE',NULL),(9,'ANATOMY',NULL);
-/*!40000 ALTER TABLE `CASE_CATG` ENABLE KEYS */;
+LOCK TABLES `SCORES` WRITE;
+/*!40000 ALTER TABLE `SCORES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SCORES` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-17 11:07:19
+-- Dump completed on 2017-10-17 11:07:21
