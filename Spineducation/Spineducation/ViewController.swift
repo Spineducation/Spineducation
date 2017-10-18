@@ -31,7 +31,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         //let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        let scene = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spineAllTogether_horizontal.scn")!
+        let scene = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spine_171018.scn")!
         
         nodeModel =  scene.rootNode.childNode(
             withName: nodeName, recursively: true)
