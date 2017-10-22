@@ -43,10 +43,16 @@
           <h1>Spinecases Website</h1>
       </div>
 
-      <!-- jumbotron enlarges fonts and puts everything in a gray box with rounded corners. If jumbotron is outside a container it fills the total width. You can change the styles by placing the changes after the Bootstrap CDN link -->
-      <div class="jumbotron">
-          <p>This page is in early development stages. The goal is to have a sign in page for execute content creator, Colby Oitment, to start adding cases to the spincases database!</p>
-      </div>
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="home.html">Home</a></li>
+                <li><a href="index.html">Create Content</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
 
       <!-- Use nav-pills, nav-tabs. To center tabs add nav-justified to the class for ul -->
       <ul class="nav nav-pills">
@@ -60,7 +66,7 @@
             <span class="input-group-addon" contenteditable="true">History</span>
             <input type="text" class="form-control" placeholder="Description of patient history goes here.">
         </div>
-        
+
         <div class="input-group input-group-md">
             <span class="input-group-addon" contenteditable="true">Physical</span>
             <input type="text" class="form-control" placeholder="Results of the patient's physical assessment go here.">
