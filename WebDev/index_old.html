@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spineducation Main Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+    /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+    .form-horizontal .control-label{
+        padding-top: 7px;
+    }
+
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+    #sortable li span { position: absolute; margin-left: -1.3em; }
+</style>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+</head>
+<body>
+
+    <!-- CONTAINERS -->
+    <!-- container puts padding around itself while container-fluid fills the whole screen. Bootstap grids require a container. -->
+    <div class="container">
+
+        <!-- page-header adds space aroundtext and enlarges it. It also adds an underline at the end -->
+        <div class="page-header">
+          <h1>Spinecases Website</h1>
+      </div>
+
+      <!-- jumbotron enlarges fonts and puts everything in a gray box with rounded corners. If jumbotron is outside a container it fills the total width. You can change the styles by placing the changes after the Bootstrap CDN link -->
+      <div class="jumbotron">
+          <p>This page is in early development stages. The goal is to have a sign in page for execute content creator, Colby Oitment, to start adding cases to the spincases database!</p>
+      </div>
+
+      <form class="form-horizontal" action="/examples/actions/confirmation.php" method="post">
+
+        <ul id="sortable">
+            <li>
+              <div class="input-group input-group-lg">
+                <label for="inputHistory" class="control-label col-xs-2">History</label>
+                <div >
+                    <textarea type="textarea" class="form-control" id="inputEmail" placeholder="Description of patient history goes here." required></textarea>
+                </div>
+            </div>
+        </li>
+
+        <li>
+
+            <div class="col-xs-10">
+                <label for="inputPhysical" class="control-label col-xs-2">Physical</label>
+                <div >
+                    <textarea type="textarea" class="form-control" id="inputPassword" placeholder="Results of patient physical exam go here." row="3" required></textarea>
+                </div>
+            </div>
+        </li>
+
+        <li>
+
+            <div class="col-xs-10">
+
+                <label for="inputQuestion" class="control-label col-xs-2">Question</label>
+                <div>
+                    <textarea type="textarea" class="form-control" id="mcqQuestion" placeholder="Please limit the question to 500 characters." row="8" required></textarea>
+                </div>
+            </div>
+
+
+            <div class="col-xs-10">
+                <label class="col-xs-2 control-label">A)</label>
+                <div>
+                   <input class="col-xs-4 control-label" type="text" class="form-control" name="MCQ[0].ans_a" />
+               </div>
+           </div>
+
+           <div class="col-xs-10">
+               <label class="col-xs-2 control-label">B)</label>
+               <div>
+                   <input class="col-xs-4 control-label" type="text" class="form-control" name="MCQ[0].ans_b" />
+               </div>
+           </div>
+
+           <div class="col-xs-10">
+               <label class="col-xs-2 control-label">C)</label>
+               <div>
+                   <input class="col-xs-4 control-label" type="text" class="form-control" name="MCQ[0].ans_c" />
+               </div>
+           </div>
+
+           <div class="col-xs-10">
+               <label >D)</label>
+               <div>
+                   <input class="col-xs-4 control-label" type="text" class="form-control" name="MCQ[0].ans_d" />
+               </div>
+           </div>
+
+       </li>
+
+       <!-- The template for adding new field -->
+               <!-- <li>
+
+                <div class="form-group hide" id="MCQformtemplate">
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <input type="text" class="form-control" name="question" placeholder="Title" />
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" name="ans_a" placeholder="ans_a" />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" name="price" placeholder="ans_b" />
+                    </div>
+                    <div class="col-xs-1">
+                        <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+
+            </li> -->
+        </ul>
+
+        <div class="form-group">
+            <div class="col-xs-5 col-xs-offset-1">
+               <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i> Add Another MCQ </button>
+
+               <button type="submit" class="btn btn-primary">Submit This Case</button>
+           </div>
+       </div>
+
+
+   </div> 
+
+
+
+
+   <script>
+      $( function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+    } );
+
+
+      $(document).ready(function() {
+        var questionValidators = {
+            row: '.col-xs-4',   // The question is placed inside a <div class="col-xs-4"> element
+            validators: {
+                notEmpty: {
+                    message: 'The question is equired'
+                }
+            }
+        },
+        ansaValidators = {
+            row: '.col-xs-4',
+            validators: {
+                notEmpty: {
+                    message: 'Option A is required.'
+                }
+            }
+        },
+        ansbValidators = {
+            row: '.col-xs-4',
+            validators: {
+                notEmpty: {
+                    message: 'Option B is required.'
+                // },
+                // ans_a: {
+                //     message: 'The ans_a is not valid'
+            }
+        }
+    },
+        // anscValidators = {
+        //     row: '.col-xs-4',
+        //     validators: {
+        //         notEmpty: {
+        //             message: 'The ans_a is required'
+        //         },
+        //         ans_a: {
+        //             message: 'The ans_a is not valid'
+        //         }
+        //     }
+        // },
+        // ansdValidators = {
+        //     row: '.col-xs-2',
+        //     validators: {
+        //         notEmpty: {
+        //             message: 'The price is required'
+        //         }
+        //     }
+        // },
+        bookIndex = 0;
+
+        $('#bookForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                'MCQ[0].question': questionValidators,
+                'MCQ[1].ans_a': ansaValidators,
+                'MCQ[2].ans_b': ansbValidators,
+                'MCQ[3].ans_c': anssValidators,
+                'MCQ[4].ans_d': ansdValidators
+            }
+        })
+
+        // Add button click handler
+        .on('click', '.addButton', function() {
+            bookIndex++;
+            var $template = $('#bookTemplate'),
+            $clone    = $template
+            .clone()
+            .removeClass('hide')
+            .removeAttr('id')
+            .attr('data-MCQ-index', bookIndex)
+            .insertBefore($template);
+
+            // Update the name attributes
+            $clone
+            .find('[name="question"]').attr('name', 'MCQ[' + bookIndex + '].question').end()
+            .find('[name="ans_a"]').attr('name', 'MCQ[' + bookIndex + '].ans_a').end()
+            .find('[name="ans_b"]').attr('name', 'MCQ[' + bookIndex + '].ans_b').end()
+            .find('[name="ans_c"]').attr('name', 'MCQ[' + bookIndex + '].ans_c').end()
+            .find('[name="ans_d"]').attr('name', 'MCQ[' + bookIndex + '].ans_d').end();
+
+            // Add new fields
+            // Note that we also pass the validator rules for new field as the third parameter
+            $('#bookForm')
+            .formValidation('addField', 'MCQ[' + bookIndex + '].question', questionValidators)
+            .formValidation('addField', 'MCQ[' + bookIndex + '].ans_a', ansaValidators)
+            .formValidation('addField', 'MCQ[' + bookIndex + '].ans_b', ansbValidators)
+            .formValidation('addField', 'MCQ[' + bookIndex + '].ans_c', anscValidators)
+            .formValidation('addField', 'MCQ[' + bookIndex + '].ans_d', ansdValidators);
+        })
+
+        // Remove button click handler
+        .on('click', '.removeButton', function() {
+            var $row  = $(this).parents('.form-group'),
+            index = $row.attr('data-MCQ-index');
+
+            // Remove fields
+            $('#bookForm')
+            .formValidation('removeField', $row.find('[name="MCQ[' + index + '].question"]'))
+            .formValidation('removeField', $row.find('[name="MCQ[' + index + '].ans_a"]'))
+            .formValidation('removeField', $row.find('[name="MCQ[' + index + '].ans_b"]')) 
+            .formValidation('removeField', $row.find('[name="MCQ[' + index + '].ans_c"]'))
+            .formValidation('removeField', $row.find('[name="MCQ[' + index + '].ans_c"]'));
+
+            // Remove element containing the fields
+            $row.remove();
+        });
+    });
+</script>
+
+
+</body>
+</html>                             
