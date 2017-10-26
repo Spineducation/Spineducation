@@ -31,6 +31,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         //let scene = SCNScene(named: "art.scnassets/ship.scn")!
+       // let scene = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spine_baseline_17_10_26.dae")!
         let scene = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/17_10_25_1909.dae")!
         
         nodeModel =  scene.rootNode.childNode(
