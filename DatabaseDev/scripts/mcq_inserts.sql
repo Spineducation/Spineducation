@@ -1,0 +1,32 @@
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(1,3,'Select a diagnosis','More imaging is needed','Hangman fracture','Odontoid fracture','Unilateral facet jump');
+
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(2,3,'Select a diagnosis.','Type 1 odontoid','Type 2 odontoid','Type 3 odontoid','Os odontoidium');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(3,3,'Fractures involving the superior articular facet of C2 are classified as ','Type 1 odontoid','Type 2 odontoid','Type 3 odontoid','');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(4,3,'The transverse ligament in this case is likely','Disrupted','Intact','','');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(5,3,'Select the best treatment for this patient','Anterior odontoid screw','Posterior C1-2 fixation using C1 lateral mass C2 pars screws','Occiput to C3 fusion','Conservative management');
+
+
+
+
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(6,3,'Which type of fluoroscopy would you like to call for? ','Flat plate XR','Uniplanar fluoroscopy','Biplanar fluoroscopy','No fluoroscopy');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(7,3,'The approach for C2 odontoid screw is best performed at','At the C2 skin level which is the hyoid superficially','At the level of C3 which is the level of the hyoid','At the level of C5 which is at the thyroid cartilage',' At the level of the C6 which is the cricoid tubercle superficially.');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(8,3,'In the Grauer modification of Anderson and D\'Alonzo\'s classification of type 2 odontoid fractures they separate three types by morphology.  ','Grauer type A are best treated with odontoid screws','Grauer type B are best treated with posterior stabilization','Grauer type C fractures are best treated with odontoid screws','Grauer A are best treated with external immobilization if nondisplaced');
+
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(1,2,'Select a diagnosis.','L1 Axial compression injury',' Incomplete burst fracture of L1','Complete burst of L1','AO type C injury to L1');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(2,2,'The TLIC classification of this injury suggests','Operative stabilization with decompression',' operative management','Percutaneous stabilization','Indirect decompression through ligamentotaxis');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(3,2,'The best approach for direct decompression of the central fragment in this patient is ','Trans-facet, pedicle sparing approach','Transpedicular','Direct posterior with retraction of the thecal sac','Indirectly via ligamentotaxis');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(4,2,'Decompression from burst fracture fragments at L1 are treated similarly to those in the lower lumbar spine.','True ','False ','','');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(5,2,'This is a common area of the spine to see this fracture morphology.','True ','False ','','');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(6,2,'Treating this fracture anteriorly','Involves diaphragmatic takedown, because the diaphragm attaches to the T12-L1 disc space','Does not involvement diaphragm take down because it attaches at the level of the T12 body','Does not involvement taking down the diaphragm because the diaphragm attaches at L1-2 disc space','Involves taking down tthe diaphragm because it attaches to the T11-12 disc space');
+
+
+
+
+
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(7,2,'In this post operative CT, the surgeon should be criticized for','A lateral breech of the left sided screw at T12','Medial breech of the right sided screw at L2','Incomplete reduction','Insufficient bone grafting');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(8,2,'As the enters the T12 pedicle on the right side with the pedicle finder, he feels resistance at 30mm with a spongy quality. ','He is likely in the T11-12 disc space and should reorient the pedicle finder caudally',' He is likely in the T12-L1 disc space and should reorient the pedicle finder cranially','He has breeched laterally into soft tissue and should reorient himself with fluoroscopy','He has breeched medially into the cord and should rely on fluoroscopy for correction.');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(9,2,'The anatomical start point of of a T12 pedicle screw is ','At the mamillary process','A line intersecting the lateral pars and inferior transverse process','A line intersecting midpoint transverse process at midpoint lamina','A line intersecting medial pars at the inferior facet');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(10,2,'The first lumbarized pars is typically at ','T11','T12','L1','L2');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(11,2,'The first lumbarized facet joint is at ','T11-T12','T12-L1','L1-L2','L2-L3');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(12,2,'What is an acceptable screw diameter for a T12 pedicle?','3.5mm','4.5mm','5.5mm','7.5mm');
+insert into MULTIPLE_CHOICE_QS (mcq_id, case_id, question, option_a, option_b, option_c, option_d) values(13,2,'Which of the following is not a structure in the posterior ligamentous complex (PLC) in the TLICs classification?','Supraspinous ligament','Interspinous ligament','Posterior longitudinal ligament','Ligamentum flavum');
