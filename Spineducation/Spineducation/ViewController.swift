@@ -15,7 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     var nodeModel:SCNNode!
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
-    var counter = 0;
+    var spineExists = false;
 
     
     override func viewDidLoad() {
@@ -63,22 +63,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         guard let touch = touches.first else {return}
         let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
         guard let hitResult = result.last else {return}
-        let hitTransform = SCNMatrix4(hitResult.worldTransform)
-        let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
-        if (counter == 0){
-            createSpine(position: hitVector)
-            counter = counter + 1
+        let hitTransform = SCNMatrix4(hitResult.worldTransform) // make SCNMatrix4 object out of touch location
+        let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43) // take relevant components of the touch location from matrix to make SVNVector3 object
+        if (!spineExists){ // if the spine is not on the screen yet
+            createSpine(position: hitVector) // create the spine
+            spineExists = true // update the variable to reflect that the spine exists now
         }
-        
-        
     }
     
     func createSpine(position : SCNVector3){
-        let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/17_10_25_1909.dae")!
-        nodeModel =  spine.rootNode.childNode(
+        let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/17_10_25_1909.dae")! // sets the spine to spine 3d image file
+        nodeModel =  spine.rootNode.childNode( // recursively binds child nodes to the root node
             withName: nodeName, recursively: true)
-        spine.rootNode.position = position
-        sceneView.scene.rootNode.addChildNode(spine.rootNode)
+        spine.rootNode.position = position // sets the position of the root node to the position from the SVNVector3 object
+        sceneView.scene.rootNode.addChildNode(spine.rootNode) // add this to the scene
     }
     
     override func didReceiveMemoryWarning() {
