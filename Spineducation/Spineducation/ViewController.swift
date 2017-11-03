@@ -15,6 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     var nodeModel:SCNNode!
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
+    var counter = 0;
 
     
     override func viewDidLoad() {
@@ -31,15 +32,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         //let scene = SCNScene(named: "art.scnassets/ship.scn")!
-       // let scene = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spine_baseline_17_10_26.dae")!
-        let scene = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/17_10_25_1909.dae")!
         
-        nodeModel =  scene.rootNode.childNode(
-            withName: nodeName, recursively: true)
+        let scene = SCNScene()
+
         
         // Set the scene to the view
         sceneView.scene = scene
     }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,6 +57,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+        let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
+        guard let hitResult = result.last else {return}
+        let hitTransform = SCNMatrix4(hitResult.worldTransform)
+        let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
+        if (counter == 0){
+            createSpine(position: hitVector)
+            counter = counter + 1
+        }
+        
+        
+    }
+    
+    func createSpine(position : SCNVector3){
+        let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/17_10_25_1909.dae")!
+        nodeModel =  spine.rootNode.childNode(
+            withName: nodeName, recursively: true)
+        spine.rootNode.position = position
+        sceneView.scene.rootNode.addChildNode(spine.rootNode)
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,4 +111,33 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    /*
+     Called when a SceneKit node corresponding to a
+     new AR anchor has been added to the scene.
+     */
+    func renderer(_ renderer: SCNSceneRenderer,
+                  didAdd node: SCNNode, for anchor: ARAnchor) {
+        // ...
+    }
+    
+    /*
+     Called when a SceneKit node's properties have been
+     updated to match the current state of its corresponding anchor.
+     */
+    func renderer(_ renderer: SCNSceneRenderer,
+                  didUpdate node: SCNNode, for anchor: ARAnchor) {
+        // ...
+    }
+    
+    /*
+     Called when SceneKit node corresponding to a removed
+     AR anchor has been removed from the scene.
+     */
+    func renderer(_ renderer: SCNSceneRenderer,
+                  didRemove node: SCNNode, for anchor: ARAnchor) {
+        // ...
+    }
+    
+    
 }
