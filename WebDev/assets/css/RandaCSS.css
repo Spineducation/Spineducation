@@ -1,0 +1,20 @@
+textarea question {
+  max-height:175px;
+  max-width:500px;
+  min-height:10px;
+  min-width:100px;
+}
+
+textarea {
+  max-width:450px;
+  min-width:50px;
+  max-height:250px;
+  min-height:15px;
+  background-color:#eeeeee;
+}
+
+input {
+  height:50px;
+  width:225px;
+}
+
