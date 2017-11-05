@@ -1,6 +1,6 @@
 //
 //  SimpleMainViewController.swift
-//  SpinePHPtesting
+//  Spineducation
 //
 //  Created by Randa Mohsen on 2017-11-04.
 //  Copyright © 2017 Spineducation. All rights reserved.

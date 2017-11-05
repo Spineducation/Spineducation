@@ -109,6 +109,7 @@
 		55C44B421F87E86F002D5B24 /* Spineducation */ = {
 			isa = PBXGroup;
 			children = (
+				A4A525B11FAF8A980078B56F /* Cases */,
 				55C44B431F87E86F002D5B24 /* AppDelegate.swift */,
 				55C44B451F87E86F002D5B24 /* art.scnassets */,
 				55C44B471F87E86F002D5B24 /* ViewController.swift */,
@@ -116,11 +117,7 @@
 				55C44B4C1F87E86F002D5B24 /* Assets.xcassets */,
 				55C44B4E1F87E86F002D5B24 /* LaunchScreen.storyboard */,
 				55C44B511F87E86F002D5B24 /* Info.plist */,
-				A4A525A71FAF6ACE0078B56F /* CasesVC.swift */,
-				A4A525A91FAF6B020078B56F /* HomeModel.swift */,
-				A4A525AB1FAF6B340078B56F /* MedicalCase.swift */,
 				A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */,
-				A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */,
 			);
 			path = Spineducation;
 			sourceTree = "<group>";
@@ -141,6 +138,17 @@
 				55C44B671F87E870002D5B24 /* Info.plist */,
 			);
 			path = SpineducationUITests;
+			sourceTree = "<group>";
+		};
+		A4A525B11FAF8A980078B56F /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				A4A525A71FAF6ACE0078B56F /* CasesVC.swift */,
+				A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */,
+				A4A525A91FAF6B020078B56F /* HomeModel.swift */,
+				A4A525AB1FAF6B340078B56F /* MedicalCase.swift */,
+			);
+			path = Cases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
