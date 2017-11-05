@@ -33,15 +33,310 @@
             </div>
         </nav>
     </div>
+    <h1 class="bg-info" style="padding:14px;">You will use this page to create a case.</h1>
     <div class="container">
         <form>
-            <div class="form-group"><span class="label label-default">History </span>
-                <textarea class="form-control" required="" style="width:800px;"></textarea>
+            <div class="form-group" style="padding:13px;"><span class="label label-default" style="font-size:19px;">History </span>
+                <textarea class="form-control" name="physicalinput" required="" placeholder="Maximum of 850 characters" maxlength="850" minlength="10" style="width:800px;"></textarea>
+            </div>
+            <p style="font-size:15px;margin:16px;height:15px;padding:-4px;">Only add questions here if they correspond to the "History" section of the case: </p>
+            <div class='container'>
+    <div class='row clearfix'>
+		<div class='col-md-12 column'>
+			<table class='table table-bordered table-hover' id='hist_tab_logic' data-reorderable-rows='true' data-toggle='table'
+       data-url='/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/' 
+        data-use-row-attr-func='true'>
+				<thead>
+					<tr id='hist_mcq_hdr'>
+						<th class='text-center'>
+							#
+						</th>
+						<th class='text-center'>
+							Question
+						</th>
+						<th class='text-center'>
+							Option A
+						</th>
+						<th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option B
+						</th>
+                        <th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option C
+						</th>
+                        <th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option D
+						</th>
+					    <th class='text-center'>
+							Answer
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id='hist_mcq_row0'>
+						<td>
+						1
+						</td>
+						<td>
+						<input type='text' name='0question' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+						<td>
+						<input type='text' name='0optiona' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+						<td>
+                        <select name='0answera'>
+                            <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select></td>
+                        <td>
+						<input type='text' name='0optionb' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+						<select name='0answerb'>
+                             <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select></td>
+                        <td>
+                        <input type='text' name='0optionc' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+						<select name='0answerc'>
+                             <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                         </select>
+                        </td>
+                        <td>
+                        <input type='text' name='0optiond' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+                        <select name='0answerd'>
+                            <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select>
+                        </td>
+					</tr>
+                    <tr id='hist_whatisthis'></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<a id='hist_add_row' class='pull-left'>Add Row</a><a id='hist_delete_row' class='pull-right'>Delete Row</a>
+</div>
+            <div class="form-group" style="padding:13px;"><span class="label label-default" style="font-size:19px;">Physical</span>
+                <textarea class="form-control" name="physicalinput" required="" placeholder="Maximum of 850 characters" maxlength="850" minlength="10" style="width:800px;"></textarea>
+            </div>
+            <p style="font-size:15px;margin:16px;height:15px;padding:-4px;">Only add questions here if they correspond to the "Physical" section of the case: </p>
+            <div class='container'>
+    <div class='row clearfix'>
+		<div class='col-md-12 column'>
+			<table class='table table-bordered table-hover' id='phys_tab_logic' data-reorderable-rows='true' data-toggle='table'
+       data-url='/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/' 
+        data-use-row-attr-func='true'>
+				<thead>
+					<tr id='phys_mcq_hdr'>
+						<th class='text-center'>
+							#
+						</th>
+						<th class='text-center'>
+							Question
+						</th>
+						<th class='text-center'>
+							Option A
+						</th>
+						<th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option B
+						</th>
+                        <th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option C
+						</th>
+                        <th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option D
+						</th>
+					    <th class='text-center'>
+							Answer
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id='phys_mcq_row0'>
+						<td>
+						1
+						</td>
+						<td>
+						<input type='text' name='0question' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+						<td>
+						<input type='text' name='0optiona' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+						<td>
+                        <select name='0answera'>
+                            <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select></td>
+                        <td>
+						<input type='text' name='0optionb' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+						<select name='0answerb'>
+                             <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select></td>
+                        <td>
+                        <input type='text' name='0optionc' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+						<select name='0answerc'>
+                             <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                         </select>
+                        </td>
+                        <td>
+                        <input type='text' name='0optiond' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+                        <select name='0answerd'>
+                            <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select>
+                        </td>
+					</tr>
+                    <tr id='phys_whatisthis'></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<a id='phys_add_row' class='pull-left'>Add Row</a><a id='phys_delete_row' class='pull-right'>Delete Row</a>
+</div>
+            <div class="form-group" style="padding:17px;"><span class="label label-default" style="font-size:19px;">CT Imaging</span>
+                <input type="file" accept="image/*" required="" multiple="" style="margin:16px;font-size:16px;">
+            </div>
+            <p style="font-size:15px;margin:16px;height:15px;padding:-4px;">Only add questions here if they correspond to the "CT Imaging" section of the case: </p>
+            <div class='container'>
+    <div class='row clearfix'>
+		<div class='col-md-12 column'>
+			<table class='table table-bordered table-hover' id='mri_tab_logic' data-reorderable-rows='true' data-toggle='table'
+       data-url='/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/' 
+        data-use-row-attr-func='true'>
+				<thead>
+					<tr id='ct_mcq_hdr'>
+						<th class='text-center'>
+							#
+						</th>
+						<th class='text-center'>
+							Question
+						</th>
+						<th class='text-center'>
+							Option A
+						</th>
+						<th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option B
+						</th>
+                        <th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option C
+						</th>
+                        <th class='text-center'>
+							Answer
+						</th>
+						<th class='text-center'>
+							Option D
+						</th>
+					    <th class='text-center'>
+							Answer
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id='ct_mcq_row0'>
+						<td>
+						1
+						</td>
+						<td>
+						<input type='text' name='0question' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+						<td>
+						<input type='text' name='0optiona' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+						<td>
+                        <select name='0answera'>
+                            <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select></td>
+                        <td>
+						<input type='text' name='0optionb' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+						<select name='0answerb'>
+                             <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select></td>
+                        <td>
+                        <input type='text' name='0optionc' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+						<select name='0answerc'>
+                             <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                         </select>
+                        </td>
+                        <td>
+                        <input type='text' name='0optiond' placeholder='Max 450 char.' class='form-control'/>
+						</td>
+                        <td>
+                        <select name='0answerd'>
+                            <option value='null'></option>
+                            <option value='true'>TRUE</option>
+                            <option value='false'>FALSE</option>
+                        </select>
+                        </td>
+					</tr>
+                    <tr id='ct_whatisthis'></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<a id='ct_add_row' class='pull-left'>Add Row</a><a id='ct_delete_row' class='pull-right'>Delete Row</a>
+</div>
+            <div class="form-group" style="padding:17px;"><span class="label label-default" style="font-size:19px;">MRI Imaging</span>
+                <input type="file" accept="image/*" required="" multiple="" style="margin:16px;font-size:16px;">
             </div>
             <div class='container'>
     <div class='row clearfix'>
 		<div class='col-md-12 column'>
-			<table class='table table-bordered table-hover' id='tab_logic' data-reorderable-rows='true' data-toggle='table'
+			<table class='table table-bordered table-hover' id='mri_tab_logic' data-reorderable-rows='true' data-toggle='table'
        data-url='/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/' 
         data-use-row-attr-func='true'>
 				<thead>
@@ -130,109 +425,12 @@
 			</table>
 		</div>
 	</div>
-	<a id='add_row' class='pull-left'>Add Row</a><a id='delete_row' class='pull-right'>Delete Row</a>
+	<a id='mri_add_row' class='pull-left'>Add Row</a><a id='mri_delete_row' class='pull-right'>Delete Row</a>
 </div>
-            <div class="form-group"><span class="label label-default">Physical</span>
-                <textarea class="form-control" required="" maxlength="850" style="width:800px;"></textarea>
-            </div>
         </form>
     </div>
-    <div class='container'>
-    <div class='row clearfix'>
-		<div class='col-md-12 column'>
-			<table class='table table-bordered table-hover' id='tab_logic' data-reorderable-rows='true' data-toggle='table'
-       data-url='/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/' 
-        data-use-row-attr-func='true'>
-				<thead>
-					<tr >
-						<th class='text-center'>
-							#
-						</th>
-						<th class='text-center'>
-							Question
-						</th>
-						<th class='text-center'>
-							Option A
-						</th>
-						<th class='text-center'>
-							Answer
-						</th>
-						<th class='text-center'>
-							Option B
-						</th>
-                        <th class='text-center'>
-							Answer
-						</th>
-						<th class='text-center'>
-							Option C
-						</th>
-                        <th class='text-center'>
-							Answer
-						</th>
-						<th class='text-center'>
-							Option D
-						</th>
-					    <th class='text-center'>
-							Answer
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr id='0mcq'>
-						<td>
-						1
-						</td>
-						<td>
-						<input type='text' name='0question' placeholder='Max 450 char.' class='form-control'/>
-						</td>
-						<td>
-						<input type='text' name='0optiona' placeholder='Max 450 char.' class='form-control'/>
-						</td>
-						<td>
-                        <select name='0answera'>
-                            <option value='null'></option>
-                            <option value='true'>TRUE</option>
-                            <option value='false'>FALSE</option>
-                        </select></td>
-                        <td>
-						<input type='text' name='0optionb' placeholder='Max 450 char.' class='form-control'/>
-						</td>
-                        <td>
-						<select name='0answerb'>
-                             <option value='null'></option>
-                            <option value='true'>TRUE</option>
-                            <option value='false'>FALSE</option>
-                        </select></td>
-                        <td>
-                        <input type='text' name='0optionc' placeholder='Max 450 char.' class='form-control'/>
-						</td>
-                        <td>
-						<select name='0answerc'>
-                             <option value='null'></option>
-                            <option value='true'>TRUE</option>
-                            <option value='false'>FALSE</option>
-                         </select>
-                        </td>
-                        <td>
-                        <input type='text' name='0optiond' placeholder='Max 450 char.' class='form-control'/>
-						</td>
-                        <td>
-                        <select name='0answerd'>
-                            <option value='null'></option>
-                            <option value='true'>TRUE</option>
-                            <option value='false'>FALSE</option>
-                        </select>
-                        </td>
-					</tr>
-                    <tr id='addr1'></tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<a id='add_row' class='pull-left'>Add Row</a><a id='delete_row' class='pull-right'>Delete Row</a>
-</div>
-    <div class="container">
-        <button class="btn btn-primary" type="button" style="margin:23px;">SUBMIT </button>
+    <div class="container" style="padding:43px;">
+        <button type="submit" class="btn btn-primary">Submit This Case</button>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
