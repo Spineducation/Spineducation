@@ -15,6 +15,11 @@
 		55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C44B4E1F87E86F002D5B24 /* LaunchScreen.storyboard */; };
 		55C44B5B1F87E870002D5B24 /* SpineducationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B5A1F87E870002D5B24 /* SpineducationTests.swift */; };
 		55C44B661F87E870002D5B24 /* SpineducationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B651F87E870002D5B24 /* SpineducationUITests.swift */; };
+		A4A525A81FAF6ACE0078B56F /* CasesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525A71FAF6ACE0078B56F /* CasesVC.swift */; };
+		A4A525AA1FAF6B020078B56F /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525A91FAF6B020078B56F /* HomeModel.swift */; };
+		A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AB1FAF6B340078B56F /* MedicalCase.swift */; };
+		A4A525AE1FAF6B570078B56F /* TemporaryMainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */; };
+		A4A525B01FAF6B760078B56F /* CaseDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		55C44B611F87E870002D5B24 /* SpineducationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpineducationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C44B651F87E870002D5B24 /* SpineducationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineducationUITests.swift; sourceTree = "<group>"; };
 		55C44B671F87E870002D5B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4A525A71FAF6ACE0078B56F /* CasesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesVC.swift; sourceTree = "<group>"; };
+		A4A525A91FAF6B020078B56F /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		A4A525AB1FAF6B340078B56F /* MedicalCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalCase.swift; sourceTree = "<group>"; };
+		A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryMainPageVC.swift; sourceTree = "<group>"; };
+		A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,11 @@
 				55C44B4C1F87E86F002D5B24 /* Assets.xcassets */,
 				55C44B4E1F87E86F002D5B24 /* LaunchScreen.storyboard */,
 				55C44B511F87E86F002D5B24 /* Info.plist */,
+				A4A525A71FAF6ACE0078B56F /* CasesVC.swift */,
+				A4A525A91FAF6B020078B56F /* HomeModel.swift */,
+				A4A525AB1FAF6B340078B56F /* MedicalCase.swift */,
+				A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */,
+				A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */,
 			);
 			path = Spineducation;
 			sourceTree = "<group>";
@@ -263,8 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */,
+				A4A525AA1FAF6B020078B56F /* HomeModel.swift in Sources */,
+				A4A525AE1FAF6B570078B56F /* TemporaryMainPageVC.swift in Sources */,
+				A4A525B01FAF6B760078B56F /* CaseDataVC.swift in Sources */,
 				55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */,
 				55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */,
+				A4A525A81FAF6ACE0078B56F /* CasesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,10 +451,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = QVVHNER6U3;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,10 +466,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = QVVHNER6U3;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
