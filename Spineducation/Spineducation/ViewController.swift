@@ -18,7 +18,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var spineExists = false;
     
 
-    let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/17_10_25_1909.dae")! // sets the spine to spine 3d image file
+    let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spine_smooth_17_11_09_surgeon.dae")! // sets the spine to spine 3d image file
     
     
     override func viewDidLoad() {
@@ -71,12 +71,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-      guard let touch = touches.first else {return}
+        guard let touch = touches.first else {
+            return}
         let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
-        
+        createSpine(position: SCNVector3Make(1,0,-1))
         // call on didTap method to draw the spine if the position has been clicked
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap(withGestureRecognizer:)))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
+        //let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap(withGestureRecognizer:)))
+        //sceneView.addGestureRecognizer(tapGestureRecognizer)
     /*
         guard let hitResult = result.last else {return}
         let hitTransform = SCNMatrix4(hitResult.worldTransform) // make SCNMatrix4 object out of touch location
@@ -103,6 +104,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             else {
                 createSpine(position: SCNVector3Make(1,0,-1))
+                print("SPINE MADE WITH 1 0 -1")
             }
             return
         }

@@ -20,7 +20,6 @@
 		A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AB1FAF6B340078B56F /* MedicalCase.swift */; };
 		A4A525AE1FAF6B570078B56F /* TemporaryMainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */; };
 		A4A525B01FAF6B760078B56F /* CaseDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */; };
-		DC33D6C01FB365EC0057C252 /* cupcakes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC33D6BF1FB365EC0057C252 /* cupcakes.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		A4A525AB1FAF6B340078B56F /* MedicalCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalCase.swift; sourceTree = "<group>"; };
 		A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryMainPageVC.swift; sourceTree = "<group>"; };
 		A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataVC.swift; sourceTree = "<group>"; };
-		DC33D6BF1FB365EC0057C252 /* cupcakes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cupcakes.jpg; path = ../../../../../Pictures/cupcakes.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +109,6 @@
 		55C44B421F87E86F002D5B24 /* Spineducation */ = {
 			isa = PBXGroup;
 			children = (
-				DC33D6BF1FB365EC0057C252 /* cupcakes.jpg */,
 				A4A525B11FAF8A980078B56F /* Cases */,
 				55C44B431F87E86F002D5B24 /* AppDelegate.swift */,
 				55C44B451F87E86F002D5B24 /* art.scnassets */,
@@ -261,7 +258,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC33D6C01FB365EC0057C252 /* cupcakes.jpg in Resources */,
 				55C44B461F87E86F002D5B24 /* art.scnassets in Resources */,
 				55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */,
 				55C44B4D1F87E86F002D5B24 /* Assets.xcassets in Resources */,
@@ -463,10 +459,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QVVHNER6U3;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,10 +474,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QVVHNER6U3;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
