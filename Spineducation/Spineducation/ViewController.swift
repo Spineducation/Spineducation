@@ -128,10 +128,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func createSpine(position : SCNVector3){
         nodeModel =  spine.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root node
-        spine.rootNode.position = SCNVector3Make(position.x,position.y + 0.5,position.z) // sets the position of root node
+ //      spine.rootNode.position = SCNVector3Make(position.x,position.y + 0.5,position.z) // sets the position of root node
  //      spine.rootNode.position = position // sets the position of the root node to the position from the SVNVector3 object
         let camera = self.sceneView.pointOfView!
-        
+  //      spine.rootNode.position = sceneSpacePosition(inFrontOf: camera)
         spine.rootNode.position = camera.convertPosition(position, to: nil)
         spine.rootNode.rotation = camera.rotation
         sceneView.scene.rootNode.addChildNode(spine.rootNode) // add this to the scene
