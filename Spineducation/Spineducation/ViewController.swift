@@ -12,12 +12,16 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    
     @IBOutlet var sceneView: ARSCNView!
     var nodeModel:SCNNode!
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var spineExists = false;
     
 
+    @IBAction func Menu(_ sender: Any) {
+        print("click")
+    }
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spine_smooth_17_11_09_surgeon.dae")! // sets the spine to spine 3d image file
     
     
@@ -54,6 +58,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+     //   navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
@@ -70,11 +75,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    func sceneSpacePosition(inFrontOf node: SCNNode) -> SCNVector3 {
+        let localPosition = SCNVector3(x: 1, y: 0, z: -1)
+        let scenePosition = node.convertPosition(localPosition, to: nil)
+        // to: nil is automatically scene space
+        print("THIS IS THE SCENE POSITION RELATIVE TO CAMERA")
+        print(scenePosition)
+        return scenePosition
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
-            return}
-        let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
-        createSpine(position: SCNVector3Make(1,0,-1))
+     //   guard let touch = touches.first else {
+       //     return}
+        //let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
+        createSpine(position: SCNVector3Make(1,1,-1))
+     //   createSpine (position: sceneSpacePosition (inFrontOf: spine.rootNode))
         // call on didTap method to draw the spine if the position has been clicked
         //let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap(withGestureRecognizer:)))
         //sceneView.addGestureRecognizer(tapGestureRecognizer)
@@ -103,8 +118,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 createSpine(position: hitVector)
             }
             else {
-                createSpine(position: SCNVector3Make(1,0,-1))
-                print("SPINE MADE WITH 1 0 -1")
+          //      createSpine(position: SCNVector3Make(1,0,-1))
+            //    print("SPINE MADE WITH 1 0 -1")
             }
             return
         }
@@ -117,7 +132,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
  //      spine.rootNode.position = position // sets the position of the root node to the position from the SVNVector3 object
         let camera = self.sceneView.pointOfView!
         
-   //     spine.rootNode.position = camera.convertPosition(position, to: nil)
+        spine.rootNode.position = camera.convertPosition(position, to: nil)
         spine.rootNode.rotation = camera.rotation
         sceneView.scene.rootNode.addChildNode(spine.rootNode) // add this to the scene
     }
