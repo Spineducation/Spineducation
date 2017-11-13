@@ -22,6 +22,7 @@
 		A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AB1FAF6B340078B56F /* MedicalCase.swift */; };
 		A4A525AE1FAF6B570078B56F /* TemporaryMainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */; };
 		A4A525B01FAF6B760078B56F /* CaseDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */; };
+		DC61CBF31FBA46EC002B2DBA /* spine cool.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC61CBF21FBA46EB002B2DBA /* spine cool.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		A4A525AB1FAF6B340078B56F /* MedicalCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalCase.swift; sourceTree = "<group>"; };
 		A4A525AD1FAF6B570078B56F /* TemporaryMainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryMainPageVC.swift; sourceTree = "<group>"; };
 		A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataVC.swift; sourceTree = "<group>"; };
+		DC61CBF21FBA46EB002B2DBA /* spine cool.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "spine cool.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		55C44B421F87E86F002D5B24 /* Spineducation */ = {
 			isa = PBXGroup;
 			children = (
+				DC61CBEF1FBA4415002B2DBA /* App Layput Graphics */,
 				A4A525B11FAF8A980078B56F /* Cases */,
 				55C44B431F87E86F002D5B24 /* AppDelegate.swift */,
 				55C44B451F87E86F002D5B24 /* art.scnassets */,
@@ -155,6 +158,14 @@
 				A4A525AB1FAF6B340078B56F /* MedicalCase.swift */,
 			);
 			path = Cases;
+			sourceTree = "<group>";
+		};
+		DC61CBEF1FBA4415002B2DBA /* App Layput Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				DC61CBF21FBA46EB002B2DBA /* spine cool.jpg */,
+			);
+			path = "App Layput Graphics";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC61CBF31FBA46EC002B2DBA /* spine cool.jpg in Resources */,
 				55C44B461F87E86F002D5B24 /* art.scnassets in Resources */,
 				55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */,
 				55C44B4D1F87E86F002D5B24 /* Assets.xcassets in Resources */,
