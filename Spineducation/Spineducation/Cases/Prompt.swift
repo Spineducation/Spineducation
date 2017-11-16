@@ -9,13 +9,16 @@
 import Foundation
 
 struct Prompt {
-    var promptType:String
+    var PromptType:String
     var Text:String
-    var mcqs = [mcq]()
+    var Mcqs = [mcq]()
     
-    func printMCQs(){
-        for temp_mcq in mcqs {
-            print(temp_mcq.Question)
+    func Describe(){
+        print(PromptType)
+        print(Text)
+        
+        for element in Mcqs {
+            element.Describe()
         }
     }
     

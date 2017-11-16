@@ -9,8 +9,18 @@
 import Foundation
 
 struct MedicalCase {
-    var caseName = ""
-    var history = ""
-    var phsyical = ""
+    let Name:String
+//    let Prompts:[Prompt]
+    let SurgicalCategory:[String]?
+    let AnatomicalRegion:[String]?
+    
+    func Describe(){
+        print(Name)
+        print(SurgicalCategory ?? "null")
+        print(AnatomicalRegion ?? "null")
+        
+//        for element in Prompts {
+//            element.Describe()
+//        }
+    }
 }
-

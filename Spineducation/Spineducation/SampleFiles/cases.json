@@ -1,0 +1,1813 @@
+ [
+  [
+   {
+   "casename":"Case one",
+   "prompts":[
+              {
+              "promptname":"HISTORY",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"PHYSICAL",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"XR",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"L1 Axial compression injury",
+                           "answera":null,
+                           "optionb":" Incomplete burst fracture of L1",
+                           "answerb":null,
+                           "optionc":"Complete burst of L1",
+                           "answerc":null,
+                           "optiond":"AO type C injury to L1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The TLIC classification of this injury suggests",
+                           "optiona":"Operative stabilization with decompression",
+                           "answera":null,
+                           "optionb":" operative management",
+                           "answerb":null,
+                           "optionc":"Percutaneous stabilization",
+                           "answerc":null,
+                           "optiond":"Indirect decompression through ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The best approach for direct decompression of the central fragment in this patient is ",
+                           "optiona":"Trans-facet, pedicle sparing approach",
+                           "answera":null,
+                           "optionb":"Transpedicular",
+                           "answerb":null,
+                           "optionc":"Direct posterior with retraction of the thecal sac",
+                           "answerc":null,
+                           "optiond":"Indirectly via ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Decompression from burst fracture fragments at L1 are treated similarly to those in the lower lumbar spine.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"This is a common area of the spine to see this fracture morphology.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Treating this fracture anteriorly",
+                           "optiona":"Involves diaphragmatic takedown, because the diaphragm attaches to the T12-L1 disc space",
+                           "answera":null,
+                           "optionb":"Does not involvement diaphragm take down because it attaches at the level of the T12 body",
+                           "answerb":null,
+                           "optionc":"Does not involvement taking down the diaphragm because the diaphragm attaches at L1-2 disc space",
+                           "answerc":null,
+                           "optiond":"Involves taking down tthe diaphragm because it attaches to the T11-12 disc space",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"More imaging is needed",
+                           "answera":null,
+                           "optionb":"Hangman fracture",
+                           "answerb":null,
+                           "optionc":"Odontoid fracture",
+                           "answerc":"true",
+                           "optiond":"Unilateral facet jump",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"Normal CT scan",
+                           "answera":null,
+                           "optionb":"CT demonstrates evidence of potential subaxial segmental dynamic instability",
+                           "answerb":null,
+                           "optionc":"Occipital-Cervical dissociation",
+                           "answerc":"true",
+                           "optiond":"Rheumatoid spine",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Powers rule assesses",
+                           "optiona":"The distance from the basion-anterior arch C1 divided by the opisthion -posterior arch C1",
+                           "answera":null,
+                           "optionb":"Basion to opisthion distance over anterior to posterior arch distance",
+                           "answerb":null,
+                           "optionc":"Basion to posterior arch of C1 divided by the opisthion to anterior arch of C1",
+                           "answerc":"true",
+                           "optiond":"Opisthion to anterior arch distance divided by the basion to anterior arch distance",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A normal value of Power's ratio is",
+                           "optiona":"0.6",
+                           "answera":null,
+                           "optionb":"0.7",
+                           "answerb":null,
+                           "optionc":"0.8",
+                           "answerc":"true",
+                           "optiond":"1.4",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Harris rule of 12's states",
+                           "optiona":"Basion dens interval or basion posterior axial interval should be < 12mm",
+                           "answera":"true",
+                           "optionb":"Basion to posterior arch inverval should be less than 12 degrees",
+                           "answerb":null,
+                           "optionc":"Opisthion to posterior arch line should be within 12mm from the anterior cervical line",
+                           "answerc":"",
+                           "optiond":"Basion to opisthion distance should be 12mm or less",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The Traynelis classification of OC joint disruption",
+                           "optiona":"References the direction of disruption",
+                           "answera":"true",
+                           "optionb":"References the degree of disruption in millimeters ",
+                           "answerb":null,
+                           "optionc":"References the difference between bony vs ligamentous injuries",
+                           "answerc":"true",
+                           "optiond":"References isolated OC injuries vs combined injuries ",
+                           "answerd":null
+                           },
+                           {
+                           "question":"OC junction disruption is best diagnosed with",
+                           "optiona":"CT",
+                           "answera":"true",
+                           "optionb":"MRI",
+                           "answerb":"",
+                           "optionc":"XR",
+                           "answerc":"true",
+                           "optiond":"Bone Scan",
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"MRI",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Spinal stenosis",
+                           "answera":null,
+                           "optionb":"Cauda equina",
+                           "answerb":"true",
+                           "optionc":"Degenerative scoliosis",
+                           "answerc":null,
+                           "optiond":"conus medullaris syndrome",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the most appropriate management",
+                           "optiona":"L3-5 central decompression and posterolateral fusion",
+                           "answera":null,
+                           "optionb":"L4-5 central decompression, posterolateral instrumented fusion of L4-5",
+                           "answerb":"true",
+                           "optionc":"L4-5 transforaminal interbody fusion",
+                           "answerc":null,
+                           "optiond":"L3-5 central decompression with posterior lumbar interbody fusion",
+                           "answerd":null
+                           },
+                           {
+                           "question":"During the procedure a CSF leak is encountered. Select the appropriate management.",
+                           "optiona":"Water tight closure with 7-0 proline suture fixation, augmented with fibrin sealant",
+                           "answera":"true",
+                           "optionb":"Fibrin glue analogue with direct compression until leak stops",
+                           "answerb":null,
+                           "optionc":"Water tight closure with 5-0 vicryl suture fixation, augmented with fibrin sealant",
+                           "answerc":null,
+                           "optiond":"Fat patch augmented closure using 7-0 proline suture fixation",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which nerve root is most likely to be injured during this procedure?",
+                           "optiona":"L3 ",
+                           "answera":null,
+                           "optionb":"L4 ",
+                           "answerb":null,
+                           "optionc":"L5 ",
+                           "answerc":"true",
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fluoroscopy is used to identify your level intraoperatively. A penfield 4 is placed in the L4-5 interlaminar space. This will point to which pedicle?",
+                           "optiona":"L3",
+                           "answera":null,
+                           "optionb":"L4",
+                           "answerb":"true",
+                           "optionc":"L5 ",
+                           "answerc":null,
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A subtotal discectomy is performed and the patient is transported to the PACU safely. Postoperatively they complain of numbness on the right thigh. The most likely cause is",
+                           "optiona":"Meralgia pasasthetica",
+                           "answera":"true",
+                           "optionb":"L2 nerve root tethering",
+                           "answerb":null,
+                           "optionc":"Stretch of the femoral nerve during positioning",
+                           "answerc":null,
+                           "optiond":"Compression of the lumbosacral plexus",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The superior facet attaches to the",
+                           "optiona":"Lamina",
+                           "answera":null,
+                           "optionb":"Pedicle",
+                           "answerb":"true",
+                           "optionc":"Pars",
+                           "answerc":null,
+                           "optiond":"Spinous Process",
+                           "answerd":null
+                           },
+                           {
+                           "question":"In this post operative CT, the surgeon should be criticized for",
+                           "optiona":"A lateral breech of the left sided screw at T12",
+                           "answera":null,
+                           "optionb":"Medial breech of the right sided screw at L2",
+                           "answerb":null,
+                           "optionc":"Incomplete reduction",
+                           "answerc":null,
+                           "optiond":"Insufficient bone grafting",
+                           "answerd":null
+                           },
+                           {
+                           "question":"As the enters the T12 pedicle on the right side with the pedicle finder, he feels resistance at 30mm with a spongy quality. ",
+                           "optiona":"He is likely in the T11-12 disc space and should reorient the pedicle finder caudally",
+                           "answera":null,
+                           "optionb":" He is likely in the T12-L1 disc space and should reorient the pedicle finder cranially",
+                           "answerb":null,
+                           "optionc":"He has breeched laterally into soft tissue and should reorient himself with fluoroscopy",
+                           "answerc":null,
+                           "optiond":"He has breeched medially into the cord and should rely on fluoroscopy for correction.",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The anatomical start point of of a T12 pedicle screw is ",
+                           "optiona":"At the mamillary process",
+                           "answera":null,
+                           "optionb":"A line intersecting the lateral pars and inferior transverse process",
+                           "answerb":null,
+                           "optionc":"A line intersecting midpoint transverse process at midpoint lamina",
+                           "answerc":null,
+                           "optiond":"A line intersecting medial pars at the inferior facet",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized pars is typically at ",
+                           "optiona":"T11",
+                           "answera":null,
+                           "optionb":"T12",
+                           "answerb":null,
+                           "optionc":"L1",
+                           "answerc":null,
+                           "optiond":"L2",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized facet joint is at ",
+                           "optiona":"T11-T12",
+                           "answera":null,
+                           "optionb":"T12-L1",
+                           "answerb":null,
+                           "optionc":"L1-L2",
+                           "answerc":null,
+                           "optiond":"L2-L3",
+                           "answerd":null
+                           },
+                           {
+                           "question":"What is an acceptable screw diameter for a T12 pedicle?",
+                           "optiona":"3.5mm",
+                           "answera":null,
+                           "optionb":"4.5mm",
+                           "answerb":null,
+                           "optionc":"5.5mm",
+                           "answerc":null,
+                           "optiond":"7.5mm",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which of the following is not a structure in the posterior ligamentous complex (PLC) in the TLICs classification?",
+                           "optiona":"Supraspinous ligament",
+                           "answera":null,
+                           "optionb":"Interspinous ligament",
+                           "answerb":null,
+                           "optionc":"Posterior longitudinal ligament",
+                           "answerc":null,
+                           "optiond":"Ligamentum flavum",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":"true",
+                           "optionc":"Type 3 odontoid",
+                           "answerc":null,
+                           "optiond":"Os odontoidium",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fractures involving the superior articular facet of C2 are classified as ",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":null,
+                           "optionc":"Type 3 odontoid",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The transverse ligament in this case is likely",
+                           "optiona":"Disrupted",
+                           "answera":null,
+                           "optionb":"Intact",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the best treatment for this patient",
+                           "optiona":"Anterior odontoid screw",
+                           "answera":"true",
+                           "optionb":"Posterior C1-2 fixation using C1 lateral mass C2 pars screws",
+                           "answerb":null,
+                           "optionc":"Occiput to C3 fusion",
+                           "answerc":null,
+                           "optiond":"Conservative management",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Intraoperatively, is a decompression recommended?",
+                           "optiona":"Yes",
+                           "answera":"",
+                           "optionb":"No",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The occipital plate is attempted with bicortical fixation. The first screw hole is drilled revealing significant hemorrhage from the skull. What should be done?",
+                           "optiona":"Investigate the source of the bleeding",
+                           "answera":null,
+                           "optionb":"Place the screw in the bleeding hole",
+                           "answerb":"true",
+                           "optionc":"Tamponade the hole with a sponge and re-assess in 2 minutes",
+                           "answerc":"true",
+                           "optiond":"Attempt fixation at another site",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The C1 lateral mass is drilled and tapped without complication. Following placement of the screw significant venous bleeding is encountered. What should be done?",
+                           "optiona":"Pack with a sponge and begin a similar procedure on the contralateral side",
+                           "answera":"true",
+                           "optionb":"Investigate the source of the bleeding",
+                           "answerb":"",
+                           "optionc":"Intraoperative angiography to rule out arterial bleed",
+                           "answerc":"true",
+                           "optiond":"Proceed with the surgery without packing",
+                           "answerd":null
+                           }
+                           ]
+              }
+              ]
+   },
+   {
+   "casename":"Case two",
+   "prompts":[
+              {
+              "promptname":"HISTORY",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"PHYSICAL",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"CT",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"L1 Axial compression injury",
+                           "answera":null,
+                           "optionb":" Incomplete burst fracture of L1",
+                           "answerb":null,
+                           "optionc":"Complete burst of L1",
+                           "answerc":null,
+                           "optiond":"AO type C injury to L1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The TLIC classification of this injury suggests",
+                           "optiona":"Operative stabilization with decompression",
+                           "answera":null,
+                           "optionb":" operative management",
+                           "answerb":null,
+                           "optionc":"Percutaneous stabilization",
+                           "answerc":null,
+                           "optiond":"Indirect decompression through ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The best approach for direct decompression of the central fragment in this patient is ",
+                           "optiona":"Trans-facet, pedicle sparing approach",
+                           "answera":null,
+                           "optionb":"Transpedicular",
+                           "answerb":null,
+                           "optionc":"Direct posterior with retraction of the thecal sac",
+                           "answerc":null,
+                           "optiond":"Indirectly via ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Decompression from burst fracture fragments at L1 are treated similarly to those in the lower lumbar spine.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"This is a common area of the spine to see this fracture morphology.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Treating this fracture anteriorly",
+                           "optiona":"Involves diaphragmatic takedown, because the diaphragm attaches to the T12-L1 disc space",
+                           "answera":null,
+                           "optionb":"Does not involvement diaphragm take down because it attaches at the level of the T12 body",
+                           "answerb":null,
+                           "optionc":"Does not involvement taking down the diaphragm because the diaphragm attaches at L1-2 disc space",
+                           "answerc":null,
+                           "optiond":"Involves taking down tthe diaphragm because it attaches to the T11-12 disc space",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"More imaging is needed",
+                           "answera":null,
+                           "optionb":"Hangman fracture",
+                           "answerb":null,
+                           "optionc":"Odontoid fracture",
+                           "answerc":"true",
+                           "optiond":"Unilateral facet jump",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"Normal CT scan",
+                           "answera":null,
+                           "optionb":"CT demonstrates evidence of potential subaxial segmental dynamic instability",
+                           "answerb":null,
+                           "optionc":"Occipital-Cervical dissociation",
+                           "answerc":"true",
+                           "optiond":"Rheumatoid spine",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Powers rule assesses",
+                           "optiona":"The distance from the basion-anterior arch C1 divided by the opisthion -posterior arch C1",
+                           "answera":null,
+                           "optionb":"Basion to opisthion distance over anterior to posterior arch distance",
+                           "answerb":null,
+                           "optionc":"Basion to posterior arch of C1 divided by the opisthion to anterior arch of C1",
+                           "answerc":"true",
+                           "optiond":"Opisthion to anterior arch distance divided by the basion to anterior arch distance",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A normal value of Power's ratio is",
+                           "optiona":"0.6",
+                           "answera":null,
+                           "optionb":"0.7",
+                           "answerb":null,
+                           "optionc":"0.8",
+                           "answerc":"true",
+                           "optiond":"1.4",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Harris rule of 12's states",
+                           "optiona":"Basion dens interval or basion posterior axial interval should be < 12mm",
+                           "answera":"true",
+                           "optionb":"Basion to posterior arch inverval should be less than 12 degrees",
+                           "answerb":null,
+                           "optionc":"Opisthion to posterior arch line should be within 12mm from the anterior cervical line",
+                           "answerc":"",
+                           "optiond":"Basion to opisthion distance should be 12mm or less",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The Traynelis classification of OC joint disruption",
+                           "optiona":"References the direction of disruption",
+                           "answera":"true",
+                           "optionb":"References the degree of disruption in millimeters ",
+                           "answerb":null,
+                           "optionc":"References the difference between bony vs ligamentous injuries",
+                           "answerc":"true",
+                           "optiond":"References isolated OC injuries vs combined injuries ",
+                           "answerd":null
+                           },
+                           {
+                           "question":"OC junction disruption is best diagnosed with",
+                           "optiona":"CT",
+                           "answera":"true",
+                           "optionb":"MRI",
+                           "answerb":"",
+                           "optionc":"XR",
+                           "answerc":"true",
+                           "optiond":"Bone Scan",
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"POST OP PROMPT",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Spinal stenosis",
+                           "answera":null,
+                           "optionb":"Cauda equina",
+                           "answerb":"true",
+                           "optionc":"Degenerative scoliosis",
+                           "answerc":null,
+                           "optiond":"conus medullaris syndrome",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the most appropriate management",
+                           "optiona":"L3-5 central decompression and posterolateral fusion",
+                           "answera":null,
+                           "optionb":"L4-5 central decompression, posterolateral instrumented fusion of L4-5",
+                           "answerb":"true",
+                           "optionc":"L4-5 transforaminal interbody fusion",
+                           "answerc":null,
+                           "optiond":"L3-5 central decompression with posterior lumbar interbody fusion",
+                           "answerd":null
+                           },
+                           {
+                           "question":"During the procedure a CSF leak is encountered. Select the appropriate management.",
+                           "optiona":"Water tight closure with 7-0 proline suture fixation, augmented with fibrin sealant",
+                           "answera":"true",
+                           "optionb":"Fibrin glue analogue with direct compression until leak stops",
+                           "answerb":null,
+                           "optionc":"Water tight closure with 5-0 vicryl suture fixation, augmented with fibrin sealant",
+                           "answerc":null,
+                           "optiond":"Fat patch augmented closure using 7-0 proline suture fixation",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which nerve root is most likely to be injured during this procedure?",
+                           "optiona":"L3 ",
+                           "answera":null,
+                           "optionb":"L4 ",
+                           "answerb":null,
+                           "optionc":"L5 ",
+                           "answerc":"true",
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fluoroscopy is used to identify your level intraoperatively. A penfield 4 is placed in the L4-5 interlaminar space. This will point to which pedicle?",
+                           "optiona":"L3",
+                           "answera":null,
+                           "optionb":"L4",
+                           "answerb":"true",
+                           "optionc":"L5 ",
+                           "answerc":null,
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A subtotal discectomy is performed and the patient is transported to the PACU safely. Postoperatively they complain of numbness on the right thigh. The most likely cause is",
+                           "optiona":"Meralgia pasasthetica",
+                           "answera":"true",
+                           "optionb":"L2 nerve root tethering",
+                           "answerb":null,
+                           "optionc":"Stretch of the femoral nerve during positioning",
+                           "answerc":null,
+                           "optiond":"Compression of the lumbosacral plexus",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The superior facet attaches to the",
+                           "optiona":"Lamina",
+                           "answera":null,
+                           "optionb":"Pedicle",
+                           "answerb":"true",
+                           "optionc":"Pars",
+                           "answerc":null,
+                           "optiond":"Spinous Process",
+                           "answerd":null
+                           },
+                           {
+                           "question":"In this post operative CT, the surgeon should be criticized for",
+                           "optiona":"A lateral breech of the left sided screw at T12",
+                           "answera":null,
+                           "optionb":"Medial breech of the right sided screw at L2",
+                           "answerb":null,
+                           "optionc":"Incomplete reduction",
+                           "answerc":null,
+                           "optiond":"Insufficient bone grafting",
+                           "answerd":null
+                           },
+                           {
+                           "question":"As the enters the T12 pedicle on the right side with the pedicle finder, he feels resistance at 30mm with a spongy quality. ",
+                           "optiona":"He is likely in the T11-12 disc space and should reorient the pedicle finder caudally",
+                           "answera":null,
+                           "optionb":" He is likely in the T12-L1 disc space and should reorient the pedicle finder cranially",
+                           "answerb":null,
+                           "optionc":"He has breeched laterally into soft tissue and should reorient himself with fluoroscopy",
+                           "answerc":null,
+                           "optiond":"He has breeched medially into the cord and should rely on fluoroscopy for correction.",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The anatomical start point of of a T12 pedicle screw is ",
+                           "optiona":"At the mamillary process",
+                           "answera":null,
+                           "optionb":"A line intersecting the lateral pars and inferior transverse process",
+                           "answerb":null,
+                           "optionc":"A line intersecting midpoint transverse process at midpoint lamina",
+                           "answerc":null,
+                           "optiond":"A line intersecting medial pars at the inferior facet",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized pars is typically at ",
+                           "optiona":"T11",
+                           "answera":null,
+                           "optionb":"T12",
+                           "answerb":null,
+                           "optionc":"L1",
+                           "answerc":null,
+                           "optiond":"L2",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized facet joint is at ",
+                           "optiona":"T11-T12",
+                           "answera":null,
+                           "optionb":"T12-L1",
+                           "answerb":null,
+                           "optionc":"L1-L2",
+                           "answerc":null,
+                           "optiond":"L2-L3",
+                           "answerd":null
+                           },
+                           {
+                           "question":"What is an acceptable screw diameter for a T12 pedicle?",
+                           "optiona":"3.5mm",
+                           "answera":null,
+                           "optionb":"4.5mm",
+                           "answerb":null,
+                           "optionc":"5.5mm",
+                           "answerc":null,
+                           "optiond":"7.5mm",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which of the following is not a structure in the posterior ligamentous complex (PLC) in the TLICs classification?",
+                           "optiona":"Supraspinous ligament",
+                           "answera":null,
+                           "optionb":"Interspinous ligament",
+                           "answerb":null,
+                           "optionc":"Posterior longitudinal ligament",
+                           "answerc":null,
+                           "optiond":"Ligamentum flavum",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":"true",
+                           "optionc":"Type 3 odontoid",
+                           "answerc":null,
+                           "optiond":"Os odontoidium",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fractures involving the superior articular facet of C2 are classified as ",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":null,
+                           "optionc":"Type 3 odontoid",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The transverse ligament in this case is likely",
+                           "optiona":"Disrupted",
+                           "answera":null,
+                           "optionb":"Intact",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the best treatment for this patient",
+                           "optiona":"Anterior odontoid screw",
+                           "answera":"true",
+                           "optionb":"Posterior C1-2 fixation using C1 lateral mass C2 pars screws",
+                           "answerb":null,
+                           "optionc":"Occiput to C3 fusion",
+                           "answerc":null,
+                           "optiond":"Conservative management",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Intraoperatively, is a decompression recommended?",
+                           "optiona":"Yes",
+                           "answera":"",
+                           "optionb":"No",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The occipital plate is attempted with bicortical fixation. The first screw hole is drilled revealing significant hemorrhage from the skull. What should be done?",
+                           "optiona":"Investigate the source of the bleeding",
+                           "answera":null,
+                           "optionb":"Place the screw in the bleeding hole",
+                           "answerb":"true",
+                           "optionc":"Tamponade the hole with a sponge and re-assess in 2 minutes",
+                           "answerc":"true",
+                           "optiond":"Attempt fixation at another site",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The C1 lateral mass is drilled and tapped without complication. Following placement of the screw significant venous bleeding is encountered. What should be done?",
+                           "optiona":"Pack with a sponge and begin a similar procedure on the contralateral side",
+                           "answera":"true",
+                           "optionb":"Investigate the source of the bleeding",
+                           "answerb":"",
+                           "optionc":"Intraoperative angiography to rule out arterial bleed",
+                           "answerc":"true",
+                           "optiond":"Proceed with the surgery without packing",
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"POST OP CT",
+              "questions":[
+                           {
+                           "question":"Which type of fluoroscopy would you like to call for? ",
+                           "optiona":"Flat plate XR",
+                           "answera":null,
+                           "optionb":"Uniplanar fluoroscopy",
+                           "answerb":null,
+                           "optionc":"Biplanar fluoroscopy",
+                           "answerc":"true",
+                           "optiond":"No fluoroscopy",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The approach for C2 odontoid screw is best performed at",
+                           "optiona":"At the C2 skin level which is the hyoid superficially",
+                           "answera":null,
+                           "optionb":"At the level of C3 which is the level of the hyoid",
+                           "answerb":null,
+                           "optionc":"At the level of C5 which is at the thyroid cartilage",
+                           "answerc":"true",
+                           "optiond":" At the level of the C6 which is the cricoid tubercle superficially.",
+                           "answerd":null
+                           },
+                           {
+                           "question":"In the Grauer modification of Anderson and D'Alonzo's classification of type 2 odontoid fractures they separate three types by morphology. ",
+                           "optiona":"Grauer type A are best treated with odontoid screws",
+                           "answera":null,
+                           "optionb":"Grauer type B are best treated with posterior stabilization",
+                           "answerb":null,
+                           "optionc":"Grauer type C fractures are best treated with odontoid screws",
+                           "answerc":null,
+                           "optiond":"Grauer A are best treated with external immobilization if nondisplaced",
+                           "answerd":"true"
+                           }
+                           ]
+              }
+              ]
+   },
+   {
+   "casename":"Case three",
+   "prompts":[
+              {
+              "promptname":"HISTORY",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"PHYSICAL",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"XR",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"L1 Axial compression injury",
+                           "answera":null,
+                           "optionb":" Incomplete burst fracture of L1",
+                           "answerb":null,
+                           "optionc":"Complete burst of L1",
+                           "answerc":null,
+                           "optiond":"AO type C injury to L1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The TLIC classification of this injury suggests",
+                           "optiona":"Operative stabilization with decompression",
+                           "answera":null,
+                           "optionb":" operative management",
+                           "answerb":null,
+                           "optionc":"Percutaneous stabilization",
+                           "answerc":null,
+                           "optiond":"Indirect decompression through ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The best approach for direct decompression of the central fragment in this patient is ",
+                           "optiona":"Trans-facet, pedicle sparing approach",
+                           "answera":null,
+                           "optionb":"Transpedicular",
+                           "answerb":null,
+                           "optionc":"Direct posterior with retraction of the thecal sac",
+                           "answerc":null,
+                           "optiond":"Indirectly via ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Decompression from burst fracture fragments at L1 are treated similarly to those in the lower lumbar spine.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"This is a common area of the spine to see this fracture morphology.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Treating this fracture anteriorly",
+                           "optiona":"Involves diaphragmatic takedown, because the diaphragm attaches to the T12-L1 disc space",
+                           "answera":null,
+                           "optionb":"Does not involvement diaphragm take down because it attaches at the level of the T12 body",
+                           "answerb":null,
+                           "optionc":"Does not involvement taking down the diaphragm because the diaphragm attaches at L1-2 disc space",
+                           "answerc":null,
+                           "optiond":"Involves taking down tthe diaphragm because it attaches to the T11-12 disc space",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"More imaging is needed",
+                           "answera":null,
+                           "optionb":"Hangman fracture",
+                           "answerb":null,
+                           "optionc":"Odontoid fracture",
+                           "answerc":"true",
+                           "optiond":"Unilateral facet jump",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"Normal CT scan",
+                           "answera":null,
+                           "optionb":"CT demonstrates evidence of potential subaxial segmental dynamic instability",
+                           "answerb":null,
+                           "optionc":"Occipital-Cervical dissociation",
+                           "answerc":"true",
+                           "optiond":"Rheumatoid spine",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Powers rule assesses",
+                           "optiona":"The distance from the basion-anterior arch C1 divided by the opisthion -posterior arch C1",
+                           "answera":null,
+                           "optionb":"Basion to opisthion distance over anterior to posterior arch distance",
+                           "answerb":null,
+                           "optionc":"Basion to posterior arch of C1 divided by the opisthion to anterior arch of C1",
+                           "answerc":"true",
+                           "optiond":"Opisthion to anterior arch distance divided by the basion to anterior arch distance",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A normal value of Power's ratio is",
+                           "optiona":"0.6",
+                           "answera":null,
+                           "optionb":"0.7",
+                           "answerb":null,
+                           "optionc":"0.8",
+                           "answerc":"true",
+                           "optiond":"1.4",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Harris rule of 12's states",
+                           "optiona":"Basion dens interval or basion posterior axial interval should be < 12mm",
+                           "answera":"true",
+                           "optionb":"Basion to posterior arch inverval should be less than 12 degrees",
+                           "answerb":null,
+                           "optionc":"Opisthion to posterior arch line should be within 12mm from the anterior cervical line",
+                           "answerc":"",
+                           "optiond":"Basion to opisthion distance should be 12mm or less",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The Traynelis classification of OC joint disruption",
+                           "optiona":"References the direction of disruption",
+                           "answera":"true",
+                           "optionb":"References the degree of disruption in millimeters ",
+                           "answerb":null,
+                           "optionc":"References the difference between bony vs ligamentous injuries",
+                           "answerc":"true",
+                           "optiond":"References isolated OC injuries vs combined injuries ",
+                           "answerd":null
+                           },
+                           {
+                           "question":"OC junction disruption is best diagnosed with",
+                           "optiona":"CT",
+                           "answera":"true",
+                           "optionb":"MRI",
+                           "answerb":"",
+                           "optionc":"XR",
+                           "answerc":"true",
+                           "optiond":"Bone Scan",
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"CT",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Spinal stenosis",
+                           "answera":null,
+                           "optionb":"Cauda equina",
+                           "answerb":"true",
+                           "optionc":"Degenerative scoliosis",
+                           "answerc":null,
+                           "optiond":"conus medullaris syndrome",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the most appropriate management",
+                           "optiona":"L3-5 central decompression and posterolateral fusion",
+                           "answera":null,
+                           "optionb":"L4-5 central decompression, posterolateral instrumented fusion of L4-5",
+                           "answerb":"true",
+                           "optionc":"L4-5 transforaminal interbody fusion",
+                           "answerc":null,
+                           "optiond":"L3-5 central decompression with posterior lumbar interbody fusion",
+                           "answerd":null
+                           },
+                           {
+                           "question":"During the procedure a CSF leak is encountered. Select the appropriate management.",
+                           "optiona":"Water tight closure with 7-0 proline suture fixation, augmented with fibrin sealant",
+                           "answera":"true",
+                           "optionb":"Fibrin glue analogue with direct compression until leak stops",
+                           "answerb":null,
+                           "optionc":"Water tight closure with 5-0 vicryl suture fixation, augmented with fibrin sealant",
+                           "answerc":null,
+                           "optiond":"Fat patch augmented closure using 7-0 proline suture fixation",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which nerve root is most likely to be injured during this procedure?",
+                           "optiona":"L3 ",
+                           "answera":null,
+                           "optionb":"L4 ",
+                           "answerb":null,
+                           "optionc":"L5 ",
+                           "answerc":"true",
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fluoroscopy is used to identify your level intraoperatively. A penfield 4 is placed in the L4-5 interlaminar space. This will point to which pedicle?",
+                           "optiona":"L3",
+                           "answera":null,
+                           "optionb":"L4",
+                           "answerb":"true",
+                           "optionc":"L5 ",
+                           "answerc":null,
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A subtotal discectomy is performed and the patient is transported to the PACU safely. Postoperatively they complain of numbness on the right thigh. The most likely cause is",
+                           "optiona":"Meralgia pasasthetica",
+                           "answera":"true",
+                           "optionb":"L2 nerve root tethering",
+                           "answerb":null,
+                           "optionc":"Stretch of the femoral nerve during positioning",
+                           "answerc":null,
+                           "optiond":"Compression of the lumbosacral plexus",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The superior facet attaches to the",
+                           "optiona":"Lamina",
+                           "answera":null,
+                           "optionb":"Pedicle",
+                           "answerb":"true",
+                           "optionc":"Pars",
+                           "answerc":null,
+                           "optiond":"Spinous Process",
+                           "answerd":null
+                           },
+                           {
+                           "question":"In this post operative CT, the surgeon should be criticized for",
+                           "optiona":"A lateral breech of the left sided screw at T12",
+                           "answera":null,
+                           "optionb":"Medial breech of the right sided screw at L2",
+                           "answerb":null,
+                           "optionc":"Incomplete reduction",
+                           "answerc":null,
+                           "optiond":"Insufficient bone grafting",
+                           "answerd":null
+                           },
+                           {
+                           "question":"As the enters the T12 pedicle on the right side with the pedicle finder, he feels resistance at 30mm with a spongy quality. ",
+                           "optiona":"He is likely in the T11-12 disc space and should reorient the pedicle finder caudally",
+                           "answera":null,
+                           "optionb":" He is likely in the T12-L1 disc space and should reorient the pedicle finder cranially",
+                           "answerb":null,
+                           "optionc":"He has breeched laterally into soft tissue and should reorient himself with fluoroscopy",
+                           "answerc":null,
+                           "optiond":"He has breeched medially into the cord and should rely on fluoroscopy for correction.",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The anatomical start point of of a T12 pedicle screw is ",
+                           "optiona":"At the mamillary process",
+                           "answera":null,
+                           "optionb":"A line intersecting the lateral pars and inferior transverse process",
+                           "answerb":null,
+                           "optionc":"A line intersecting midpoint transverse process at midpoint lamina",
+                           "answerc":null,
+                           "optiond":"A line intersecting medial pars at the inferior facet",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized pars is typically at ",
+                           "optiona":"T11",
+                           "answera":null,
+                           "optionb":"T12",
+                           "answerb":null,
+                           "optionc":"L1",
+                           "answerc":null,
+                           "optiond":"L2",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized facet joint is at ",
+                           "optiona":"T11-T12",
+                           "answera":null,
+                           "optionb":"T12-L1",
+                           "answerb":null,
+                           "optionc":"L1-L2",
+                           "answerc":null,
+                           "optiond":"L2-L3",
+                           "answerd":null
+                           },
+                           {
+                           "question":"What is an acceptable screw diameter for a T12 pedicle?",
+                           "optiona":"3.5mm",
+                           "answera":null,
+                           "optionb":"4.5mm",
+                           "answerb":null,
+                           "optionc":"5.5mm",
+                           "answerc":null,
+                           "optiond":"7.5mm",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which of the following is not a structure in the posterior ligamentous complex (PLC) in the TLICs classification?",
+                           "optiona":"Supraspinous ligament",
+                           "answera":null,
+                           "optionb":"Interspinous ligament",
+                           "answerb":null,
+                           "optionc":"Posterior longitudinal ligament",
+                           "answerc":null,
+                           "optiond":"Ligamentum flavum",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":"true",
+                           "optionc":"Type 3 odontoid",
+                           "answerc":null,
+                           "optiond":"Os odontoidium",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fractures involving the superior articular facet of C2 are classified as ",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":null,
+                           "optionc":"Type 3 odontoid",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The transverse ligament in this case is likely",
+                           "optiona":"Disrupted",
+                           "answera":null,
+                           "optionb":"Intact",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the best treatment for this patient",
+                           "optiona":"Anterior odontoid screw",
+                           "answera":"true",
+                           "optionb":"Posterior C1-2 fixation using C1 lateral mass C2 pars screws",
+                           "answerb":null,
+                           "optionc":"Occiput to C3 fusion",
+                           "answerc":null,
+                           "optiond":"Conservative management",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Intraoperatively, is a decompression recommended?",
+                           "optiona":"Yes",
+                           "answera":"",
+                           "optionb":"No",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The occipital plate is attempted with bicortical fixation. The first screw hole is drilled revealing significant hemorrhage from the skull. What should be done?",
+                           "optiona":"Investigate the source of the bleeding",
+                           "answera":null,
+                           "optionb":"Place the screw in the bleeding hole",
+                           "answerb":"true",
+                           "optionc":"Tamponade the hole with a sponge and re-assess in 2 minutes",
+                           "answerc":"true",
+                           "optiond":"Attempt fixation at another site",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The C1 lateral mass is drilled and tapped without complication. Following placement of the screw significant venous bleeding is encountered. What should be done?",
+                           "optiona":"Pack with a sponge and begin a similar procedure on the contralateral side",
+                           "answera":"true",
+                           "optionb":"Investigate the source of the bleeding",
+                           "answerb":"",
+                           "optionc":"Intraoperative angiography to rule out arterial bleed",
+                           "answerc":"true",
+                           "optiond":"Proceed with the surgery without packing",
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"PROMPT",
+              "questions":[
+                           {
+                           "question":"Which type of fluoroscopy would you like to call for? ",
+                           "optiona":"Flat plate XR",
+                           "answera":null,
+                           "optionb":"Uniplanar fluoroscopy",
+                           "answerb":null,
+                           "optionc":"Biplanar fluoroscopy",
+                           "answerc":"true",
+                           "optiond":"No fluoroscopy",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The approach for C2 odontoid screw is best performed at",
+                           "optiona":"At the C2 skin level which is the hyoid superficially",
+                           "answera":null,
+                           "optionb":"At the level of C3 which is the level of the hyoid",
+                           "answerb":null,
+                           "optionc":"At the level of C5 which is at the thyroid cartilage",
+                           "answerc":"true",
+                           "optiond":" At the level of the C6 which is the cricoid tubercle superficially.",
+                           "answerd":null
+                           },
+                           {
+                           "question":"In the Grauer modification of Anderson and D'Alonzo's classification of type 2 odontoid fractures they separate three types by morphology. ",
+                           "optiona":"Grauer type A are best treated with odontoid screws",
+                           "answera":null,
+                           "optionb":"Grauer type B are best treated with posterior stabilization",
+                           "answerb":null,
+                           "optionc":"Grauer type C fractures are best treated with odontoid screws",
+                           "answerc":null,
+                           "optiond":"Grauer A are best treated with external immobilization if nondisplaced",
+                           "answerd":"true"
+                           },
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              }
+              ]
+   },
+   {
+   "casename":"Case four",
+   "prompts":[
+              {
+              "promptname":"HISTORY",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"PHYSICAL",
+              "questions":[
+                           {
+                           "question":null,
+                           "optiona":null,
+                           "answera":null,
+                           "optionb":null,
+                           "answerb":null,
+                           "optionc":null,
+                           "answerc":null,
+                           "optiond":null,
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"CT",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"L1 Axial compression injury",
+                           "answera":null,
+                           "optionb":" Incomplete burst fracture of L1",
+                           "answerb":null,
+                           "optionc":"Complete burst of L1",
+                           "answerc":null,
+                           "optiond":"AO type C injury to L1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The TLIC classification of this injury suggests",
+                           "optiona":"Operative stabilization with decompression",
+                           "answera":null,
+                           "optionb":" operative management",
+                           "answerb":null,
+                           "optionc":"Percutaneous stabilization",
+                           "answerc":null,
+                           "optiond":"Indirect decompression through ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The best approach for direct decompression of the central fragment in this patient is ",
+                           "optiona":"Trans-facet, pedicle sparing approach",
+                           "answera":null,
+                           "optionb":"Transpedicular",
+                           "answerb":null,
+                           "optionc":"Direct posterior with retraction of the thecal sac",
+                           "answerc":null,
+                           "optiond":"Indirectly via ligamentotaxis",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Decompression from burst fracture fragments at L1 are treated similarly to those in the lower lumbar spine.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"This is a common area of the spine to see this fracture morphology.",
+                           "optiona":"True ",
+                           "answera":null,
+                           "optionb":"False ",
+                           "answerb":null,
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Treating this fracture anteriorly",
+                           "optiona":"Involves diaphragmatic takedown, because the diaphragm attaches to the T12-L1 disc space",
+                           "answera":null,
+                           "optionb":"Does not involvement diaphragm take down because it attaches at the level of the T12 body",
+                           "answerb":null,
+                           "optionc":"Does not involvement taking down the diaphragm because the diaphragm attaches at L1-2 disc space",
+                           "answerc":null,
+                           "optiond":"Involves taking down tthe diaphragm because it attaches to the T11-12 disc space",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"More imaging is needed",
+                           "answera":null,
+                           "optionb":"Hangman fracture",
+                           "answerb":null,
+                           "optionc":"Odontoid fracture",
+                           "answerc":"true",
+                           "optiond":"Unilateral facet jump",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis",
+                           "optiona":"Normal CT scan",
+                           "answera":null,
+                           "optionb":"CT demonstrates evidence of potential subaxial segmental dynamic instability",
+                           "answerb":null,
+                           "optionc":"Occipital-Cervical dissociation",
+                           "answerc":"true",
+                           "optiond":"Rheumatoid spine",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Powers rule assesses",
+                           "optiona":"The distance from the basion-anterior arch C1 divided by the opisthion -posterior arch C1",
+                           "answera":null,
+                           "optionb":"Basion to opisthion distance over anterior to posterior arch distance",
+                           "answerb":null,
+                           "optionc":"Basion to posterior arch of C1 divided by the opisthion to anterior arch of C1",
+                           "answerc":"true",
+                           "optiond":"Opisthion to anterior arch distance divided by the basion to anterior arch distance",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A normal value of Power's ratio is",
+                           "optiona":"0.6",
+                           "answera":null,
+                           "optionb":"0.7",
+                           "answerb":null,
+                           "optionc":"0.8",
+                           "answerc":"true",
+                           "optiond":"1.4",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Harris rule of 12's states",
+                           "optiona":"Basion dens interval or basion posterior axial interval should be < 12mm",
+                           "answera":"true",
+                           "optionb":"Basion to posterior arch inverval should be less than 12 degrees",
+                           "answerb":null,
+                           "optionc":"Opisthion to posterior arch line should be within 12mm from the anterior cervical line",
+                           "answerc":"",
+                           "optiond":"Basion to opisthion distance should be 12mm or less",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The Traynelis classification of OC joint disruption",
+                           "optiona":"References the direction of disruption",
+                           "answera":"true",
+                           "optionb":"References the degree of disruption in millimeters ",
+                           "answerb":null,
+                           "optionc":"References the difference between bony vs ligamentous injuries",
+                           "answerc":"true",
+                           "optiond":"References isolated OC injuries vs combined injuries ",
+                           "answerd":null
+                           },
+                           {
+                           "question":"OC junction disruption is best diagnosed with",
+                           "optiona":"CT",
+                           "answera":"true",
+                           "optionb":"MRI",
+                           "answerb":"",
+                           "optionc":"XR",
+                           "answerc":"true",
+                           "optiond":"Bone Scan",
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"PROMPT",
+              "questions":[
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Spinal stenosis",
+                           "answera":null,
+                           "optionb":"Cauda equina",
+                           "answerb":"true",
+                           "optionc":"Degenerative scoliosis",
+                           "answerc":null,
+                           "optiond":"conus medullaris syndrome",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the most appropriate management",
+                           "optiona":"L3-5 central decompression and posterolateral fusion",
+                           "answera":null,
+                           "optionb":"L4-5 central decompression, posterolateral instrumented fusion of L4-5",
+                           "answerb":"true",
+                           "optionc":"L4-5 transforaminal interbody fusion",
+                           "answerc":null,
+                           "optiond":"L3-5 central decompression with posterior lumbar interbody fusion",
+                           "answerd":null
+                           },
+                           {
+                           "question":"During the procedure a CSF leak is encountered. Select the appropriate management.",
+                           "optiona":"Water tight closure with 7-0 proline suture fixation, augmented with fibrin sealant",
+                           "answera":"true",
+                           "optionb":"Fibrin glue analogue with direct compression until leak stops",
+                           "answerb":null,
+                           "optionc":"Water tight closure with 5-0 vicryl suture fixation, augmented with fibrin sealant",
+                           "answerc":null,
+                           "optiond":"Fat patch augmented closure using 7-0 proline suture fixation",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which nerve root is most likely to be injured during this procedure?",
+                           "optiona":"L3 ",
+                           "answera":null,
+                           "optionb":"L4 ",
+                           "answerb":null,
+                           "optionc":"L5 ",
+                           "answerc":"true",
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fluoroscopy is used to identify your level intraoperatively. A penfield 4 is placed in the L4-5 interlaminar space. This will point to which pedicle?",
+                           "optiona":"L3",
+                           "answera":null,
+                           "optionb":"L4",
+                           "answerb":"true",
+                           "optionc":"L5 ",
+                           "answerc":null,
+                           "optiond":"S1",
+                           "answerd":null
+                           },
+                           {
+                           "question":"A subtotal discectomy is performed and the patient is transported to the PACU safely. Postoperatively they complain of numbness on the right thigh. The most likely cause is",
+                           "optiona":"Meralgia pasasthetica",
+                           "answera":"true",
+                           "optionb":"L2 nerve root tethering",
+                           "answerb":null,
+                           "optionc":"Stretch of the femoral nerve during positioning",
+                           "answerc":null,
+                           "optiond":"Compression of the lumbosacral plexus",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The superior facet attaches to the",
+                           "optiona":"Lamina",
+                           "answera":null,
+                           "optionb":"Pedicle",
+                           "answerb":"true",
+                           "optionc":"Pars",
+                           "answerc":null,
+                           "optiond":"Spinous Process",
+                           "answerd":null
+                           },
+                           {
+                           "question":"In this post operative CT, the surgeon should be criticized for",
+                           "optiona":"A lateral breech of the left sided screw at T12",
+                           "answera":null,
+                           "optionb":"Medial breech of the right sided screw at L2",
+                           "answerb":null,
+                           "optionc":"Incomplete reduction",
+                           "answerc":null,
+                           "optiond":"Insufficient bone grafting",
+                           "answerd":null
+                           },
+                           {
+                           "question":"As the enters the T12 pedicle on the right side with the pedicle finder, he feels resistance at 30mm with a spongy quality. ",
+                           "optiona":"He is likely in the T11-12 disc space and should reorient the pedicle finder caudally",
+                           "answera":null,
+                           "optionb":" He is likely in the T12-L1 disc space and should reorient the pedicle finder cranially",
+                           "answerb":null,
+                           "optionc":"He has breeched laterally into soft tissue and should reorient himself with fluoroscopy",
+                           "answerc":null,
+                           "optiond":"He has breeched medially into the cord and should rely on fluoroscopy for correction.",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The anatomical start point of of a T12 pedicle screw is ",
+                           "optiona":"At the mamillary process",
+                           "answera":null,
+                           "optionb":"A line intersecting the lateral pars and inferior transverse process",
+                           "answerb":null,
+                           "optionc":"A line intersecting midpoint transverse process at midpoint lamina",
+                           "answerc":null,
+                           "optiond":"A line intersecting medial pars at the inferior facet",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized pars is typically at ",
+                           "optiona":"T11",
+                           "answera":null,
+                           "optionb":"T12",
+                           "answerb":null,
+                           "optionc":"L1",
+                           "answerc":null,
+                           "optiond":"L2",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The first lumbarized facet joint is at ",
+                           "optiona":"T11-T12",
+                           "answera":null,
+                           "optionb":"T12-L1",
+                           "answerb":null,
+                           "optionc":"L1-L2",
+                           "answerc":null,
+                           "optiond":"L2-L3",
+                           "answerd":null
+                           },
+                           {
+                           "question":"What is an acceptable screw diameter for a T12 pedicle?",
+                           "optiona":"3.5mm",
+                           "answera":null,
+                           "optionb":"4.5mm",
+                           "answerb":null,
+                           "optionc":"5.5mm",
+                           "answerc":null,
+                           "optiond":"7.5mm",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Which of the following is not a structure in the posterior ligamentous complex (PLC) in the TLICs classification?",
+                           "optiona":"Supraspinous ligament",
+                           "answera":null,
+                           "optionb":"Interspinous ligament",
+                           "answerb":null,
+                           "optionc":"Posterior longitudinal ligament",
+                           "answerc":null,
+                           "optiond":"Ligamentum flavum",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select a diagnosis.",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":"true",
+                           "optionc":"Type 3 odontoid",
+                           "answerc":null,
+                           "optiond":"Os odontoidium",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Fractures involving the superior articular facet of C2 are classified as ",
+                           "optiona":"Type 1 odontoid",
+                           "answera":null,
+                           "optionb":"Type 2 odontoid",
+                           "answerb":null,
+                           "optionc":"Type 3 odontoid",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The transverse ligament in this case is likely",
+                           "optiona":"Disrupted",
+                           "answera":null,
+                           "optionb":"Intact",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":null,
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Select the best treatment for this patient",
+                           "optiona":"Anterior odontoid screw",
+                           "answera":"true",
+                           "optionb":"Posterior C1-2 fixation using C1 lateral mass C2 pars screws",
+                           "answerb":null,
+                           "optionc":"Occiput to C3 fusion",
+                           "answerc":null,
+                           "optiond":"Conservative management",
+                           "answerd":null
+                           },
+                           {
+                           "question":"Intraoperatively, is a decompression recommended?",
+                           "optiona":"Yes",
+                           "answera":"",
+                           "optionb":"No",
+                           "answerb":"true",
+                           "optionc":"",
+                           "answerc":"true",
+                           "optiond":"",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The occipital plate is attempted with bicortical fixation. The first screw hole is drilled revealing significant hemorrhage from the skull. What should be done?",
+                           "optiona":"Investigate the source of the bleeding",
+                           "answera":null,
+                           "optionb":"Place the screw in the bleeding hole",
+                           "answerb":"true",
+                           "optionc":"Tamponade the hole with a sponge and re-assess in 2 minutes",
+                           "answerc":"true",
+                           "optiond":"Attempt fixation at another site",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The C1 lateral mass is drilled and tapped without complication. Following placement of the screw significant venous bleeding is encountered. What should be done?",
+                           "optiona":"Pack with a sponge and begin a similar procedure on the contralateral side",
+                           "answera":"true",
+                           "optionb":"Investigate the source of the bleeding",
+                           "answerb":"",
+                           "optionc":"Intraoperative angiography to rule out arterial bleed",
+                           "answerc":"true",
+                           "optiond":"Proceed with the surgery without packing",
+                           "answerd":null
+                           }
+                           ]
+              },
+              {
+              "promptname":"POST OP CT",
+              "questions":[
+                           {
+                           "question":"Which type of fluoroscopy would you like to call for? ",
+                           "optiona":"Flat plate XR",
+                           "answera":null,
+                           "optionb":"Uniplanar fluoroscopy",
+                           "answerb":null,
+                           "optionc":"Biplanar fluoroscopy",
+                           "answerc":"true",
+                           "optiond":"No fluoroscopy",
+                           "answerd":null
+                           },
+                           {
+                           "question":"The approach for C2 odontoid screw is best performed at",
+                           "optiona":"At the C2 skin level which is the hyoid superficially",
+                           "answera":null,
+                           "optionb":"At the level of C3 which is the level of the hyoid",
+                           "answerb":null,
+                           "optionc":"At the level of C5 which is at the thyroid cartilage",
+                           "answerc":"true",
+                           "optiond":" At the level of the C6 which is the cricoid tubercle superficially.",
+                           "answerd":null
+                           },
+                           {
+                           "question":"In the Grauer modification of Anderson and D'Alonzo's classification of type 2 odontoid fractures they separate three types by morphology. ",
+                           "optiona":"Grauer type A are best treated with odontoid screws",
+                           "answera":null,
+                           "optionb":"Grauer type B are best treated with posterior stabilization",
+                           "answerb":null,
+                           "optionc":"Grauer type C fractures are best treated with odontoid screws",
+                           "answerc":null,
+                           "optiond":"Grauer A are best treated with external immobilization if nondisplaced",
+                           "answerd":"true"
+                           }
+                           ]
+              }
+              ]
+   }
+   ]
+  ]

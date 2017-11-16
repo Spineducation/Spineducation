@@ -62,7 +62,7 @@ class CasesVC: UIViewController, HomeModelDelegate, UITableViewDataSource, UITab
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
         
-        cell.textLabel?.text = medicalCasee[indexPath.row].caseName
+        cell.textLabel?.text = medicalCasee[indexPath.row].Name
         
         return cell
     }

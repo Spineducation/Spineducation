@@ -10,12 +10,32 @@ import Foundation
 
 struct mcq {
     var Question:String
-    var optionA:String
-    var optionB:String
-    var optionC:String
-    var optionD:String
-    var answer:String
-    var futherDetail:String
-    var surgicalCategory:String
-    var anatomicalRegion:String
+    
+    var OptionA:String
+    var AnswerA:Bool
+    
+    var OptionB:String
+    var AnswerB:Bool
+    
+    var OptionC:String
+    var AnswerC:Bool
+    
+    var OptionD:String
+    var AnswerD:Bool
+    
+    var FutherDetail:String
+    var SurgicalCategory:String
+    var AnatomicalRegion:String
+    
+    func Describe(){
+        print(Question)
+        print("[" + String(AnswerA) + "]" + OptionA)
+        print("[" + String(AnswerB) + "]" + OptionB)
+        print("[" + String(AnswerC) + "]" + OptionC)
+        print("[" + String(AnswerD) + "]" + OptionD)
+    
+        print(FutherDetail)
+        print(SurgicalCategory)
+        print(AnatomicalRegion)
+    }
 }

@@ -52,6 +52,7 @@ class HomeModel: NSObject {
         var caseArray = [MedicalCase]()
         //parse data out into the location structs
         do {
+            
             // parse array into json object
             let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as! [Any]
             
@@ -62,7 +63,7 @@ class HomeModel: NSObject {
                 let jsonCase = jsonResult as! [String:String]
                 
                 // create new Location and set it's properties
-                let medicalCase = MedicalCase(caseName: jsonCase["CASE_NAME"]!, history: jsonCase["HISTORY"]!, phsyical: jsonCase["PHYSICAL"]!)
+                let medicalCase = MedicalCase(Name: jsonCase["CASE_NAME"]!, SurgicalCategory: nil, AnatomicalRegion: nil)
                 
                 // add it to the array
                 caseArray.append(medicalCase)
