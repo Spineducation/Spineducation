@@ -22,7 +22,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func Menu(_ sender: Any) {
         print("click")
     }
-    let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/spine_smooth_17_11_09_surgeon.dae")! // sets the spine to spine 3d image file
+    let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
     
     
     override func viewDidLoad() {
