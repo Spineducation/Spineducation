@@ -18,10 +18,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var spineExists = false;
     
-
+    
+    
     @IBAction func Menu(_ sender: Any) {
         print("click")
     }
+
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
     
     
@@ -40,10 +42,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a new scene
         //let scene = SCNScene(named: "art.scnassets/ship.scn")!
         
-        
+    
         let scene = SCNScene()
-        nodeModel =  scene.rootNode.childNode(withName: nodeName, recursively: true)
+
+       nodeModel =  scene.rootNode.childNode(withName: nodeName, recursively: true)
+        
+        
     //    spine.rootNode.position = SCNVector3Make(1, 0,1)
+    
         sceneView.scene.rootNode.addChildNode(spine.rootNode) // add this to the sc
         
         self.sceneView.autoenablesDefaultLighting = true
@@ -84,11 +90,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return scenePosition
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+         let location = touches.first!.location(in: sceneView)
      //   guard let touch = touches.first else {
        //     return}
         //let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
-        createSpine(position: SCNVector3Make(1,1,-1))
+        
+        // uncomment this out if create spine mode
+        if (!spineExists){
+            createSpine(position: SCNVector3Make(1,1,-1))
+        
+           spineExists = true;
+        }
+        if (spineExists){
+            var hitTestOptions = [SCNHitTestOption: Any]()
+            hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
+            let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
+            if let hit = hitResults.first {
+                print(hit.node.name)
+            }
+
+        }
+       
+      //  if (spineExists){
+            //print (spine.rootNode.childNode(withName: "Cylinder@", recursively: true));
+        //   print (nodeName);
+       // }
+        
      //   createSpine (position: sceneSpacePosition (inFrontOf: spine.rootNode))
         // call on didTap method to draw the spine if the position has been clicked
         //let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap(withGestureRecognizer:)))
