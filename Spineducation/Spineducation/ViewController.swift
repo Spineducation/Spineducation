@@ -58,9 +58,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
+        
     }
     
+    // create a torus shaped object
+    func createTarget(position : SCNVector3){
+        let torus = SCNTorus(ringRadius: 0.05, pipeRadius: 0.02)
+        var targetNode =  SCNNode (geometry : torus)
+        let camera = self.sceneView.pointOfView!
+        targetNode.position = camera.convertPosition(position, to: nil)
 
+        targetNode.rotation = camera.rotation
+        let action = SCNAction.rotateBy(x: 0, y: CGFloat(5*Double.pi), z: 0, duration: 1)
+        targetNode.runAction(action, forKey: "myrotate")
+        sceneView.scene.rootNode.addChildNode(targetNode)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -92,6 +104,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
          let location = touches.first!.location(in: sceneView)
      //   guard let touch = touches.first else {
        //     return}
@@ -100,7 +113,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // uncomment this out if create spine mode
         if (!spineExists){
             createSpine(position: SCNVector3Make(1,1,-1))
-        
+            createTarget(position : SCNVector3Make(0, 0.5, -1))
            spineExists = true;
         }
         if (spineExists){
