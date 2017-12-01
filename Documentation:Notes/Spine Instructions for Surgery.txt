@@ -1,0 +1,8 @@
+Spine Instructions for Surgery
+1. Instructions (ie place screws from L2 to L4)
+2. User can chose start point/trajectory
+3. Pick start point - user sees bullseye or something which follows the camera where bullseye is 1/5th the size of cyliner
+4. select point, click screen to select, which locks in the point
+5. create line based on camera angle to get trajectory
+6. select trajectory and insert screw
+7. check if screw is in trajectoryc
