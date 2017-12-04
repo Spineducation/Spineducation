@@ -73,7 +73,7 @@ class CasesVC: UIViewController, HomeModelDelegate, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToCase", sender: self)
+        performSegue(withIdentifier: "GoToCaseDetails", sender: self)
     }
     
     

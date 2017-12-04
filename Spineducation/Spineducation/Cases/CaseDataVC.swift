@@ -8,7 +8,10 @@
 
 import UIKit
 
+// CaseDataVC is a subclass of UIViewController
 class CaseDataVC: UIViewController {
+    
+    @IBOutlet weak var Label1: UILabel!
     
     var caseDataToDisplay:MedicalCase?
     
