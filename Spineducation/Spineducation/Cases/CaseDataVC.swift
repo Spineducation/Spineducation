@@ -17,6 +17,7 @@ class CaseDataVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // Label1.text = "testingLabel"
     }
     
     override func didReceiveMemoryWarning() {
