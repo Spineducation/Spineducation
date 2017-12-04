@@ -11,13 +11,13 @@ import Foundation
 struct MedicalCase {
     let Name:String
 //    let Prompts:[Prompt]
-    let SurgicalCategory:[String]?
-    let AnatomicalRegion:[String]?
+    let SurgicalCategory:String
+    let AnatomicalRegion:String
     
     func Describe(){
         print(Name)
-        print(SurgicalCategory ?? "null")
-        print(AnatomicalRegion ?? "null")
+        print(SurgicalCategory)
+        print(AnatomicalRegion)
         
 //        for element in Prompts {
 //            element.Describe()

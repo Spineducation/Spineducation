@@ -8,6 +8,7 @@
 
 import UIKit
 
+// View controller conforms to the home model delegate prototcol
 class CasesVC: UIViewController, HomeModelDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var CaseTableView: UITableView!
@@ -24,6 +25,8 @@ class CasesVC: UIViewController, HomeModelDelegate, UITableViewDataSource, UITab
         
         // initiate calling the items download
         homeModel.getItems()
+        
+        // this view controller is conforming to the protocol so it must set itself as the delegate property of the home model
         homeModel.delegate = self
     }
     
@@ -32,11 +35,13 @@ class CasesVC: UIViewController, HomeModelDelegate, UITableViewDataSource, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    // implementing this function since it does conform to the home model protocol
     func itemsDownloaded(medicalCase: [MedicalCase]) {
         self.medicalCasee = medicalCase
         DispatchQueue.main.async {
             self.CaseTableView.reloadData()
-        }    }
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
