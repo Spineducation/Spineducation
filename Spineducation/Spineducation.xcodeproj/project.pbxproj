@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		556442F81FD5D1FA00E1D148 /* bullseye.png in Resources */ = {isa = PBXBuildFile; fileRef = 556442F71FD5D1FA00E1D148 /* bullseye.png */; };
 		55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B431F87E86F002D5B24 /* AppDelegate.swift */; };
 		55C44B461F87E86F002D5B24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C44B451F87E86F002D5B24 /* art.scnassets */; };
 		55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B471F87E86F002D5B24 /* ViewController.swift */; };
@@ -16,6 +15,7 @@
 		55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C44B4E1F87E86F002D5B24 /* LaunchScreen.storyboard */; };
 		55C44B5B1F87E870002D5B24 /* SpineducationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B5A1F87E870002D5B24 /* SpineducationTests.swift */; };
 		55C44B661F87E870002D5B24 /* SpineducationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B651F87E870002D5B24 /* SpineducationUITests.swift */; };
+		55FEAEE41FD6412900238658 /* bullseye.png in Resources */ = {isa = PBXBuildFile; fileRef = 55FEAEE31FD6412900238658 /* bullseye.png */; };
 		A49D14CD1FB61B2C000485E4 /* mcq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D14CB1FB61B2C000485E4 /* mcq.swift */; };
 		A49D14CE1FB61B2C000485E4 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D14CC1FB61B2C000485E4 /* Prompt.swift */; };
 		A4A525A81FAF6ACE0078B56F /* CasesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525A71FAF6ACE0078B56F /* CasesVC.swift */; };
@@ -47,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		556442F71FD5D1FA00E1D148 /* bullseye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullseye.png; path = ../../../../../Downloads/bullseye.png; sourceTree = "<group>"; };
 		55C44B401F87E86F002D5B24 /* Spineducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spineducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C44B431F87E86F002D5B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C44B451F87E86F002D5B24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		55C44B611F87E870002D5B24 /* SpineducationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpineducationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C44B651F87E870002D5B24 /* SpineducationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineducationUITests.swift; sourceTree = "<group>"; };
 		55C44B671F87E870002D5B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55FEAEE31FD6412900238658 /* bullseye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullseye.png; sourceTree = "<group>"; };
 		A49D14CB1FB61B2C000485E4 /* mcq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mcq.swift; sourceTree = "<group>"; };
 		A49D14CC1FB61B2C000485E4 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		A4A525A71FAF6ACE0078B56F /* CasesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesVC.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				55C44B431F87E86F002D5B24 /* AppDelegate.swift */,
 				55C44B451F87E86F002D5B24 /* art.scnassets */,
 				55C44B471F87E86F002D5B24 /* ViewController.swift */,
-				556442F71FD5D1FA00E1D148 /* bullseye.png */,
+				55FEAEE31FD6412900238658 /* bullseye.png */,
 				55C44B491F87E86F002D5B24 /* Main.storyboard */,
 				55C44B4C1F87E86F002D5B24 /* Assets.xcassets */,
 				55C44B4E1F87E86F002D5B24 /* LaunchScreen.storyboard */,
@@ -287,7 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				556442F81FD5D1FA00E1D148 /* bullseye.png in Resources */,
+				55FEAEE41FD6412900238658 /* bullseye.png in Resources */,
 				DC61CBF31FBA46EC002B2DBA /* spine cool.jpg in Resources */,
 				55C44B461F87E86F002D5B24 /* art.scnassets in Resources */,
 				55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */,
