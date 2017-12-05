@@ -15,9 +15,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     var nodeModel:SCNNode!
+    var bullseyeNode:SCNNode!
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var spineExists = false;
     
+    let bullseyeImage = UIImage(named: "bullseye.png")
     
     
     @IBAction func Menu(_ sender: Any) {
@@ -61,16 +63,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //scene.rootNode.addChildNode(ballNode)
         
         //scene.background.contents = UIImage(named: "art.scnassets/bullseye.png")
-        let bullseyeImage = UIImage(named: "bullseye.png")
+       
+     //   let camera = self.sceneView.pointOfView!
+       // let dimensions = SCNVector3(0, 0, -1)
+        //bullseyeNode.position = camera.convertPosition(dimensions, to: nil)
         let bullseyeNode = make2dNode(image: bullseyeImage!);
-        let camera = self.sceneView.pointOfView!
-        let dimensions = SCNVector3(0, 0.5, -1)
-        bullseyeNode.position = camera.convertPosition(dimensions, to: nil)
-        bullseyeNode.rotation = camera.rotation
-        scene.rootNode.addChildNode(bullseyeNode)
-        
-        //scene.background.contents = ballNode
-        
+         bullseyeNode.position = SCNVector3Make(0, 0, -1)
+     //   bullseyeNode.rotation = camera.rotation
+     //   scene.rootNode.addChildNode(bullseyeNode)
+       // sceneView.pointOfView?.addChildNode(bullseyeNode)
+        sceneView.pointOfView?.addChildNode(bullseyeNode)
     }
     
     func make2dNode(image: UIImage, width: CGFloat = 0.1, height: CGFloat = 0.1) -> SCNNode {
@@ -131,15 +133,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
         
         // uncomment this out if create spine mode
-        // if (!spineExists){
-        createSpine(position: SCNVector3Make(1,1,-1))
-        //createTarget(position : SCNVector3Make(0, 0.5, -1))
-        spineExists = true;
-        //}
+         if (!spineExists){
+            createSpine(position: SCNVector3Make(1,1,-1))
+            spineExists = true;
+        }
         if (spineExists){
+           // Get the location of the target in Vector3 coordinates
+            let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
+            // Convert the SCNVector3 Point to a CGPoint to compare for hittest
+            let cgTarget = CGPoint(x:CGFloat(targetPosition.x), y: CGFloat(targetPosition.y))
             var hitTestOptions = [SCNHitTestOption: Any]()
             hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
-            let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
+            // if comparing touch location to pedical location; not necessary atm
+           // let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
+            // check if the location the target was = a pedical
+            let hitResults: [SCNHitTestResult]  = sceneView.hitTest(cgTarget , options: hitTestOptions)
             if let hit = hitResults.first {
                 print(hit.node.name)
             }
