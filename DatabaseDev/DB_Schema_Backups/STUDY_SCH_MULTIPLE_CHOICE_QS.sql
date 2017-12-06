@@ -41,7 +41,9 @@ CREATE TABLE `MULTIPLE_CHOICE_QS` (
   `ANATC_REGION_ID` int(11) DEFAULT NULL,
   `CREATED_BY` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`CASE_ID`,`SECTION_ID`,`MCQ_ID`),
-  KEY `case_id_fk_idx` (`CASE_ID`)
+  KEY `index1` (`CASE_ID`,`SECTION_ID`,`MCQ_ID`),
+  KEY `newnametofkconstraintfordetails_idx` (`SECTION_ID`),
+  CONSTRAINT `newnametofkconstraint` FOREIGN KEY (`CASE_ID`) REFERENCES `MEDICAL_CASES` (`CASE_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -64,4 +66,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-08 22:49:32
+-- Dump completed on 2017-12-05 19:41:48
