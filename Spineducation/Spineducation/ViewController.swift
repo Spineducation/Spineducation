@@ -19,7 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var spineExists = false;
     
-    let bullseyeImage = UIImage(named: "bullseye.png")
+    let bullseyeImage = UIImage(named: "bullseye.png")?.withRenderingMode(.alwaysOriginal)
     
     
     @IBAction func Menu(_ sender: Any) {
@@ -67,18 +67,51 @@ class ViewController: UIViewController, ARSCNViewDelegate {
      //   let camera = self.sceneView.pointOfView!
        // let dimensions = SCNVector3(0, 0, -1)
         //bullseyeNode.position = camera.convertPosition(dimensions, to: nil)
+        //let colour = UIColor.red
+        //let newBullseyeImage = filledImage(source: bullseyeImage!, fillColor: UIColor.red)
         let bullseyeNode = make2dNode(image: bullseyeImage!);
-         bullseyeNode.position = SCNVector3Make(0, 0, -1)
+        
+        //bullseyeNode.scale = SCNVector3(5,5,5)
+         bullseyeNode.position = SCNVector3Make(0, 0, -0.1)
      //   bullseyeNode.rotation = camera.rotation
      //   scene.rootNode.addChildNode(bullseyeNode)
        // sceneView.pointOfView?.addChildNode(bullseyeNode)
         sceneView.pointOfView?.addChildNode(bullseyeNode)
+       // bullseyeNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.red
+        // NOTE - NEVER TRY TO COLOUR A NODE - IT DOESN'T WORK IT JUST TURNS THE WHOLE AREA THE NODE WOULD TAKE UP INTO WHATEVER COLOUR YOU SPECIFIED
+        
     }
     
-    func make2dNode(image: UIImage, width: CGFloat = 0.1, height: CGFloat = 0.1) -> SCNNode {
+    func filledImage(source: UIImage, fillColor: UIColor) -> UIImage { // useless, was trying to use to fill an image with red, didn't work to make the back of the target red, used this way for future reference filledImage(source: bullseyeImage!, fillColor: UIColor.red)
+        
+        UIGraphicsBeginImageContextWithOptions(source.size, false, UIScreen.main.scale)
+        
+        let context = UIGraphicsGetCurrentContext()
+        fillColor.setFill()
+        
+        context!.translateBy(x: 0, y: source.size.height)
+        context!.scaleBy(x: 1.0, y: -1.0)
+        
+        context!.setBlendMode(CGBlendMode.colorBurn)
+        let rect = CGRect(x: 0, y: 0, width: source.size.width, height: source.size.height)
+        context!.draw(source.cgImage!, in: rect)
+        
+        context!.setBlendMode(CGBlendMode.sourceIn)
+        context!.addRect(rect)
+        context!.drawPath(using: CGPathDrawingMode.fill)
+        
+        let coloredImg : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return coloredImg
+    }
+    
+    
+    func make2dNode(image: UIImage, width: CGFloat = 0.01, height: CGFloat = 0.01) -> SCNNode { // TO CHANGE SIZE OF BULLSEYE, CGFLOAT WIDTH AND HEIGHT NEED TO BE CHANGED (0.01 TO 0.1 WILL MAKE IT 10X BIGGER)
         let plane = SCNPlane(width: width, height: height)
         plane.firstMaterial!.diffuse.contents = image
         let node = SCNNode(geometry: plane)
+        //node.scale = SCNVector3(5,5,5)
         node.constraints = [SCNBillboardConstraint()]
         return node
     }
@@ -133,10 +166,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
         
         // uncomment this out if create spine mode
-         if (!spineExists){
+        // if (!spineExists){
             createSpine(position: SCNVector3Make(1,1,-1))
             spineExists = true;
-        }
+        //}
         if (spineExists){
            // Get the location of the target in Vector3 coordinates
             let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
@@ -204,6 +237,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //      spine.rootNode.position = sceneSpacePosition(inFrontOf: camera)
         spine.rootNode.position = camera.convertPosition(position, to: nil)
         spine.rootNode.rotation = camera.rotation
+        //if (bullseyeNode != nil) { bullseyeNode.rotation = SCNVector4(1,1,1,1) }else {print ("Hi");return} // TRIED TO ROTATE THE BULLSEYE IF THE SPINE IS BEING CREATED BUT THE BULLSEYENODE TURNS OUT TO BE NIL EVERYTIME
         sceneView.scene.rootNode.addChildNode(spine.rootNode) // add this to the scene
     }
     

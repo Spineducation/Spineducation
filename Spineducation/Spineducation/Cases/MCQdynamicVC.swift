@@ -1,4 +1,4 @@
-fuck lol//
+//fuck lol//
 //  MCQdynamicVC.swift
 //  Spineducation
 //
