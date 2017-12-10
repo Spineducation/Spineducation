@@ -15,17 +15,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     var nodeModel:SCNNode!
+    var targetModel:SCNNode!
     var bullseyeNode:SCNNode!
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var spineExists = false;
     
-    let bullseyeImage = UIImage(named: "bullseye.png")?.withRenderingMode(.alwaysOriginal)
+    let bullseyeImage = UIImage(named: "bullseye_black.png")?.withRenderingMode(.alwaysOriginal)
     
     
     @IBAction func Menu(_ sender: Any) {
         print("click")
     }
     
+    let target = SCNScene(named: "bullseye.dae")!
+  //  let target = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")!
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
     
     
@@ -72,14 +75,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let bullseyeNode = make2dNode(image: bullseyeImage!);
         
         //bullseyeNode.scale = SCNVector3(5,5,5)
-         bullseyeNode.position = SCNVector3Make(0, 0, -0.1)
+        // testing size
+        bullseyeNode.position = SCNVector3Make(0, 0, -0.5)
+        // actual size
+       // bullseyeNode.position = SCNVector3Make(0, 0, -0.1)
      //   bullseyeNode.rotation = camera.rotation
      //   scene.rootNode.addChildNode(bullseyeNode)
-       // sceneView.pointOfView?.addChildNode(bullseyeNode)
-        sceneView.pointOfView?.addChildNode(bullseyeNode)
+       sceneView.pointOfView?.addChildNode(bullseyeNode)
+        
+    
+     //    sceneView.pointOfView?.addChildNode(bullseyeNode)
        // bullseyeNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.red
         // NOTE - NEVER TRY TO COLOUR A NODE - IT DOESN'T WORK IT JUST TURNS THE WHOLE AREA THE NODE WOULD TAKE UP INTO WHATEVER COLOUR YOU SPECIFIED
         
+        
+     //   targetModel =  target.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
+   //     target.rootNode.position = SCNVector3Make(0, 0, -0.1)
+     //   scene.rootNode.addChildNode(targetModel)
+   //     sceneView.pointOfView?.addChildNode(target.rootNode)
+    //    sceneView.scene.rootNode.addChildNode(target.rootNode) // add this to the scene
     }
     
     func filledImage(source: UIImage, fillColor: UIColor) -> UIImage { // useless, was trying to use to fill an image with red, didn't work to make the back of the target red, used this way for future reference filledImage(source: bullseyeImage!, fillColor: UIColor.red)
@@ -107,7 +121,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     
-    func make2dNode(image: UIImage, width: CGFloat = 0.01, height: CGFloat = 0.01) -> SCNNode { // TO CHANGE SIZE OF BULLSEYE, CGFLOAT WIDTH AND HEIGHT NEED TO BE CHANGED (0.01 TO 0.1 WILL MAKE IT 10X BIGGER)
+    func make2dNode(image: UIImage, width: CGFloat = 0.05, height: CGFloat = 0.05) -> SCNNode { // TO CHANGE SIZE OF BULLSEYE, CGFLOAT WIDTH AND HEIGHT NEED TO BE CHANGED (0.01 TO 0.1 WILL MAKE IT 10X BIGGER) // actual size is 0.1
         let plane = SCNPlane(width: width, height: height)
         plane.firstMaterial!.diffuse.contents = image
         let node = SCNNode(geometry: plane)
@@ -116,18 +130,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return node
     }
     
-    // create a torus shaped object
-    func createTarget(position : SCNVector3){
-        let torus = SCNTorus(ringRadius: 0.05, pipeRadius: 0.02)
-        var targetNode =  SCNNode (geometry : torus)
-        let camera = self.sceneView.pointOfView!
-        targetNode.position = camera.convertPosition(position, to: nil)
-        
-        targetNode.rotation = camera.rotation
-        let action = SCNAction.rotateBy(x: 0, y: CGFloat(5*Double.pi), z: 0, duration: 1)
-        targetNode.runAction(action, forKey: "myrotate")
-        sceneView.scene.rootNode.addChildNode(targetNode)
-    }
+  
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -160,21 +163,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let location = touches.first!.location(in: sceneView)
-        //   guard let touch = touches.first else {
-        //     return}
-        //let result = sceneView.hitTest(touch.location(in: sceneView), types: ARHitTestResult.ResultType.featurePoint)
-        
+        let location = touches.first!.location(in: sceneView)        
         // uncomment this out if create spine mode
-        // if (!spineExists){
-            createSpine(position: SCNVector3Make(1,1,-1))
+         if (!spineExists){
+            // actual size of spine
+          //  createSpine(position: SCNVector3Make(1,1,-1))
+            // testing size for spine to see if can do surgery cause we cs not surgeons and that  hard
+            createSpine(position: SCNVector3Make(1,1,-0.65))
             spineExists = true;
-        //}
+        }
         if (spineExists){
            // Get the location of the target in Vector3 coordinates
             let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
+           // print (targetPosition)
             // Convert the SCNVector3 Point to a CGPoint to compare for hittest
             let cgTarget = CGPoint(x:CGFloat(targetPosition.x), y: CGFloat(targetPosition.y))
+            print (cgTarget)
             var hitTestOptions = [SCNHitTestOption: Any]()
             hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
             // if comparing touch location to pedical location; not necessary atm
@@ -187,52 +191,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
         }
         
-        //  if (spineExists){
-        //print (spine.rootNode.childNode(withName: "Cylinder@", recursively: true));
-        //   print (nodeName);
-        // }
-        
-        //   createSpine (position: sceneSpacePosition (inFrontOf: spine.rootNode))
-        // call on didTap method to draw the spine if the position has been clicked
-        //let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap(withGestureRecognizer:)))
-        //sceneView.addGestureRecognizer(tapGestureRecognizer)
-        /*
-         guard let hitResult = result.last else {return}
-         let hitTransform = SCNMatrix4(hitResult.worldTransform) // make SCNMatrix4 object out of touch location
-         let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43) // take relevant components of the touch location from matrix to make SVNVector3 object
-         
-         if (!spineExists){ // if the spine is not on the screen yet
-         createSpine(position: hitVector) // create the spine
-         spineExists = true // update the variable to reflect that the spine exists now
-         }*/
     }
     
-    @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
-        let tapLocation = recognizer.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(tapLocation)
-        let result = sceneView.hitTest(tapLocation, types: ARHitTestResult.ResultType.featurePoint)
-        //guard
-        let hitResult = result.last //else {return}
-        guard let node = hitTestResults.first?.node else {
-            let hitTestResultsWithFeaturePoints = sceneView.hitTest(tapLocation, types: .featurePoint)
-            if  (hitTestResultsWithFeaturePoints.first != nil) {
-                let hitTransform = SCNMatrix4((hitResult?.worldTransform)!) // make SCNMatrix4 object out of touch location
-                let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43) // take relevant components of the touch location
-                createSpine(position: hitVector)
-            }
-            else {
-                //      createSpine(position: SCNVector3Make(1,0,-1))
-                //    print("SPINE MADE WITH 1 0 -1")
-            }
-            return
-        }
-        spine.rootNode.removeFromParentNode()
-    }
+   
     
     func createSpine(position : SCNVector3){
-        nodeModel =  spine.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root node
-        //      spine.rootNode.position = SCNVector3Make(position.x,position.y + 0.5,position.z) // sets the position of root node
-        //      spine.rootNode.position = position // sets the position of the root node to the position from the SVNVector3 object
+        nodeModel =  spine.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
         let camera = self.sceneView.pointOfView!
         //      spine.rootNode.position = sceneSpacePosition(inFrontOf: camera)
         spine.rootNode.position = camera.convertPosition(position, to: nil)
