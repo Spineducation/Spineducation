@@ -28,7 +28,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     let target = SCNScene(named: "bullseye.dae")!
-  //  let target = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")!
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
     
     
@@ -163,7 +162,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let location = touches.first!.location(in: sceneView)        
+        let location = touches.first!.location(in: sceneView)
         // uncomment this out if create spine mode
          if (!spineExists){
             // actual size of spine
