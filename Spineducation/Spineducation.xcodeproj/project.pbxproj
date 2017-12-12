@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		558FB9391FDF894500D39CD3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FB9381FDF894500D39CD3 /* String.swift */; };
 		55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B431F87E86F002D5B24 /* AppDelegate.swift */; };
 		55C44B461F87E86F002D5B24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C44B451F87E86F002D5B24 /* art.scnassets */; };
 		55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B471F87E86F002D5B24 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		558FB9381FDF894500D39CD3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		55C44B401F87E86F002D5B24 /* Spineducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spineducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C44B431F87E86F002D5B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C44B451F87E86F002D5B24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				55C44B451F87E86F002D5B24 /* art.scnassets */,
 				55C44B471F87E86F002D5B24 /* ViewController.swift */,
 				7DCDDB661FD9C83C00266C84 /* bullseye.dae */,
+				558FB9381FDF894500D39CD3 /* String.swift */,
 				7DFE97FD1FDDC02200C41259 /* bullseye_black.png */,
 				55FD359F1FD8F03B002ADEFA /* bullseye.png */,
 				55C44B491F87E86F002D5B24 /* Main.storyboard */,
@@ -373,6 +376,7 @@
 				55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */,
 				A49D14CE1FB61B2C000485E4 /* Prompt.swift in Sources */,
 				A40D06141FD6FF5700A865E6 /* MCQcategoriesVC.swift in Sources */,
+				558FB9391FDF894500D39CD3 /* String.swift in Sources */,
 				DC24C29E1FD4F3720074A499 /* MCQExampleVC.swift in Sources */,
 				A4A525A81FAF6ACE0078B56F /* CasesVC.swift in Sources */,
 				A40D06151FD6FF5700A865E6 /* MCQdynamicVC.swift in Sources */,
@@ -546,10 +550,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				"CODE_SIGN_STYLE[sdk=*]" = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -564,10 +568,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
