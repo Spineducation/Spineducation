@@ -53,9 +53,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        let bullseyeNode = make2dNode(image: bullseyeImage!, width: CGFloat(0.0025), height: CGFloat(0.0025)) // use width and height to adjust size of bullseye
+        let bullseyeNode = make2dNode(image: bullseyeImage!, width: CGFloat(0.001), height: CGFloat(0.001)) // use width and height to adjust size of bullseye
 
-        bullseyeNode.position = SCNVector3Make(0, 0, -0.01) // create bullseye node extremely close to camera so that user can view and target pedacles close up
+        //bullseyeNode.position = SCNVector3Make(0, 0, -0.01) // create bullseye node extremely close to camera so that user can view and target pedacles close up
+        bullseyeNode.position = SCNVector3Make(0, 0, -0.01)
         
        sceneView.pointOfView?.addChildNode(bullseyeNode) // add the bullseyeNode as a child of the point of view (camera) so that image moves with camera
     }
@@ -116,11 +117,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if let hit = hitResultsOther.first {
                 print(hit.node.name)
             }
+            /*
             // let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: self.sceneView.pointOfView!)
             let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: SCNVector3(1,1,1)) //create a line between 2 given SCNVector3 points, need to anchor to both camera and given point
             let lineNode = SCNNode(geometry: line)
             lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
             sceneView.pointOfView?.addChildNode(lineNode) // add as a child node to the camera's point of view
+ */
             
             // if comparing touch location to pedical location; not necessary atm
            // let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
