@@ -5,7 +5,7 @@
 //  Created by Katrine Rachitsky on 2017-12-11.
 //  Copyright © 2017 Katrine Rachitsky. All rights reserved.
 //
-
+ // this class is only necessary if being used to convert a character to a 2d image
 import UIKit
 extension String {
     

@@ -88,3 +88,88 @@
          spineExists = true // update the variable to reflect that the spine exists now
          }*/
     }
+
+    in override func viewDidLoad() {}, to set a background image, try scene.background.contents = UIImage(named: "art.scnassets/bullseye.png")
+
+    to colour a node
+    bullseyeNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.red
+
+    to fill an image with colour
+        func filledImage(source: UIImage, fillColor: UIColor) -> UIImage { // useless, was trying to use to fill an image with red, didn't work to make the back of the target red, used this way for future reference filledImage(source: bullseyeImage!, fillColor: UIColor.red)
+        
+        UIGraphicsBeginImageContextWithOptions(source.size, false, UIScreen.main.scale)
+        
+        let context = UIGraphicsGetCurrentContext()
+        fillColor.setFill()
+        
+        context!.translateBy(x: 0, y: source.size.height)
+        context!.scaleBy(x: 1.0, y: -1.0)
+        
+        context!.setBlendMode(CGBlendMode.colorBurn)
+        let rect = CGRect(x: 0, y: 0, width: source.size.width, height: source.size.height)
+        context!.draw(source.cgImage!, in: rect)
+        
+        context!.setBlendMode(CGBlendMode.sourceIn)
+        context!.addRect(rect)
+        context!.drawPath(using: CGPathDrawingMode.fill)
+        
+        let coloredImg : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return coloredImg
+    }
+
+    to detect tap on screen
+
+        @objc func tapped(recognizer :UITapGestureRecognizer) {
+        let sceneView = recognizer.view as! ARSCNView
+        let touchLocation = recognizer.location(in: sceneView)
+        let hitResults = sceneView.hitTest(touchLocation, options: [:])
+        if !hitResults.isEmpty {
+            // this means the node has been touched
+            print("the new code was reached chill")
+        }
+    }
+    
+    private func registerGestureRecognizers() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    to get camera as a position
+    if let frame = self.sceneView.session.currentFrame {
+                let mat = SCNMatrix4(frame.camera.transform)
+                let pos = SCNVector3(mat.m41, mat.m42, mat.m43)
+                //print("this is new camera position: ",pos)
+                let newcgTarget = CGPoint(x:CGFloat(mat.m41), y: CGFloat(mat.m42))
+                //print(newcgTarget)
+                let hitResults: [SCNHitTestResult]  = sceneView.hitTest(newcgTarget , options: hitTestOptions)
+             
+                if let hit = hitResults.first {
+                    print("my node: ",hit.node.name)
+                }
+            }
+
+            how to make a character into a node
+            let ballNode = make2dNode(image: "⭕️".image()!, width: 2, height: 2)
+            sceneView.scene.rootNode.addChildNode(ballNode)
+
+
+
+            to make a circle in 2d
+
+            func markStartPoint(point : CGPoint){ just creates a circle, moves with the camera, would've probably been useful for target but 
+        let circlePath = UIBezierPath(arcCenter: point, radius: CGFloat(1), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        //change the fill color
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        //you can change the stroke color
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        //you can change the line width
+        shapeLayer.lineWidth = 1.0
+        
+        view.layer.addSublayer(shapeLayer)
+    }
