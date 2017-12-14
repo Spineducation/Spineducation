@@ -17,8 +17,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var nodeModel:SCNNode!
     var targetModel:SCNNode!
     var bullseyeNode:SCNNode!
+    var clickSpineNode:SCNNode!
+    
+    let textNode = SCNNode()
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var spineExists = false;
+    
+   
+   // clickSpine.materials = [clickMaterial]
     
     let bullseyeImage = UIImage(named: "bullseye_black.png")?.withRenderingMode(.alwaysOriginal)
     
@@ -53,12 +59,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
+       
+        
+        showClickSpine()
+    }
+    
+    // add the target to the screen
+    func showTarget(){
         let bullseyeNode = make2dNode(image: bullseyeImage!, width: CGFloat(0.001), height: CGFloat(0.001)) // use width and height to adjust size of bullseye
-
+        
         //bullseyeNode.position = SCNVector3Make(0, 0, -0.01) // create bullseye node extremely close to camera so that user can view and target pedacles close up
         bullseyeNode.position = SCNVector3Make(0, 0, -0.01)
         
-       sceneView.pointOfView?.addChildNode(bullseyeNode) // add the bullseyeNode as a child of the point of view (camera) so that image moves with camera
+        sceneView.pointOfView?.addChildNode(bullseyeNode) // add the bullseyeNode as a child of the point of view (camera) so that image moves with camera
+    }
+    func showClickSpine (){
+        let clickSpine = SCNText (string: "Click to add a spine", extrusionDepth: 1)
+        let clickMaterial = SCNMaterial()
+
+        clickMaterial.diffuse.contents = UIColor.white
+        clickSpine.materials = [clickMaterial]
+        let cameraPos = self.sceneView.pointOfView!.position
+       textNode.position = SCNVector3(cameraPos.x-0.5, cameraPos.y-1, cameraPos.z-2);
+        textNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
+       textNode.geometry = clickSpine
+        sceneView.scene.rootNode.addChildNode(textNode)
     }
     
     func make2dNode(image: UIImage, width: CGFloat, height: CGFloat) -> SCNNode {
@@ -99,8 +124,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let location = touches.first!.location(in: sceneView)
         // uncomment this out if create spine mode
          if (!spineExists){
-            createSpine(position: SCNVector3Make(1,1,-0.65))
+            createSpine(position: SCNVector3Make(1,1,-0.65)) // create the spine
             spineExists = true;
+            textNode.removeFromParentNode() // remove instruction text
+            showTarget()    // add the target
         }
         if (spineExists){
            // Get the location of the target in Vector3 coordinates
