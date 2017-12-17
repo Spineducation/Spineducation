@@ -11,14 +11,19 @@ import UIKit
 class MCQcategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var SurgicalCategoryPicker: UIPickerView!
+    @IBOutlet weak var AnatomicalRegionPicker: UIPickerView!
     var SurgicalCategoryOptions = ["Trauma", "Tumour", "Deformity", "Disease", "Infection", "Degenerative", "Pediatric", "Adult", "Random"]
-    
+    var AnatomicalRegionOptions = ["Lumbar", "Cervical", "Thoracic", "Sacral"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Connect data:
         self.SurgicalCategoryPicker.delegate = self
         self.SurgicalCategoryPicker.dataSource = self
+        
+        self.AnatomicalRegionPicker.delegate = self
+        self.AnatomicalRegionPicker.dataSource = self
         
         // Input data into the Array:
         
@@ -36,12 +41,26 @@ class MCQcategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SurgicalCategoryOptions.count
+        
+        if pickerView == SurgicalCategoryPicker {
+            return SurgicalCategoryOptions.count
+
+        } else   {
+            return AnatomicalRegionOptions.count
+
+        }
     }
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return SurgicalCategoryOptions[row]
+        
+        if pickerView == SurgicalCategoryPicker {
+            return SurgicalCategoryOptions[row]
+
+        } else   {
+            return AnatomicalRegionOptions[row]
+
+        }
     }
     
 }
