@@ -26,7 +26,8 @@ class MCQdynamicVC: UIViewController {
     
     var Questions = [[String]]()
     
-    var i = 1
+    var i:Int = 0
+    
     @IBAction func SelectNextButton(_ sender: Any) {
         OptionAField.isEnabled = true
         OptionBField.isEnabled = true
@@ -44,30 +45,31 @@ class MCQdynamicVC: UIViewController {
             OptionCField.setTitle(Questions[i][3], for: .normal)
             OptionDField.setTitle(Questions[i][4], for: .normal)
 
-            i += 1
+            i = Int(arc4random_uniform(UInt32(Questions.count-1)))
+            
         }
         
     }
     @IBAction func SelectOptionA(_ sender: Any) {
-        if Questions[i-1][5] != "A"{
+        if Questions[i][5] != "A"{
             OptionAField.setTitleColor(UIColor .red, for: UIControlState.normal)
         }
         ShowCorrectAnswer()
     }
     @IBAction func SelectOptionB(_ sender: Any) {
-        if Questions[i-1][5] != "B"{
+        if Questions[i][5] != "B"{
             OptionBField.setTitleColor(UIColor .red, for: UIControlState.normal)
         }
         ShowCorrectAnswer()
     }
     @IBAction func SelectOptionC(_ sender: Any) {
-        if Questions[i-1][5] != "C"{
+        if Questions[i][5] != "C"{
             OptionCField.setTitleColor(UIColor .red, for: UIControlState.normal)
         }
         ShowCorrectAnswer()
     }
     @IBAction func SelectOptionD(_ sender: Any) {
-        if Questions[i-1][5] != "D"{
+        if Questions[i][5] != "D"{
             OptionDField.setTitleColor(UIColor .red, for: UIControlState.normal)
         }
         ShowCorrectAnswer()
@@ -103,11 +105,13 @@ class MCQdynamicVC: UIViewController {
         Questions.append(question3)
         Questions.append(question4)
         
-        questionField.text = question1[0]
-        OptionAField.setTitle(question1[1], for: .normal)
-        OptionBField.setTitle(question1[2], for: .normal)
-        OptionCField.setTitle(question1[3], for: .normal)
-        OptionDField.setTitle(question1[4], for: .normal)
+        i = Int(arc4random_uniform(UInt32(Questions.count-1)))
+        
+        questionField.text = Questions[i][0]
+        OptionAField.setTitle(Questions[i][1], for: .normal)
+        OptionBField.setTitle(Questions[i][2], for: .normal)
+        OptionCField.setTitle(Questions[i][3], for: .normal)
+        OptionDField.setTitle(Questions[i][4], for: .normal)
 
     }
     
