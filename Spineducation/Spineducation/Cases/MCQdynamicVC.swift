@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MCQdynamicVC: UIViewController {
+class MCQdynamicVC: UIViewController, FetchRandomMcqDelegate{
+   
+    var multiplechoicequestions = [mcq]()
+
+    var randomMcq = FetchRandomMcq()
 
     @IBOutlet weak var questionField: UITextView!
    
@@ -18,117 +22,126 @@ class MCQdynamicVC: UIViewController {
     @IBOutlet weak var OptionDField: UIButton!
     
     @IBOutlet weak var NextButton: UIButton!
-    
-    var question1:[String] = ["Deficits in pain and temperature sensation in cape like distribution over back and neck – light touch and vibration preserved.  Asymetric abdominal reflexes, hyperactive lower limb reflexes. What is the diagnosis?", "Syringobulbia", "Syringomyelia", "Diastematomyelia", "Dysraphism",  "B"]
-    var question2:[String] = ["Congenital spinal stenosis occurs when the Torg-Pavlov ratio is less than ", "0.6", "0.8", "1", "1.2",  "B"]
-    var question3:[String] = ["Following herniation of a lumbar disc", "the greatest amount of resorption occurs with sequestered discs.", "the greatest amount of resorption occurs after minor protrusions.", "the greatest amount of resorption occurs after disc extrusion.", "Resorption is similar across all types of disc herniations.",  "A"]
-    var question4:[String] = ["Radiculopathy from residual adolescent idiopathic scoliosis typically occurs ", "from the concavity of the fractional curve below the main structural curve", "from the concavity of the main structural curve", "from the concavity of the lowest nonstructural curve", "from the convexity of the lumbar curve",  "A"]
-    
-    var Questions = [[String]]()
-    
+
     var i:Int = 0
-    
-    @IBAction func SelectNextButton(_ sender: Any) {
-        OptionAField.isEnabled = true
-        OptionBField.isEnabled = true
-        OptionCField.isEnabled = true
-        OptionDField.isEnabled = true
-        OptionAField.setTitleColor(UIColor .black, for: UIControlState.normal)
-        OptionBField.setTitleColor(UIColor .black, for: UIControlState.normal)
-        OptionCField.setTitleColor(UIColor .black, for: UIControlState.normal)
-        OptionDField.setTitleColor(UIColor .black, for: UIControlState.normal)
-
-        if i<Questions.count{
-            questionField.text = Questions[i][0]
-            OptionAField.setTitle(Questions[i][1], for: .normal)
-            OptionBField.setTitle(Questions[i][2], for: .normal)
-            OptionCField.setTitle(Questions[i][3], for: .normal)
-            OptionDField.setTitle(Questions[i][4], for: .normal)
-
-            i = Int(arc4random_uniform(UInt32(Questions.count-1)))
-            
-        }
-        
-    }
-    @IBAction func SelectOptionA(_ sender: Any) {
-        if Questions[i][5] != "A"{
-            OptionAField.setTitleColor(UIColor .red, for: UIControlState.normal)
-        }
-        ShowCorrectAnswer()
-    }
-    @IBAction func SelectOptionB(_ sender: Any) {
-        if Questions[i][5] != "B"{
-            OptionBField.setTitleColor(UIColor .red, for: UIControlState.normal)
-        }
-        ShowCorrectAnswer()
-    }
-    @IBAction func SelectOptionC(_ sender: Any) {
-        if Questions[i][5] != "C"{
-            OptionCField.setTitleColor(UIColor .red, for: UIControlState.normal)
-        }
-        ShowCorrectAnswer()
-    }
-    @IBAction func SelectOptionD(_ sender: Any) {
-        if Questions[i][5] != "D"{
-            OptionDField.setTitleColor(UIColor .red, for: UIControlState.normal)
-        }
-        ShowCorrectAnswer()
-    }
-    
-    func ShowCorrectAnswer(){
-        OptionAField.isEnabled = false
-        OptionBField.isEnabled = false
-        OptionCField.isEnabled = false
-        OptionDField.isEnabled = false
-        if Questions[i][5] == "A"{
-            OptionAField.setTitleColor(UIColor .green, for: UIControlState.normal)
-        }
-        if Questions[i][5] == "B"{
-            OptionBField.setTitleColor(UIColor .green, for: UIControlState.normal)
-        }
-        if Questions[i][5] == "C"{
-            OptionCField.setTitleColor(UIColor .green, for: UIControlState.normal)
-        }
-        if Questions[i][5] == "D"{
-            OptionDField.setTitleColor(UIColor .green, for: UIControlState.normal)
-        }
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        Questions.append(question1)
-        Questions.append(question2)
-        Questions.append(question3)
-        Questions.append(question4)
-        
-        i = Int(arc4random_uniform(UInt32(Questions.count-1)))
-        
-        questionField.text = Questions[i][0]
-        OptionAField.setTitle(Questions[i][1], for: .normal)
-        OptionBField.setTitle(Questions[i][2], for: .normal)
-        OptionCField.setTitle(Questions[i][3], for: .normal)
-        OptionDField.setTitle(Questions[i][4], for: .normal)
-
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func DisplayMCQ(){
+        print("Entered DisplayMCQ")
+        
+        print("my count issiisisis: ")
+        print(multiplechoicequestions.count)
 
-    /*
-    // MARK: - Navigation
+        OptionAField.isEnabled = true
+        OptionBField.isEnabled = true
+        OptionCField.isEnabled = true
+        OptionDField.isEnabled = true
+        
+        OptionAField.setTitleColor(UIColor .black, for: UIControlState.normal)
+        OptionBField.setTitleColor(UIColor .black, for: UIControlState.normal)
+        OptionCField.setTitleColor(UIColor .black, for: UIControlState.normal)
+        OptionDField.setTitleColor(UIColor .black, for: UIControlState.normal)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        i = Int(arc4random_uniform(UInt32(multiplechoicequestions.count)))
+
+        questionField.text = multiplechoicequestions[i].Question
+        OptionAField.setTitle(multiplechoicequestions[i].OptionA, for: .normal)
+        OptionBField.setTitle(multiplechoicequestions[i].OptionB, for: .normal)
+        OptionCField.setTitle(multiplechoicequestions[i].OptionC, for: .normal)
+        OptionDField.setTitle(multiplechoicequestions[i].OptionD, for: .normal)
+        
     }
-    */
+    
+    func itemsDownloaded(mcqs mcquestions: [mcq]) {
+        print("Entered itemsDownloaded")
+        print(mcquestions.count)
+
+        self.multiplechoicequestions = mcquestions
+
+        DispatchQueue.main.async {
+            self.DisplayMCQ()
+        }
+    }
+    
+    @IBAction func SelectNextButton(_ sender: Any) {
+        print("Entered SelectNextButton")
+
+        DisplayMCQ()
+        
+    }
+    
+    @IBAction func SelectOptionA(_ sender: Any) {
+        print("Entered SelectOptionA")
+
+        if multiplechoicequestions[i].AnswerA != true{
+            OptionAField.setTitleColor(UIColor .red, for: UIControlState.normal)
+        }
+        ShowCorrectAnswer()
+    }
+    @IBAction func SelectOptionB(_ sender: Any) {
+        print("Entered SelectOptionB")
+
+        if multiplechoicequestions[i].AnswerB != true{
+            OptionBField.setTitleColor(UIColor .red, for: UIControlState.normal)
+        }
+        ShowCorrectAnswer()
+    }
+    @IBAction func SelectOptionC(_ sender: Any) {
+        print("Entered SelectOptionC")
+
+        if multiplechoicequestions[i].AnswerC != true{
+            OptionCField.setTitleColor(UIColor .red, for: UIControlState.normal)
+        }
+        ShowCorrectAnswer()
+    }
+    @IBAction func SelectOptionD(_ sender: Any) {
+        print("Entered SelectOptionD")
+
+        if multiplechoicequestions[i].AnswerD != true{
+            OptionDField.setTitleColor(UIColor .red, for: UIControlState.normal)
+        }
+        ShowCorrectAnswer()
+    }
+    
+    func ShowCorrectAnswer(){
+        print("Entered ShowCorrectAnswer")
+
+        OptionAField.isEnabled = false
+        OptionBField.isEnabled = false
+        OptionCField.isEnabled = false
+        OptionDField.isEnabled = false
+        if multiplechoicequestions[i].AnswerA == true{
+            OptionAField.setTitleColor(UIColor .green, for: UIControlState.normal)
+        }
+        if multiplechoicequestions[i].AnswerB == true{
+            OptionBField.setTitleColor(UIColor .green, for: UIControlState.normal)
+        }
+        if multiplechoicequestions[i].AnswerC == true{
+            OptionCField.setTitleColor(UIColor .green, for: UIControlState.normal)
+        }
+        if multiplechoicequestions[i].AnswerD == true{
+            OptionDField.setTitleColor(UIColor .green, for: UIControlState.normal)
+        }
+        
+    }
+
+    override func viewDidLoad() {
+        print("Entered viewDidLoad")
+
+        super.viewDidLoad()
+        
+        // initiate calling the items download
+        randomMcq.getItems()
+        
+        // this view controller is conforming to the protocol so it must set itself as the delegate property of the home model
+        randomMcq.delegate = self
+        
+        //DisplayMCQ()
+
+    }
 
 }

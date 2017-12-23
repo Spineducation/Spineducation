@@ -1,0 +1,43 @@
+
+[
+ {
+ "CASE_NAME":"case zero",
+ "SURGICAL_CATG":null,
+ "ANATOMICAL_REGION":null
+ },
+ {
+ "CASE_NAME":"Case one",
+ "SURGICAL_CATG":"temporary surgical category",
+ "ANATOMICAL_REGION":"temp anatomical region"
+ },
+ {
+ "CASE_NAME":"Case two",
+ "SURGICAL_CATG":"temporary2",
+ "ANATOMICAL_REGION":"temp2"
+ },
+ {
+ "CASE_NAME":"Case three",
+ "SURGICAL_CATG":"temporary3",
+ "ANATOMICAL_REGION":"temp3"
+ },
+ {
+ "CASE_NAME":"Case four",
+ "SURGICAL_CATG":"temporary4",
+ "ANATOMICAL_REGION":"temp4"
+ },
+ {
+ "CASE_NAME":"case test",
+ "SURGICAL_CATG":"temporasry5",
+ "ANATOMICAL_REGION":"temp5"
+ },
+ {
+ "CASE_NAME":"GH",
+ "SURGICAL_CATG":null,
+ "ANATOMICAL_REGION":"TEMP7"
+ },
+ {
+ "CASE_NAME":"",
+ "SURGICAL_CATG":"temporary6",
+ "ANATOMICAL_REGION":"temp6"
+ }
+ ]

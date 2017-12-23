@@ -19,6 +19,9 @@
 		55FD35A01FD8F03C002ADEFA /* bullseye.png in Resources */ = {isa = PBXBuildFile; fileRef = 55FD359F1FD8F03B002ADEFA /* bullseye.png */; };
 		7DCDDB671FD9C83C00266C84 /* bullseye.dae in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDDB661FD9C83C00266C84 /* bullseye.dae */; };
 		7DFE97FE1FDDC02300C41259 /* bullseye_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE97FD1FDDC02200C41259 /* bullseye_black.png */; };
+		A40B3CBE1FE6FC7400B6B2CC /* FetchRandomMcq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */; };
+		A40B3CC01FE795B700B6B2CC /* CasesExample.json in Resources */ = {isa = PBXBuildFile; fileRef = A40B3CBF1FE795B700B6B2CC /* CasesExample.json */; };
+		A40B3CC21FE7960F00B6B2CC /* MCQExample.json in Resources */ = {isa = PBXBuildFile; fileRef = A40B3CC11FE7960F00B6B2CC /* MCQExample.json */; };
 		A40D06141FD6FF5700A865E6 /* MCQcategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40D06121FD6FF5600A865E6 /* MCQcategoriesVC.swift */; };
 		A40D06151FD6FF5700A865E6 /* MCQdynamicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40D06131FD6FF5700A865E6 /* MCQdynamicVC.swift */; };
 		A40D06171FD71AF800A865E6 /* icons8-user.png in Resources */ = {isa = PBXBuildFile; fileRef = A40D06161FD71AF700A865E6 /* icons8-user.png */; };
@@ -76,6 +79,9 @@
 		55FD359F1FD8F03B002ADEFA /* bullseye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullseye.png; sourceTree = "<group>"; };
 		7DCDDB661FD9C83C00266C84 /* bullseye.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = bullseye.dae; path = art.scnassets/bullseye.dae; sourceTree = "<group>"; };
 		7DFE97FD1FDDC02200C41259 /* bullseye_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullseye_black.png; sourceTree = SOURCE_ROOT; };
+		A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRandomMcq.swift; sourceTree = "<group>"; };
+		A40B3CBF1FE795B700B6B2CC /* CasesExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CasesExample.json; sourceTree = "<group>"; };
+		A40B3CC11FE7960F00B6B2CC /* MCQExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MCQExample.json; sourceTree = "<group>"; };
 		A40D06121FD6FF5600A865E6 /* MCQcategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCQcategoriesVC.swift; sourceTree = "<group>"; };
 		A40D06131FD6FF5700A865E6 /* MCQdynamicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCQdynamicVC.swift; sourceTree = "<group>"; };
 		A40D06161FD71AF700A865E6 /* icons8-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-user.png"; sourceTree = "<group>"; };
@@ -200,6 +206,8 @@
 			children = (
 				A40D06121FD6FF5600A865E6 /* MCQcategoriesVC.swift */,
 				A40D06131FD6FF5700A865E6 /* MCQdynamicVC.swift */,
+				A40B3CBF1FE795B700B6B2CC /* CasesExample.json */,
+				A40B3CC11FE7960F00B6B2CC /* MCQExample.json */,
 				A49D14CB1FB61B2C000485E4 /* mcq.swift */,
 				A49D14CC1FB61B2C000485E4 /* Prompt.swift */,
 				A4A525A71FAF6ACE0078B56F /* CasesVC.swift */,
@@ -209,6 +217,7 @@
 				DC24C29D1FD4F3720074A499 /* MCQExampleVC.swift */,
 				DC24C29F1FD4F91A0074A499 /* SpinnerPageVC.swift */,
 				DC24C2A11FD4FBA70074A499 /* spinnerPV.swift */,
+				A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -332,6 +341,7 @@
 				A40D06221FD76F6700A865E6 /* icons8-shuffle_filled.png in Resources */,
 				A40D06171FD71AF800A865E6 /* icons8-user.png in Resources */,
 				DC61CBF31FBA46EC002B2DBA /* spine cool.jpg in Resources */,
+				A40B3CC21FE7960F00B6B2CC /* MCQExample.json in Resources */,
 				55C44B461F87E86F002D5B24 /* art.scnassets in Resources */,
 				A40D061B1FD71D1C00A865E6 /* icons8-more_filled.png in Resources */,
 				55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */,
@@ -339,6 +349,7 @@
 				A40D061C1FD71D1C00A865E6 /* icons8-screenshot.png in Resources */,
 				7DCDDB671FD9C83C00266C84 /* bullseye.dae in Resources */,
 				7DFE97FE1FDDC02300C41259 /* bullseye_black.png in Resources */,
+				A40B3CC01FE795B700B6B2CC /* CasesExample.json in Resources */,
 				A40D061D1FD71D1C00A865E6 /* icons8-edit_property_filled.png in Resources */,
 				55C44B4B1F87E86F002D5B24 /* Main.storyboard in Resources */,
 				A40D061F1FD71D3E00A865E6 /* icons8-edit_property.png in Resources */,
@@ -377,6 +388,7 @@
 				A49D14CE1FB61B2C000485E4 /* Prompt.swift in Sources */,
 				A40D06141FD6FF5700A865E6 /* MCQcategoriesVC.swift in Sources */,
 				558FB9391FDF894500D39CD3 /* String.swift in Sources */,
+				A40B3CBE1FE6FC7400B6B2CC /* FetchRandomMcq.swift in Sources */,
 				DC24C29E1FD4F3720074A499 /* MCQExampleVC.swift in Sources */,
 				A4A525A81FAF6ACE0078B56F /* CasesVC.swift in Sources */,
 				A40D06151FD6FF5700A865E6 /* MCQdynamicVC.swift in Sources */,

@@ -1,52 +1,53 @@
 //
-//  HomeModel.swift
+//  FetchRandomMcq.swift
 //  Spineducation
 //
-//  Created by Randa Mohsen on 2017-10-15.
-//  Copyright © 2017 Spineducation. All rights reserved.
+//  Created by Randa Mohsen on 2017-12-17.
+//  Copyright © 2017 Katrine Rachitsky. All rights reserved.
 //
+
 
 import UIKit
 
 // if the view controller is going to conform to this protocol, then it must implement this function
-protocol HomeModelDelegate {
+protocol FetchRandomMcqDelegate {
     
     // pass back an array of MedicalCases
-    func itemsDownloaded(medicalCase:[MedicalCase])
+    func itemsDownloaded(mcqs:[mcq])
     
 }
 
-class HomeModel: NSObject {
+class FetchRandomMcq: NSObject{
     
     // a way to contact the view controller when it's finished downloading
-    var delegate:HomeModelDelegate?
+    var delegate:FetchRandomMcqDelegate?
     
     // this is the function the view controller with call
     func getItems() {
         print("entered function getItems")
-
         // identify the webservice url
-        let serviceUrl = "http://35.182.157.200/info.php"
+        let serviceUrl = "http://35.182.157.200/tryme.php"
         
         //download the JSON data
         let url = URL(string: serviceUrl)
         
         if let url = url {
             // url object is not nil
-            
+
             // creste URL session
             let session = URLSession(configuration: .default)
             
             // create data task
             let task = session.dataTask(with: url, completionHandler:
             { (data, response, error) in
+                
                 print("checkpoint")
-
+                
                 if error == nil {
                     print("no error, callng function parseJson")
 
                     // succeeded
-                    // call the function, also in HomeModel.swift, to parse the data separately
+                    // call the function to parse the data separately
                     self.parseJson(data!)
                 } else {
                     print("RANDA ERROR: COULDN'T CREATE DATA TASK")
@@ -55,17 +56,20 @@ class HomeModel: NSObject {
             
             //start the task
             task.resume()
+        } else {
+            print("RANDA ERROR: PROBLEM WITH URL")
+            
         }
         // notify the view controller and pass the data back
         
     }
     
-    // function called by getItems(), also in HomeModel.swift
+    // function called by getItems()
     func parseJson(_ data:Data) {
         print("entered function parseJson")
-
+        
         // empty array that will store objects of type MedicalCase
-        var caseArray = [MedicalCase]()
+        var McqArray = [mcq]()
         
         //parse data out into the MedicalCase structs
         
@@ -77,19 +81,40 @@ class HomeModel: NSObject {
             // loop through each result in the json array
             for jsonResult in jsonArray {
                 print("found another json value")
-
                 // cast json result as a dictionary where all of the keys are strings, and all of their values are strings
-                let jsonCase = jsonResult as! [String:String]
+                let jsonMCQ = jsonResult as! [String:String]
                 
-                // create new local medical case and set it's properties
-                let medicalCase = MedicalCase(Name: jsonCase["CASE_NAME"]!, SurgicalCategory: jsonCase["SURGICAL_CATG"]!, AnatomicalRegion: jsonCase["ANATOMICAL_REGION"]!)
+                var ansA = false
+                var ansB = false
+                var ansC = false
+                var ansD = false
+
+                if jsonMCQ["OPTION_A_TRUE"]?.lowercased() == "true"
+                {
+                    ansA = true
+                }
+                if jsonMCQ["OPTION_B_TRUE"]?.lowercased() == "true"
+                {
+                    ansB = true
+                }
+                if jsonMCQ["OPTION_C_TRUE"]?.lowercased() == "true"
+                {
+                    ansC = true
+                }
+                if jsonMCQ["OPTION_D_TRUE"]?.lowercased() == "true"
+                {
+                    ansD = true
+                }
+                
+                // create new multiple choice question and set it's properties
+                let mcquestion = mcq(Question: jsonMCQ["QUESTION"]!, OptionA: jsonMCQ["OPTION_A"]!, AnswerA: ansA, OptionB: jsonMCQ["OPTION_B"]!, AnswerB: ansB, OptionC: jsonMCQ["OPTION_C"]!, AnswerC: ansC, OptionD: jsonMCQ["OPTION_D"]!, AnswerD: ansD, FutherDetail: "", SurgicalCategory: jsonMCQ["SURGICAL_CATG"]!, AnatomicalRegion: jsonMCQ["ANATC_REGION_ID"]!)
                 
                 // add it to the array
-                caseArray.append(medicalCase)
+                McqArray.append(mcquestion)
             }
             
             // Pass the array back to delegate (the view controller)
-            delegate?.itemsDownloaded(medicalCase: caseArray)
+            delegate?.itemsDownloaded(mcqs: McqArray)
             
         }
         catch {
@@ -98,4 +123,3 @@ class HomeModel: NSObject {
     }
     
 }
-
