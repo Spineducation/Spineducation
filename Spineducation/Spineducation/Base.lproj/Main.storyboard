@@ -665,14 +665,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QI-x9-ym1">
-                                <rect key="frame" x="187" y="619" width="41" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icons8-shuffle_filled.png"/>
-                                <connections>
-                                    <segue destination="vJu-K4-8Zb" kind="show" id="Je1-Ih-Hjl"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-4D-7OM">
                                 <rect key="frame" x="0.0" y="380" width="414" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -680,6 +672,14 @@
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-mK-da9">
                                 <rect key="frame" x="0.0" y="132" width="414" height="220"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QI-x9-ym1">
+                                <rect key="frame" x="187" y="356" width="41" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icons8-shuffle_filled.png"/>
+                                <connections>
+                                    <segue destination="vJu-K4-8Zb" kind="show" id="Je1-Ih-Hjl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -862,7 +862,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YRa-cP-Akt"/>
-        <segue reference="tBI-5J-vDo"/>
+        <segue reference="Je1-Ih-Hjl"/>
         <segue reference="ItN-yi-NWh"/>
         <segue reference="Aid-At-K81"/>
         <segue reference="0Fi-We-gRZ"/>
