@@ -9,10 +9,10 @@
 import Foundation
 
 struct MedicalCase {
-    let Name:String
+    var Name = "initialname"
 //    let Prompts:[Prompt]
-    let SurgicalCategory:String
-    let AnatomicalRegion:String
+    var SurgicalCategory = "initialsurgicalcategory"
+    var AnatomicalRegion = "initialanatomicalregion"
     
     func Describe(){
         print(Name)
@@ -23,4 +23,11 @@ struct MedicalCase {
 //            element.Describe()
 //        }
     }
+    
+//    enum CodingKeys : String, CodingKey {
+//        case name
+//        case abv = "alcohol_by_volume"
+//        case brewery = "brewery_name"
+//        case style
+//    }
 }

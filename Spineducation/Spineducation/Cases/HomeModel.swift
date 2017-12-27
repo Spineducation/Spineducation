@@ -23,7 +23,7 @@ class HomeModel: NSObject {
     
     // this is the function the view controller with call
     func getItems() {
-        print("entered function getItems")
+//        print("entered function getItems")
 
         // identify the webservice url
         let serviceUrl = "http://35.182.157.200/info.php"
@@ -62,7 +62,7 @@ class HomeModel: NSObject {
     
     // function called by getItems(), also in HomeModel.swift
     func parseJson(_ data:Data) {
-        print("entered function parseJson")
+//        print("entered function parseJson")
 
         // empty array that will store objects of type MedicalCase
         var caseArray = [MedicalCase]()
@@ -76,7 +76,7 @@ class HomeModel: NSObject {
             
             // loop through each result in the json array
             for jsonResult in jsonArray {
-                print("found another json value")
+//                print("found another json value")
 
                 // cast json result as a dictionary where all of the keys are strings, and all of their values are strings
                 let jsonCase = jsonResult as! [String:String]

@@ -24,7 +24,7 @@ class FetchRandomMcq: NSObject{
     
     // this is the function the view controller with call
     func getItems() {
-        print("entered function getItems")
+//        print("entered function getItems")
         // identify the webservice url
         let serviceUrl = "http://35.182.157.200/tryme.php"
         
@@ -66,7 +66,7 @@ class FetchRandomMcq: NSObject{
     
     // function called by getItems()
     func parseJson(_ data:Data) {
-        print("entered function parseJson")
+//        print("entered function parseJson")
         
         // empty array that will store objects of type MedicalCase
         var McqArray = [mcq]()
@@ -80,7 +80,7 @@ class FetchRandomMcq: NSObject{
             
             // loop through each result in the json array
             for jsonResult in jsonArray {
-                print("found another json value")
+//                print("found another json value")
                 // cast json result as a dictionary where all of the keys are strings, and all of their values are strings
                 let jsonMCQ = jsonResult as! [String:String]
                 
@@ -107,7 +107,7 @@ class FetchRandomMcq: NSObject{
                 }
                 
                 // create new multiple choice question and set it's properties
-                let mcquestion = mcq(Question: jsonMCQ["QUESTION"]!, OptionA: jsonMCQ["OPTION_A"]!, AnswerA: ansA, OptionB: jsonMCQ["OPTION_B"]!, AnswerB: ansB, OptionC: jsonMCQ["OPTION_C"]!, AnswerC: ansC, OptionD: jsonMCQ["OPTION_D"]!, AnswerD: ansD, FutherDetail: "", SurgicalCategory: jsonMCQ["SURGICAL_CATG"]!, AnatomicalRegion: jsonMCQ["ANATC_REGION_ID"]!)
+                let mcquestion = mcq(Question: jsonMCQ["QUESTION"]!, OptionA: jsonMCQ["OPTION_A"]!, AnswerA: ansA, OptionB: jsonMCQ["OPTION_B"]!, AnswerB: ansB, OptionC: jsonMCQ["OPTION_C"]!, AnswerC: ansC, OptionD: jsonMCQ["OPTION_D"]!, AnswerD: ansD, FutherDetail: "", SurgicalCategories: jsonMCQ["SURGICAL_CATG"]!, SurgicalCategories_list: [0], AnatomicalRegions: jsonMCQ["ANATC_REGION_ID"]!, AnatomicalRegions_list: [0])
                 
                 // add it to the array
                 McqArray.append(mcquestion)
