@@ -67,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="-1739.1304347826087" y="1413.5869565217392"/>
         </scene>
-        <!--AR-->
+        <!--GAME-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="BV1-FR-VrT" customClass="ViewController" customModule="Spineducation" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,7 +75,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </arscnView>
-                    <tabBarItem key="tabBarItem" title="AR" image="icons8-screenshot.png" id="Nz3-WE-6UB"/>
+                    <tabBarItem key="tabBarItem" title="GAME" image="icons8-screenshot.png" id="Nz3-WE-6UB"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="kb5-Uy-GC6">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Zps-qb-9rd">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="HDu-V2-gct">
@@ -176,11 +176,11 @@
             </objects>
             <point key="canvasLocation" x="-875" y="-387"/>
         </scene>
-        <!--CASES-->
+        <!--STUDY-->
         <scene sceneID="dJ0-hH-2nJ">
             <objects>
                 <navigationController id="R8B-Dx-YIA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CASES" image="icons8-edit_property.png" id="mrg-1K-YmP"/>
+                    <tabBarItem key="tabBarItem" title="STUDY" image="icons8-edit_property.png" id="mrg-1K-YmP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="ZKQ-LN-yOW">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -353,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7N-G8-Die" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="-1914"/>
+            <point key="canvasLocation" x="1731.8840579710147" y="-1914.1304347826087"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Wb4-Vg-XKt">
@@ -714,9 +714,10 @@
                                     <action selector="SelectNextButton:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="eHH-ZX-4ea"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="asd-kI-wHz">
-                                <rect key="frame" x="20" y="267" width="394" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="asd-kI-wHz">
+                                <rect key="frame" x="20" y="267" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.84989612306337903" green="0.84989612306337903" blue="0.84989612306337903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Option A">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -724,9 +725,10 @@
                                     <action selector="SelectOptionA:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="xim-O8-AqE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZOC-jY-2B6">
-                                <rect key="frame" x="20" y="450" width="394" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZOC-jY-2B6">
+                                <rect key="frame" x="20" y="450" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Option C">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -735,15 +737,16 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="This is the question:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kVg-Wq-pmE">
-                                <rect key="frame" x="20" y="83" width="394" height="128"/>
+                                <rect key="frame" x="0.0" y="83" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.67074884930000001" green="0.88058080969999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="43s-fM-t4Y">
-                                <rect key="frame" x="20" y="353" width="394" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="43s-fM-t4Y">
+                                <rect key="frame" x="20" y="353" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Option B">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -751,9 +754,10 @@
                                     <action selector="SelectOptionB:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="5jl-1v-EQG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="m4h-yQ-eRP">
-                                <rect key="frame" x="20" y="539" width="394" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="m4h-yQ-eRP">
+                                <rect key="frame" x="20" y="539" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Option D">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -775,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTJ-BY-f3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="15"/>
+            <point key="canvasLocation" x="986.95652173913049" y="14.673913043478262"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zp3-VQ-C5P">
