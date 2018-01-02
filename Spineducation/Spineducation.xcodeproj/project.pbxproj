@@ -38,7 +38,7 @@
 		A4A525A81FAF6ACE0078B56F /* CasesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525A71FAF6ACE0078B56F /* CasesVC.swift */; };
 		A4A525AA1FAF6B020078B56F /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525A91FAF6B020078B56F /* HomeModel.swift */; };
 		A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AB1FAF6B340078B56F /* MedicalCase.swift */; };
-		A4A525AE1FAF6B570078B56F /* CasesMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AD1FAF6B570078B56F /* CasesMainPage.swift */; };
+		A4A525AE1FAF6B570078B56F /* StudyMainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AD1FAF6B570078B56F /* StudyMainPageVC.swift */; };
 		A4A525B01FAF6B760078B56F /* CaseDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */; };
 		A4AF4CEF1FFAD77A00E727DD /* CaseImageViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF4CEE1FFAD77A00E727DD /* CaseImageViewerVC.swift */; };
 		DC24C29E1FD4F3720074A499 /* MCQExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24C29D1FD4F3720074A499 /* MCQExampleVC.swift */; };
@@ -102,7 +102,7 @@
 		A4A525A71FAF6ACE0078B56F /* CasesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesVC.swift; sourceTree = "<group>"; };
 		A4A525A91FAF6B020078B56F /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		A4A525AB1FAF6B340078B56F /* MedicalCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalCase.swift; sourceTree = "<group>"; };
-		A4A525AD1FAF6B570078B56F /* CasesMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesMainPage.swift; sourceTree = "<group>"; };
+		A4A525AD1FAF6B570078B56F /* StudyMainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyMainPageVC.swift; sourceTree = "<group>"; };
 		A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataVC.swift; sourceTree = "<group>"; };
 		A4AF4CEE1FFAD77A00E727DD /* CaseImageViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseImageViewerVC.swift; sourceTree = "<group>"; };
 		DC24C29D1FD4F3720074A499 /* MCQExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCQExampleVC.swift; sourceTree = "<group>"; };
@@ -139,10 +139,10 @@
 		55C44B371F87E86F002D5B24 = {
 			isa = PBXGroup;
 			children = (
+				55C44B411F87E86F002D5B24 /* Products */,
 				55C44B421F87E86F002D5B24 /* Spineducation */,
 				55C44B591F87E870002D5B24 /* SpineducationTests */,
 				55C44B641F87E870002D5B24 /* SpineducationUITests */,
-				55C44B411F87E86F002D5B24 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,7 +216,7 @@
 				A4A525AF1FAF6B760078B56F /* CaseDataVC.swift */,
 				A4AF4CEE1FFAD77A00E727DD /* CaseImageViewerVC.swift */,
 				A40B3CBF1FE795B700B6B2CC /* CasesExample.json */,
-				A4A525AD1FAF6B570078B56F /* CasesMainPage.swift */,
+				A4A525AD1FAF6B570078B56F /* StudyMainPageVC.swift */,
 				A4A525A71FAF6ACE0078B56F /* CasesVC.swift */,
 				A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */,
 				A434298C1FF2D15500E0BF49 /* HardCodingCases.swift */,
@@ -394,7 +394,7 @@
 				A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */,
 				A4A525AA1FAF6B020078B56F /* HomeModel.swift in Sources */,
 				DC24C2A01FD4F91A0074A499 /* SpinnerPageVC.swift in Sources */,
-				A4A525AE1FAF6B570078B56F /* CasesMainPage.swift in Sources */,
+				A4A525AE1FAF6B570078B56F /* StudyMainPageVC.swift in Sources */,
 				A4A525B01FAF6B760078B56F /* CaseDataVC.swift in Sources */,
 				A4AF4CEF1FFAD77A00E727DD /* CaseImageViewerVC.swift in Sources */,
 				55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */,

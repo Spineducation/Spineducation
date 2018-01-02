@@ -15,9 +15,18 @@ class CaseDataVC: UIViewController {
     
     var caseDataToDisplay:MedicalCase?
     
+    @IBOutlet weak var HistoryView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // Label1.text = "testingLabel"
+        
+//        let gradient = CAGradientLayer()
+//        
+//        gradient.frame = view.bounds
+//        gradient.colors = [UIColor.lightGray.cgColor, UIColor.white.cgColor]
+//        
+//        HistoryView.layer.insertSublayer(gradient, at: 0)
+
     }
     
     override func didReceiveMemoryWarning() {

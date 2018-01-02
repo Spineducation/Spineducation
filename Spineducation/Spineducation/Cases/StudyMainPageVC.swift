@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CasesMainPage: UIViewController {
+class StudyMainPageVC: UIViewController {
     
     var ArrayOfCases = [MedicalCase]()
     let object = HardCodingCases()
