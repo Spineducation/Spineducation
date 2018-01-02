@@ -12,8 +12,8 @@ class MCQcategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     @IBOutlet weak var SurgicalCategoryPicker: UIPickerView!
     @IBOutlet weak var AnatomicalRegionPicker: UIPickerView!
-    var SurgicalCategoryOptions = ["Trauma", "Tumour", "Deformity", "Disease", "Infection", "Degenerative", "Pediatric", "Adult", "Random"]
-    var AnatomicalRegionOptions = ["Lumbar", "Cervical", "Thoracic", "Sacral"]
+    var SurgicalCategoryOptions = ["All","Trauma", "Tumour", "Deformity", "Disease", "Infection", "Degenerative", "Pediatric", "Adult", "Random"]
+    var AnatomicalRegionOptions = ["All","Lumbar", "Cervical", "Thoracic", "Sacral"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

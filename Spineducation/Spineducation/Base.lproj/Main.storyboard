@@ -152,7 +152,7 @@
                                 <rect key="frame" x="0.0" y="176" width="414" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Cases"/>
+                                <state key="normal" title="Medical Cases"/>
                                 <connections>
                                     <segue destination="cRU-eI-fgp" kind="show" id="MIc-UQ-PNT"/>
                                 </connections>
@@ -161,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="253" width="414" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Random MCQ"/>
+                                <state key="normal" title="Speed Round"/>
                                 <connections>
                                     <segue destination="e9P-p2-Kkf" kind="show" id="hGc-Ig-dnD"/>
                                 </connections>
@@ -722,27 +722,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-4D-7OM">
-                                <rect key="frame" x="0.0" y="380" width="414" height="213"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-mK-da9">
-                                <rect key="frame" x="0.0" y="132" width="414" height="220"/>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QI-x9-ym1">
-                                <rect key="frame" x="187" y="356" width="41" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icons8-shuffle_filled.png"/>
-                                <connections>
-                                    <segue destination="vJu-K4-8Zb" kind="show" id="Je1-Ih-Hjl"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U0r-6U-etE">
+                                <rect key="frame" x="0.0" y="64" width="414" height="622.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Surgical Category:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH7-4W-T7k">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="26.333333333333332"/>
+                                        <color key="backgroundColor" red="0.67074884930000001" green="0.88058080969999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-mK-da9">
+                                        <rect key="frame" x="0.0" y="26.333333333333329" width="414" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="5eO-57-2Yn"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an Anatomical Region:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwJ-D8-pAy">
+                                        <rect key="frame" x="0.0" y="226.33333333333331" width="414" height="26.333333333333343"/>
+                                        <color key="backgroundColor" red="0.67074884930000001" green="0.88058080969999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-4D-7OM">
+                                        <rect key="frame" x="0.0" y="252.66666666666669" width="414" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="bSO-Wj-Jhu"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiE-Bp-Oxm">
+                                        <rect key="frame" x="0.0" y="452.66666666666663" width="414" height="170"/>
+                                        <state key="normal" title="Go"/>
+                                        <connections>
+                                            <segue destination="vJu-K4-8Zb" kind="show" id="3re-mk-oPE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6FF-mK-da9" firstAttribute="trailing" secondItem="OXD-h3-0cZ" secondAttribute="trailing" id="Cyh-YG-uf1"/>
-                            <constraint firstItem="6FF-mK-da9" firstAttribute="leading" secondItem="OXD-h3-0cZ" secondAttribute="leading" id="d2z-tu-W0k"/>
-                            <constraint firstItem="6FF-mK-da9" firstAttribute="top" secondItem="OXD-h3-0cZ" secondAttribute="top" id="zHy-Y3-V0d"/>
+                            <constraint firstItem="OXD-h3-0cZ" firstAttribute="bottom" secondItem="U0r-6U-etE" secondAttribute="bottom" id="3kH-pA-84I"/>
+                            <constraint firstItem="OXD-h3-0cZ" firstAttribute="trailing" secondItem="U0r-6U-etE" secondAttribute="trailing" id="J7D-uG-96L"/>
+                            <constraint firstItem="U0r-6U-etE" firstAttribute="leading" secondItem="OXD-h3-0cZ" secondAttribute="leading" id="QZb-e5-Fbp"/>
+                            <constraint firstItem="OXD-h3-0cZ" firstAttribute="bottom" secondItem="U0r-6U-etE" secondAttribute="bottom" id="aHu-MQ-Xri"/>
+                            <constraint firstItem="U0r-6U-etE" firstAttribute="top" secondItem="OXD-h3-0cZ" secondAttribute="top" id="r5S-8a-P9P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OXD-h3-0cZ"/>
                     </view>
@@ -758,7 +783,7 @@
         <!--QdynamicVC-->
         <scene sceneID="6wN-nA-s87">
             <objects>
-                <viewController id="vJu-K4-8Zb" customClass="MCQdynamicVC" customModule="Spineducation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="vJu-K4-8Zb" customClass="MCQdynamicVC" customModule="Spineducation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vdd-lT-NHA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -861,13 +886,12 @@
     <resources>
         <image name="icons8-edit_property.png" width="25" height="25"/>
         <image name="icons8-screenshot.png" width="25" height="25"/>
-        <image name="icons8-shuffle_filled.png" width="25" height="25"/>
         <image name="icons8-user.png" width="25" height="25"/>
         <image name="icons8-view-more white.png" width="50" height="50"/>
         <image name="spine cool.jpg" width="207" height="356"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="grw-GV-d3i"/>
+        <segue reference="3re-mk-oPE"/>
         <segue reference="ItN-yi-NWh"/>
         <segue reference="Aid-At-K81"/>
         <segue reference="Umc-hb-9Gz"/>
