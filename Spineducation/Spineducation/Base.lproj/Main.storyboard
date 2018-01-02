@@ -275,7 +275,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWw-bE-Slo">
                                 <rect key="frame" x="0.0" y="394" width="414" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Images"/>
+                                <state key="normal" title="CT Images"/>
                                 <connections>
                                     <segue destination="q46-M4-sEu" kind="show" id="Umc-hb-9Gz"/>
                                 </connections>
@@ -325,33 +325,33 @@
         <!--Case Image ViewerVC-->
         <scene sceneID="4ya-zM-iTH">
             <objects>
-                <viewController id="q46-M4-sEu" customClass="CaseImageViewerVC" customModule="Spineducation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="q46-M4-sEu" customClass="CaseImageViewerVC" customModule="Spineducation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="toI-QQ-C50">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asB-bZ-bYS">
-                                <rect key="frame" x="0.0" y="132" width="414" height="555"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asB-bZ-bYS">
+                                <rect key="frame" x="0.0" y="110" width="414" height="626"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="tBH-EI-9ca">
-                                <rect key="frame" x="0.0" y="94" width="399" height="30"/>
+                                <rect key="frame" x="0.0" y="72" width="407" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsO-Hw-BWH">
-                                        <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
-                                        <state key="normal" title="Axial"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="41" height="30"/>
+                                        <state key="normal" title="  Axial"/>
                                         <connections>
                                             <action selector="ClickedAxial:" destination="q46-M4-sEu" eventType="touchUpInside" id="aun-nL-hSG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbA-vO-xUO">
-                                        <rect key="frame" x="163" y="0.0" width="54" height="30"/>
+                                        <rect key="frame" x="171" y="0.0" width="54" height="30"/>
                                         <state key="normal" title="Coronal"/>
                                         <connections>
                                             <action selector="ClickedCoronal:" destination="q46-M4-sEu" eventType="touchUpInside" id="kHX-Ba-Ejy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IR-AR-wSS">
-                                        <rect key="frame" x="347" y="0.0" width="52" height="30"/>
+                                        <rect key="frame" x="355" y="0.0" width="52" height="30"/>
                                         <state key="normal" title="Sagittal"/>
                                         <connections>
                                             <action selector="ClickedSagittal:" destination="q46-M4-sEu" eventType="touchUpInside" id="ocm-fB-xu8"/>
@@ -362,7 +362,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="asB-bZ-bYS" firstAttribute="top" secondItem="toI-QQ-C50" secondAttribute="top" constant="132" id="5B9-So-LhC"/>
+                            <constraint firstItem="asB-bZ-bYS" firstAttribute="top" secondItem="toI-QQ-C50" secondAttribute="top" constant="110" id="5B9-So-LhC"/>
                             <constraint firstAttribute="trailing" secondItem="asB-bZ-bYS" secondAttribute="trailing" id="5Mj-Ma-Ser"/>
                             <constraint firstItem="asB-bZ-bYS" firstAttribute="leading" secondItem="toI-QQ-C50" secondAttribute="leading" id="YTV-VC-RsN"/>
                             <constraint firstItem="asB-bZ-bYS" firstAttribute="leading" secondItem="tBH-EI-9ca" secondAttribute="leading" id="bKL-9m-Nqt"/>
