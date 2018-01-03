@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e9P-p2-Kkf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TVf-JU-4lg">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -148,24 +148,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyX-7s-me8">
-                                <rect key="frame" x="0.0" y="176" width="414" height="77"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iF9-Fy-gOU">
+                                <rect key="frame" x="107.74418604651146" y="163" width="196" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyX-7s-me8">
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <state key="normal" title="Medical Cases"/>
+                                        <connections>
+                                            <segue destination="cRU-eI-fgp" kind="show" id="MIc-UQ-PNT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Syz-O1-zBb">
+                                <rect key="frame" x="116.67441860465078" y="343.76744186046517" width="180" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Medical Cases"/>
-                                <connections>
-                                    <segue destination="cRU-eI-fgp" kind="show" id="MIc-UQ-PNT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11F-mI-lcs">
-                                <rect key="frame" x="0.0" y="253" width="414" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Speed Round"/>
-                                <connections>
-                                    <segue destination="e9P-p2-Kkf" kind="show" id="hGc-Ig-dnD"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="center" semanticContentAttribute="spatial" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11F-mI-lcs">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <state key="normal" title="Speed Round"/>
+                                        <connections>
+                                            <segue destination="e9P-p2-Kkf" kind="show" id="hGc-Ig-dnD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="NqB-hh-sZg"/>
@@ -174,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JLQ-fp-FFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-875" y="-387"/>
+            <point key="canvasLocation" x="-875.36231884057975" y="-387.22826086956525"/>
         </scene>
         <!--STUDY-->
         <scene sceneID="dJ0-hH-2nJ">
@@ -365,21 +375,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="tBH-EI-9ca">
                                 <rect key="frame" x="0.0" y="72" width="407" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsO-Hw-BWH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsO-Hw-BWH">
                                         <rect key="frame" x="0.0" y="0.0" width="41" height="30"/>
                                         <state key="normal" title="  Axial"/>
                                         <connections>
                                             <action selector="ClickedAxial:" destination="q46-M4-sEu" eventType="touchUpInside" id="aun-nL-hSG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbA-vO-xUO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbA-vO-xUO">
                                         <rect key="frame" x="171" y="0.0" width="54" height="30"/>
                                         <state key="normal" title="Coronal"/>
                                         <connections>
                                             <action selector="ClickedCoronal:" destination="q46-M4-sEu" eventType="touchUpInside" id="kHX-Ba-Ejy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IR-AR-wSS">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IR-AR-wSS">
                                         <rect key="frame" x="355" y="0.0" width="52" height="30"/>
                                         <state key="normal" title="Sagittal"/>
                                         <connections>
@@ -580,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTJ-BY-f3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986.25" y="13.732394366197184"/>
+            <point key="canvasLocation" x="985.50724637681162" y="13.043478260869566"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="t22-9E-3ee">
