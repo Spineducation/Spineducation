@@ -265,7 +265,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" id="kX4-2C-4Jt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" id="kX4-2C-4Jt">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kX4-2C-4Jt" id="qsi-n7-hAL">
@@ -537,11 +537,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalCentering" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="xlM-Ye-i1t">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="doC-P2-OaZ">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is the question:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kVg-Wq-pmE">
-                                        <rect key="frame" x="8" y="8" width="398" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                         <color key="backgroundColor" red="0.67074884930000001" green="0.88058080969999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="L9g-za-vNP"/>
@@ -549,79 +549,83 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="asd-kI-wHz">
-                                        <rect key="frame" x="8" y="153.33333333333334" width="398" height="40"/>
-                                        <color key="backgroundColor" red="0.84989612306337903" green="0.84989612306337903" blue="0.84989612306337903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="X5c-59-Sq5"/>
-                                        </constraints>
-                                        <state key="normal" title="Option A">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SelectOptionA:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="xim-O8-AqE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="43s-fM-t4Y">
-                                        <rect key="frame" x="8" y="268.33333333333331" width="398" height="40"/>
-                                        <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="ERT-K1-Igy"/>
-                                        </constraints>
-                                        <state key="normal" title="Option B">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SelectOptionB:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="5jl-1v-EQG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZOC-jY-2B6">
-                                        <rect key="frame" x="8" y="383.66666666666669" width="398" height="40"/>
-                                        <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="bjd-Hj-yAk"/>
-                                        </constraints>
-                                        <state key="normal" title="Option C">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SelectOptionC:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="eRa-DC-R2M"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="m4h-yQ-eRP">
-                                        <rect key="frame" x="8" y="498.66666666666663" width="398" height="40"/>
-                                        <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="MDj-pe-Tbh"/>
-                                        </constraints>
-                                        <state key="normal" title="Option D">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SelectOptionD:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="wo4-xo-1wd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-su-Wqh">
-                                        <rect key="frame" x="8" y="604" width="398" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="6ba-Oh-Tav"/>
-                                        </constraints>
-                                        <state key="normal" title="Next MCQ --&gt;"/>
-                                        <connections>
-                                            <action selector="SelectNextButton:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="eHH-ZX-4ea"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalCentering" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="xlM-Ye-i1t">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="572"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="asd-kI-wHz">
+                                                <rect key="frame" x="8" y="8" width="398" height="40"/>
+                                                <color key="backgroundColor" red="0.84989612306337903" green="0.84989612306337903" blue="0.84989612306337903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="X5c-59-Sq5"/>
+                                                </constraints>
+                                                <state key="normal" title="Option A">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="SelectOptionA:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="xim-O8-AqE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="43s-fM-t4Y">
+                                                <rect key="frame" x="8" y="134.66666666666669" width="398" height="40"/>
+                                                <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="ERT-K1-Igy"/>
+                                                </constraints>
+                                                <state key="normal" title="Option B">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="SelectOptionB:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="5jl-1v-EQG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZOC-jY-2B6">
+                                                <rect key="frame" x="8" y="261" width="398" height="40"/>
+                                                <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="bjd-Hj-yAk"/>
+                                                </constraints>
+                                                <state key="normal" title="Option C">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="SelectOptionC:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="eRa-DC-R2M"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="m4h-yQ-eRP">
+                                                <rect key="frame" x="8" y="387.66666666666663" width="398" height="40"/>
+                                                <color key="backgroundColor" red="0.84989612309999996" green="0.84989612309999996" blue="0.84989612309999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="MDj-pe-Tbh"/>
+                                                </constraints>
+                                                <state key="normal" title="Option D">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="SelectOptionD:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="wo4-xo-1wd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-su-Wqh">
+                                                <rect key="frame" x="8" y="504" width="398" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="6ba-Oh-Tav"/>
+                                                </constraints>
+                                                <state key="normal" title="Next MCQ --&gt;"/>
+                                                <connections>
+                                                    <action selector="SelectNextButton:" destination="vJu-K4-8Zb" eventType="touchUpInside" id="eHH-ZX-4ea"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                    </stackView>
                                 </subviews>
-                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="C7G-1m-m02" firstAttribute="bottom" secondItem="xlM-Ye-i1t" secondAttribute="bottom" id="BO9-Y6-hjT"/>
-                            <constraint firstItem="xlM-Ye-i1t" firstAttribute="leading" secondItem="Vdd-lT-NHA" secondAttribute="leading" id="KEW-jZ-rEN"/>
-                            <constraint firstItem="C7G-1m-m02" firstAttribute="bottom" secondItem="xlM-Ye-i1t" secondAttribute="bottom" id="POe-vH-sdL"/>
-                            <constraint firstItem="xlM-Ye-i1t" firstAttribute="top" secondItem="C7G-1m-m02" secondAttribute="top" id="U30-Hs-M2m"/>
-                            <constraint firstAttribute="trailing" secondItem="xlM-Ye-i1t" secondAttribute="trailing" id="hpr-gQ-wW9"/>
+                            <constraint firstAttribute="trailing" secondItem="doC-P2-OaZ" secondAttribute="trailing" id="3Wp-kj-kak"/>
+                            <constraint firstItem="doC-P2-OaZ" firstAttribute="top" secondItem="C7G-1m-m02" secondAttribute="top" id="FrS-MZ-0OK"/>
+                            <constraint firstItem="C7G-1m-m02" firstAttribute="bottom" secondItem="doC-P2-OaZ" secondAttribute="bottom" id="de8-k6-myK"/>
+                            <constraint firstItem="doC-P2-OaZ" firstAttribute="leading" secondItem="C7G-1m-m02" secondAttribute="leading" id="oNR-XA-UBT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C7G-1m-m02"/>
                     </view>
