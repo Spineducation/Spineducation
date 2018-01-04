@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PAg-DZ-SdZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QhD-Gf-vXh">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,18 +16,14 @@
     </customFonts>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="ci9-SQ-tAs">
+        <scene sceneID="kuf-Cd-Xte">
             <objects>
-                <viewController id="PAg-DZ-SdZ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yGL-Bm-V0N">
+                <viewController id="qRs-AK-elH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="htU-hV-m2Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="spine cool.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5p0-z6-Gfd">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spineducation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHM-7z-hY2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spineducation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1l-gF-EaZ">
                                 <rect key="frame" x="0.0" y="266" width="414" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -35,7 +32,7 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="3" height="3"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0n-SG-rVn">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="810-x9-9Ba">
                                 <rect key="frame" x="133" y="446" width="148" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
@@ -45,15 +42,114 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHB-V2-x6A">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZTb-8p-tZh">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spine cool.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bgz-ap-yM7">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                            </imageView>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="hfA-Sc-0rA"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZTb-8p-tZh" firstAttribute="bottom" secondItem="GHB-V2-x6A" secondAttribute="bottomMargin" id="MKv-o2-PFg"/>
+                                    <constraint firstItem="ZTb-8p-tZh" firstAttribute="top" secondItem="GHB-V2-x6A" secondAttribute="topMargin" id="ayB-2Z-acO"/>
+                                    <constraint firstItem="ZTb-8p-tZh" firstAttribute="trailing" secondItem="GHB-V2-x6A" secondAttribute="trailingMargin" id="cCf-Ef-hWJ"/>
+                                    <constraint firstItem="ZTb-8p-tZh" firstAttribute="leading" secondItem="GHB-V2-x6A" secondAttribute="leadingMargin" id="gkA-bo-MHN"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="hF3-qo-d19"/>
+                        <constraints>
+                            <constraint firstItem="GHB-V2-x6A" firstAttribute="top" secondItem="ABj-8B-etI" secondAttribute="top" id="1YG-cq-Gvi"/>
+                            <constraint firstItem="ABj-8B-etI" firstAttribute="trailing" secondItem="GHB-V2-x6A" secondAttribute="trailing" id="6wh-re-Rc9"/>
+                            <constraint firstItem="GHB-V2-x6A" firstAttribute="leading" secondItem="ABj-8B-etI" secondAttribute="leading" id="Elr-aT-Aic"/>
+                            <constraint firstItem="ABj-8B-etI" firstAttribute="bottom" secondItem="GHB-V2-x6A" secondAttribute="bottom" id="mz4-mZ-goU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ABj-8B-etI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="k2D-WQ-VPq"/>
+                    <navigationItem key="navigationItem" id="lWR-om-oYi"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6sX-qy-m1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3QM-OJ-qhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3781.1594202898555" y="491.57608695652175"/>
+            <point key="canvasLocation" x="-3928" y="-219"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yx4-kv-vQK">
+            <objects>
+                <viewController id="QhD-Gf-vXh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GR9-sd-VCm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSk-XA-jWP">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="daT-3J-yU9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spine cool.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RKo-Ol-vMs">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                            </imageView>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="m9V-B4-g1m"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="daT-3J-yU9" firstAttribute="leading" secondItem="vSk-XA-jWP" secondAttribute="leadingMargin" id="0An-QY-fcA"/>
+                                    <constraint firstItem="daT-3J-yU9" firstAttribute="top" secondItem="vSk-XA-jWP" secondAttribute="topMargin" id="7s7-Ie-EaE"/>
+                                    <constraint firstItem="daT-3J-yU9" firstAttribute="bottom" secondItem="vSk-XA-jWP" secondAttribute="bottomMargin" id="AYR-5s-JqP"/>
+                                    <constraint firstItem="daT-3J-yU9" firstAttribute="trailing" secondItem="vSk-XA-jWP" secondAttribute="trailingMargin" id="WCA-vT-HOb"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BQZ-36-0Eb">
+                                <rect key="frame" x="0.0" y="220" width="414" height="516"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spineducation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPC-U0-zLa">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="64.333333333333329"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64.329999999999998" id="OsR-Ag-ZTX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="53"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="3" height="3"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnj-L9-n5n">
+                                        <rect key="frame" x="0.0" y="64.333333333333286" width="414" height="451.66666666666674"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
+                                        <size key="titleShadowOffset" width="3" height="3"/>
+                                        <state key="normal" title="Log In ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GHi-aK-dlp" firstAttribute="bottom" secondItem="BQZ-36-0Eb" secondAttribute="bottom" id="5Sg-qd-0Pj"/>
+                            <constraint firstItem="BQZ-36-0Eb" firstAttribute="top" secondItem="GHi-aK-dlp" secondAttribute="top" constant="200" id="8WJ-KB-h0z"/>
+                            <constraint firstItem="GHi-aK-dlp" firstAttribute="trailing" secondItem="BQZ-36-0Eb" secondAttribute="trailing" id="9Ew-Ay-VO0"/>
+                            <constraint firstItem="vSk-XA-jWP" firstAttribute="top" secondItem="GHi-aK-dlp" secondAttribute="top" id="Gr4-EQ-bL8"/>
+                            <constraint firstItem="GHi-aK-dlp" firstAttribute="trailing" secondItem="vSk-XA-jWP" secondAttribute="trailing" id="Jxc-T6-Mmb"/>
+                            <constraint firstItem="vSk-XA-jWP" firstAttribute="leading" secondItem="GHi-aK-dlp" secondAttribute="leading" id="a5T-Cf-NIF"/>
+                            <constraint firstItem="BQZ-36-0Eb" firstAttribute="leading" secondItem="GHi-aK-dlp" secondAttribute="leading" id="kxL-iY-Zyx"/>
+                            <constraint firstItem="GHi-aK-dlp" firstAttribute="bottom" secondItem="vSk-XA-jWP" secondAttribute="bottom" id="tkQ-fl-Z65"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GHi-aK-dlp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ghx-hk-gls"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Su0-0J-hk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3054" y="-219"/>
         </scene>
     </scenes>
     <resources>
