@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCQdynamicVC: UIViewController, FetchRandomMcqDelegate{
+class MCQdynamicVC: UIViewController{
    
     var multiplechoicequestions = [mcq]()
 
@@ -23,7 +23,10 @@ class MCQdynamicVC: UIViewController, FetchRandomMcqDelegate{
     
     @IBOutlet weak var NextButton: UIButton!
 
-    var i:Int = 0
+    var i = 0
+    var k = 0
+    
+    var randomize = false
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,14 +48,41 @@ class MCQdynamicVC: UIViewController, FetchRandomMcqDelegate{
         OptionBField.setTitleColor(UIColor .black, for: UIControlState.normal)
         OptionCField.setTitleColor(UIColor .black, for: UIControlState.normal)
         OptionDField.setTitleColor(UIColor .black, for: UIControlState.normal)
+        
+        OptionCField.backgroundColor = OptionAField.backgroundColor
+        OptionDField.backgroundColor = OptionAField.backgroundColor
 
-        i = Int(arc4random_uniform(UInt32(multiplechoicequestions.count)))
+        if (randomize) {
+            i = Int(arc4random_uniform(UInt32(multiplechoicequestions.count)))
+        } else {
+            i = k
+        }
 
+        if (i >= multiplechoicequestions.count) {
+            if (randomize) {
+                print ("i'm confused")
+            } else {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "CompletedCase") as! CompletedCaseVC
+                self.present(newViewController, animated: true, completion: nil)
+            }
+        } else {
+        
         questionField.text = multiplechoicequestions[i].Question
         OptionAField.setTitle(multiplechoicequestions[i].OptionA, for: .normal)
         OptionBField.setTitle(multiplechoicequestions[i].OptionB, for: .normal)
         OptionCField.setTitle(multiplechoicequestions[i].OptionC, for: .normal)
         OptionDField.setTitle(multiplechoicequestions[i].OptionD, for: .normal)
+            
+            if (multiplechoicequestions[i].OptionC.count < 1) {
+                OptionCField.backgroundColor = UIColor.white
+            }
+            
+            if (multiplechoicequestions[i].OptionD.count < 1) {
+                OptionDField.backgroundColor = UIColor.white
+            }
+
+        }
         
     }
     
@@ -71,6 +101,8 @@ class MCQdynamicVC: UIViewController, FetchRandomMcqDelegate{
         print("Entered SelectNextButton")
 
         DisplayMCQ()
+        
+        k = k + 1
         
     }
     
@@ -134,13 +166,7 @@ class MCQdynamicVC: UIViewController, FetchRandomMcqDelegate{
 
         super.viewDidLoad()
         
-        // initiate calling the items download
-        randomMcq.getItems()
-        
-        // this view controller is conforming to the protocol so it must set itself as the delegate property of the home model
-        randomMcq.delegate = self
-        
-        //DisplayMCQ()
+        DisplayMCQ()
 
     }
 
