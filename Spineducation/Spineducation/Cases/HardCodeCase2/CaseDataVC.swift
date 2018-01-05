@@ -34,15 +34,16 @@ class CaseDataVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         // set the view to the data of the case
-        if let data = caseDataToDisplay{
+        if caseDataToDisplay != nil{
             
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destViewController : MCQdynamicVC = segue.destination as! MCQdynamicVC
         
         if (segue.identifier == "FromCaseToMCQ") {
+            let destViewController : MCQdynamicVC = segue.destination as! MCQdynamicVC
+
             destViewController.multiplechoicequestions = McqArray
             destViewController.randomize = false
         }
