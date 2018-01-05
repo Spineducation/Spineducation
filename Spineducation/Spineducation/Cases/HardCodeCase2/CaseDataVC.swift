@@ -11,6 +11,9 @@ import UIKit
 // CaseDataVC is a subclass of UIViewController
 class CaseDataVC: UIViewController {
     
+    @IBOutlet weak var HistoryText: UITextView!
+    @IBOutlet weak var PhysicalText: UITextView!
+    
     @IBOutlet weak var Label1: UILabel!
     
     var caseDataToDisplay:MedicalCase?
@@ -23,7 +26,10 @@ class CaseDataVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        HistoryText.isEditable = false;
+        PhysicalText.isEditable = false;
+
         self.getItems()
 
     }

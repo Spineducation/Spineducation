@@ -21,7 +21,7 @@ class CT3DImageViewerVC: UIViewController {
         
         CT_3D_Image_Scroller.frame = view.frame
         
-        ImageArray = [#imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.09"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.32"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.52"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.12")]
+        ImageArray = [#imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.09"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.32"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.52"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.12"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.30"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.45"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.58"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.10"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.21"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.36"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.51"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.41.03"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.41.16"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.41.27")]
         
         for i in 0..<ImageArray.count {
             let imageView = UIImageView()
