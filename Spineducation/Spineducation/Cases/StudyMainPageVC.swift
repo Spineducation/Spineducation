@@ -21,12 +21,11 @@ class StudyMainPageVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
+        let CategriesPage = segue.destination as! MCQcategoriesVC
 
         if segue.identifier == "GoToCases" {
 
-            let tempCasesVC = segue.destination as! CasesVC
-            tempCasesVC.medicalCasee = ArrayOfCases
+//            CategriesPage. =
             
         } else if segue.identifier == "GoToMCQs" {
            
