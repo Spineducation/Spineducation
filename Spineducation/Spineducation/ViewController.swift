@@ -22,8 +22,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let textNode = SCNNode()
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var targetExists = false;
-    //var repositionInstruction = false
-    
+    var reposition = false;
+    var pedicle = false;
    
    // clickSpine.materials = [clickMaterial]
     
@@ -75,18 +75,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.pointOfView?.addChildNode(bullseyeNode) // add the bullseyeNode as a child of the point of view (camera) so that image moves with camera
     }
     func showUserInstruction (instruction: String, xVal: Float){
-        let clickSpine = SCNText (string: instruction, extrusionDepth: 1)
-        let clickMaterial = SCNMaterial()
-
-        clickMaterial.diffuse.contents = UIColor.white
-        clickSpine.materials = [clickMaterial]
-        let cameraPos = self.sceneView.pointOfView!.position
-       textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-1, cameraPos.z-2);
-        textNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
-       textNode.geometry = clickSpine
-        textNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.white
-        //sceneView.scene.rootNode.addChildNode(textNode) adds the text as a child node of the whole scene, making it show up in one static place
-        sceneView.pointOfView?.addChildNode(textNode) // adds the text as a child node of the point of view, so it follows the user until they select an area for the target
+        if ((instruction == "Reposition as needed" && reposition) || (instruction == "Tap pedicle start point" && pedicle)){ // doesn't allow the textnode for instructions that have already occurred to be re-positioned, seems to fix the problem of moving instructions around screen when user repositions spine
+            return;
+        }
+            let clickSpine = SCNText (string: instruction, extrusionDepth: 1)
+            let clickMaterial = SCNMaterial()
+            
+            clickMaterial.diffuse.contents = UIColor.white
+            clickSpine.materials = [clickMaterial]
+            let cameraPos = self.sceneView.pointOfView!.position
+            textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-1, cameraPos.z-2);
+            textNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
+            textNode.geometry = clickSpine
+            textNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.white
+            //sceneView.scene.rootNode.addChildNode(textNode) adds the text as a child node of the whole scene, making it show up in one static place
+            sceneView.pointOfView?.addChildNode(textNode) // adds the text as a child node of the point of view, so it follows the user until they select an area for the target
     }
     
     func make2dNode(image: UIImage, width: CGFloat, height: CGFloat) -> SCNNode {
@@ -128,13 +131,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // uncomment this out if create spine mode
          if (!targetExists){ // if the target does not exist, spine can and should still be able to be repositioned
             createSpine(position: SCNVector3Make(1,1,-0.65)) // create the spine
-            textNode.removeFromParentNode() // remove instruction text
-                showUserInstruction(instruction: "Reposition as needed", xVal: -0.62) // only ask user to do this once
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) { // remove "resposition as needed" text after 4 seconds
+            textNode.removeFromParentNode() // remove instruction text asking user to tap to create spine
+            
+            showUserInstruction(instruction: "Reposition as needed", xVal: -0.62)
+            reposition = true // bool will be checked when showUserInstruction gets called again on next touch, disallowing this instruction to be recreated and thus repositioned on next touch
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) { // remove "resposition as needed" text after 6 seconds
                 self.textNode.removeFromParentNode()
                 self.showTarget()
-                self.showUserInstruction(instruction: "Tap pedicle start point", xVal: -0.65)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+                self.showUserInstruction(instruction: "Tap pedicle\n start point", xVal: -0.3)
+                self.pedicle = true // bool will be checked when showUserInstruction gets called again on next touch, disallowing this instruction to be recreated and thus repositioned on next touch
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { // remove tap pedicle text node after 3 seconds
                     self.textNode.removeFromParentNode()
                 }
                 self.targetExists = true
