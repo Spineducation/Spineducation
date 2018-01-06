@@ -17,7 +17,6 @@
 		55C44B5B1F87E870002D5B24 /* SpineducationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B5A1F87E870002D5B24 /* SpineducationTests.swift */; };
 		55C44B661F87E870002D5B24 /* SpineducationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B651F87E870002D5B24 /* SpineducationUITests.swift */; };
 		55FD35A01FD8F03C002ADEFA /* bullseye.png in Resources */ = {isa = PBXBuildFile; fileRef = 55FD359F1FD8F03B002ADEFA /* bullseye.png */; };
-		7DCDDB671FD9C83C00266C84 /* bullseye.dae in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDDB661FD9C83C00266C84 /* bullseye.dae */; };
 		7DFE97FE1FDDC02300C41259 /* bullseye_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE97FD1FDDC02200C41259 /* bullseye_black.png */; };
 		A40B3CBE1FE6FC7400B6B2CC /* FetchRandomMcq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */; };
 		A40B3CC01FE795B700B6B2CC /* CasesExample.json in Resources */ = {isa = PBXBuildFile; fileRef = A40B3CBF1FE795B700B6B2CC /* CasesExample.json */; };
@@ -85,7 +84,6 @@
 		55C44B651F87E870002D5B24 /* SpineducationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineducationUITests.swift; sourceTree = "<group>"; };
 		55C44B671F87E870002D5B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55FD359F1FD8F03B002ADEFA /* bullseye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullseye.png; sourceTree = "<group>"; };
-		7DCDDB661FD9C83C00266C84 /* bullseye.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = bullseye.dae; path = art.scnassets/bullseye.dae; sourceTree = "<group>"; };
 		7DFE97FD1FDDC02200C41259 /* bullseye_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullseye_black.png; sourceTree = SOURCE_ROOT; };
 		A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRandomMcq.swift; sourceTree = "<group>"; };
 		A40B3CBF1FE795B700B6B2CC /* CasesExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CasesExample.json; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				55C44B451F87E86F002D5B24 /* art.scnassets */,
 				55C44B4C1F87E86F002D5B24 /* Assets.xcassets */,
 				7DFE97FD1FDDC02200C41259 /* bullseye_black.png */,
-				7DCDDB661FD9C83C00266C84 /* bullseye.dae */,
 				55FD359F1FD8F03B002ADEFA /* bullseye.png */,
 				A4A525B11FAF8A980078B56F /* Cases */,
 				A40D06201FD71DC200A865E6 /* Icons */,
@@ -380,7 +377,6 @@
 				55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */,
 				55C44B4D1F87E86F002D5B24 /* Assets.xcassets in Resources */,
 				A40D061C1FD71D1C00A865E6 /* icons8-screenshot.png in Resources */,
-				7DCDDB671FD9C83C00266C84 /* bullseye.dae in Resources */,
 				7DFE97FE1FDDC02300C41259 /* bullseye_black.png in Resources */,
 				A40B3CC01FE795B700B6B2CC /* CasesExample.json in Resources */,
 				A40D061D1FD71D1C00A865E6 /* icons8-edit_property_filled.png in Resources */,
@@ -602,10 +598,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				"CODE_SIGN_STYLE[sdk=*]" = Automatic;
-				DEVELOPMENT_TEAM = QVVHNER6U3;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -620,10 +616,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QVVHNER6U3;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
