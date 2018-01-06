@@ -27,7 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
    
    // clickSpine.materials = [clickMaterial]
     
-    let bullseyeImage = UIImage(named: "bullseye_black.png")?.withRenderingMode(.alwaysOriginal)
+    let bullseyeImage = UIImage(named: "bullseye.png")?.withRenderingMode(.alwaysOriginal)
     
     
     @IBAction func Menu(_ sender: Any) {
@@ -84,8 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
        textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-1, cameraPos.z-2);
         textNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
        textNode.geometry = clickSpine
-        //textNode.
-        textNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.black
+        textNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.white
         //sceneView.scene.rootNode.addChildNode(textNode) adds the text as a child node of the whole scene, making it show up in one static place
         sceneView.pointOfView?.addChildNode(textNode) // adds the text as a child node of the point of view, so it follows the user until they select an area for the target
     }
