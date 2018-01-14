@@ -1,0 +1,51 @@
+Job Title 1
+	Software Developer for iOS Augmented Reality Implementation 
+
+Reports To  
+	Dr. Anand
+	Maya Ramamurthy
+	Katrine Rachitsky
+	Colby Oitment
+
+Overview
+	As it is imperitive for orthopedic surgeons to be able to perform surgery with a high level of precision, this role will focus on being able to provide medical school residents with higher level tools to be able to practise this skill set. Additionally, as residents are not able to get a lot of practise performing these complex surgeries, this will allow them a hands on means of being able to improve their precision and technical skills. In doing so, a medical school resident will be able to practise performing difficult procedures inside an augmented reality environment with a similar level of difficulty as actual procedures. This role will focus on the implementation of augmented reality for an orthopedic surgery studying app.
+
+Responsibilities and Duties
+	1. Work with Colby Oitment to model 3D spines with disfigurements in Blender
+	2. Adjust spine models in Blender to prepare for AR, such as mapping key surgical points
+	3. Work with 3D models in XCode using ARKit to be able to perform surgery on different models by difficulty and category of disfigurement
+
+Qualifications
+	1. Degree in Computer Science or related fields
+	2. Strong knowledge of Blender and model manipulation
+	3. Strong knowledge of XCode and Swift development
+	4. Strong knowledge of Apple's ARKit and modeling using Augmented Reality
+	5. Understanding of mathematical concepts to model surgical procedures
+	6. Abililty to learn new technologies quickly
+	7. Ability to work using Agile Software Development
+	8. Understanding of low level concepts related to orthopedics
+
+Job Title 2
+	Software Developer for iOS App Development
+
+Reports To  
+	Dr. Anand
+	Randa Mohsen
+	Manaar Hyder
+	Colby Oitment
+
+Overview
+	After their completion of undergraduate training, medical students under go furthur training to be able to pass their Royal College Examinations. Only a fraction of medical students choose to pursue training related to orthopedics or neruosurgery, a component of the RCEs. As such, the spines remains a source of difficulty for many trainees, causing them to fail this section. Our project aims to provide learning from real clinical scenarios that will prepare doctors for the exams and also provide multiple choice questions.
+
+Responsibilities and Duties
+	1. Work with Colby Oitment to  implement furthur cases and MCQs with varying levels of difficulty and categories
+
+Qualifications
+	1. Degree in Computer Science or related fields
+	2. Strong knowledge of Amazon's Web Services: RDS, MySQL, PHP
+	3. Familiarity with MySQL workbench
+	4. Strong knowledge of XCode and Swift development
+	5. Experience with Object oriented programming 
+	6. Ability to learn new technologies quickly
+	7. Ability to work using Agile Software Development
+	8. Understanding of low level concepts related to orthopedics

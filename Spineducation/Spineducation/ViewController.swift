@@ -24,7 +24,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var targetExists = false;
     var reposition = false;
     var pedicle = false;
-   
+    var targetLocked = false;
+    var target = SCNVector3();
+    var trajectoryExists = false;
+    //var target = SCNVector3();
+    
    // clickSpine.materials = [clickMaterial]
     
     let bullseyeImage = UIImage(named: "bullseye.png")?.withRenderingMode(.alwaysOriginal)
@@ -84,7 +88,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             clickMaterial.diffuse.contents = UIColor.white
             clickSpine.materials = [clickMaterial]
             let cameraPos = self.sceneView.pointOfView!.position
-            textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-1, cameraPos.z-2);
+            textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-0.5, cameraPos.z - 2);
+            //textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-1, cameraPos.z-2);
             textNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
             textNode.geometry = clickSpine
             textNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.white
@@ -126,9 +131,38 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return scenePosition
     }
     
+    func drawTrajectory (targetPosition : SCNVector3) {
+   /*     print(targetPosition)
+        let camera = self.sceneView.pointOfView!
+        let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
+        // try converting the target Position to camera position?
+   //     let targetPosition = camera.convertPosition(SCNVector3(targetPosition.x, targetPosition.y - 1, targetPosition.z), to: nil)
+     //   let targetPosition = camera.convertPosition(targetPosition, to: nil)
+        // draw a line from the targetPosition selected previously, to the
+        let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: position)
+        //let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: position)
+        let lineNode = SCNNode(geometry: line)
+     //   lineNode.position = SCNVector3Zero
+        sceneView.scene.rootNode.addChildNode(lineNode)
+      //  sceneView.pointOfView?.addChildNode(lineNode)
+        
+        */
+        // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops
+       let camera = self.sceneView.pointOfView!
+        let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
+        let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: position)
+        let lineNode = SCNNode(geometry: line)
+        lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        sceneView.scene.rootNode.addChildNode(lineNode)
+        //  sceneView.pointOfView?.addChildNode(lineNode)
+
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent? ) {
+      //  var targetPosition: SCNVector3
         let location = touches.first!.location(in: sceneView)
         // uncomment this out if create spine mode
+        
          if (!targetExists){ // if the target does not exist, spine can and should still be able to be repositioned
             createSpine(position: SCNVector3Make(1,1,-0.65)) // create the spine
             textNode.removeFromParentNode() // remove instruction text asking user to tap to create spine
@@ -146,7 +180,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.targetExists = true
             }
         }
-        if (targetExists){
+        if (targetExists && !targetLocked){
            // Get the location of the target in Vector3 coordinates
             let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
             // Convert the SCNVector3 Point to a CGPoint to compare for hittest
@@ -160,6 +194,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let hitResultsOther: [SCNHitTestResult]  = sceneView.hitTest(cgTarget , options: hitTestOptions)
             if let hit = hitResultsOther.first {
                 print(hit.node.name)
+                targetLocked = true;
+                print (targetPosition)
+                target = targetPosition;
+                
             }
             /*
             // let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: self.sceneView.pointOfView!)
@@ -172,6 +210,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // if comparing touch location to pedical location; not necessary atm
            // let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
             // check if the location the target was = a pedical
+        }
+        if (targetLocked && !trajectoryExists){
+            showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62)
+            print (target)
+            trajectoryExists = true;
+            drawTrajectory(targetPosition: target);
         }
         
     }
@@ -281,12 +325,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 }
 
 extension SCNGeometry {
-    class func lineFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
+    class func lineFrom(fromVector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
         let indices: [Int32] = [0, 1]
-        
         let source = SCNGeometrySource(vertices: [vector1, vector2])
         let element = SCNGeometryElement(indices: indices, primitiveType: .line)
-        
         return SCNGeometry(sources: [source], elements: [element])
         
     }
