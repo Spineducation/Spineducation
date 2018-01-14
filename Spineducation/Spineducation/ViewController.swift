@@ -150,10 +150,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops
        let camera = self.sceneView.pointOfView!
         let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
-        let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: position)
-        let lineNode = SCNNode(geometry: line)
-        lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-        sceneView.scene.rootNode.addChildNode(lineNode)
+        //let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: position)
+        print("camera needs to be in position now - 6 second warning")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
+            let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
+            //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
+            let twoPointsNode1 = SCNNode() //trying to make a cylinder, still doesn't point the right way
+            print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
+            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: targetPosition, toendPoint: position, radius: 0.05, color: .red))
+            //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: camera.position, toendPoint: targetPosition, radius: 0.05, color: .red))
+            let lineNode = SCNNode(geometry: line)
+            lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+            self.sceneView.scene.rootNode.addChildNode(lineNode)
+            //self.sceneView.pointOfView?.addChildNode(lineNode)
+            print("line created")
+        }
+        
+        
+
         //  sceneView.pointOfView?.addChildNode(lineNode)
 
     }
@@ -194,10 +208,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let hitResultsOther: [SCNHitTestResult]  = sceneView.hitTest(cgTarget , options: hitTestOptions)
             if let hit = hitResultsOther.first {
                 print(hit.node.name)
-                targetLocked = true;
-                print (targetPosition)
-                target = targetPosition;
-                
+                if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
+                    targetLocked = true;
+                    print (targetPosition) // which is the point of view when object is tapped
+                    target = targetPosition
+                } else {
+                    showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { // let text show up a few seconds, then remove
+                        self.textNode.removeFromParentNode()
+                    }
+                }
             }
             /*
             // let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: self.sceneView.pointOfView!)
@@ -212,10 +232,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // check if the location the target was = a pedical
         }
         if (targetLocked && !trajectoryExists){
-            showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62)
-            print (target)
+            showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
+            //print (target)
             trajectoryExists = true;
             drawTrajectory(targetPosition: target);
+            //showUserInstruction(instruction: "new start point + trajectory", xVal: -0.62)
+            //print("new start point + trajectory")
+            targetLocked = false; // allow to re-select trajectory
+            trajectoryExists = false; // allow to re-select
         }
         
     }
@@ -322,6 +346,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // ...
     }
     
+
+    
+}
+
+func normalizeVector(_ iv: SCNVector3) -> SCNVector3 {
+    let length = sqrt(iv.x * iv.x + iv.y * iv.y + iv.z * iv.z)
+    if length == 0 {
+        return SCNVector3(0.0, 0.0, 0.0)
+    }
+    
+    return SCNVector3( iv.x / length, iv.y / length, iv.z / length)
+    
 }
 
 extension SCNGeometry {
@@ -331,5 +367,80 @@ extension SCNGeometry {
         let element = SCNGeometryElement(indices: indices, primitiveType: .line)
         return SCNGeometry(sources: [source], elements: [element])
         
+    }
+}
+
+extension SCNNode {
+    
+    func cylinderLine(fromstartPoint: SCNVector3,
+                                          toendPoint: SCNVector3,
+                                          radius: CGFloat,
+                                          color: UIColor) -> SCNNode {
+        let w = SCNVector3(x: toendPoint.x-fromstartPoint.x,
+                           y: toendPoint.y-fromstartPoint.y,
+                           z: toendPoint.z-fromstartPoint.z)
+        let l = CGFloat(sqrt(w.x * w.x + w.y * w.y + w.z * w.z))
+        
+        if l == 0.0 {
+            // two points together.
+            let sphere = SCNSphere(radius: radius)
+            sphere.firstMaterial?.diffuse.contents = color
+            self.geometry = sphere
+            self.position = fromstartPoint
+            return self
+            
+        }
+        
+        let cyl = SCNCylinder(radius: radius, height: l)
+        cyl.firstMaterial?.diffuse.contents = color
+        
+        self.geometry = cyl
+        
+        //original vector of cylinder above 0,0,0
+        let ov = SCNVector3(0, l/2.0,0)
+        //target vector, in new coordination
+        let nv = SCNVector3((toendPoint.x - fromstartPoint.x)/2.0, (toendPoint.y - fromstartPoint.y)/2.0,
+                            (toendPoint.z-fromstartPoint.z)/2.0)
+        
+        // axis between two vector
+        let av = SCNVector3( (ov.x + nv.x)/2.0, (ov.y+nv.y)/2.0, (ov.z+nv.z)/2.0)
+        
+        //normalized axis vector
+        let av_normalized = normalizeVector(av)
+        let q0 = Float(0.0) //cos(angel/2), angle is always 180 or M_PI
+        let q1 = Float(av_normalized.x) // x' * sin(angle/2)
+        let q2 = Float(av_normalized.y) // y' * sin(angle/2)
+        let q3 = Float(av_normalized.z) // z' * sin(angle/2)
+        
+        let r_m11 = q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3
+        let r_m12 = 2 * q1 * q2 + 2 * q0 * q3
+        let r_m13 = 2 * q1 * q3 - 2 * q0 * q2
+        let r_m21 = 2 * q1 * q2 - 2 * q0 * q3
+        let r_m22 = q0 * q0 - q1 * q1 + q2 * q2 - q3 * q3
+        let r_m23 = 2 * q2 * q3 + 2 * q0 * q1
+        let r_m31 = 2 * q1 * q3 + 2 * q0 * q2
+        let r_m32 = 2 * q2 * q3 - 2 * q0 * q1
+        let r_m33 = q0 * q0 - q1 * q1 - q2 * q2 + q3 * q3
+        
+        self.transform.m11 = r_m11
+        self.transform.m12 = r_m12
+        self.transform.m13 = r_m13
+        self.transform.m14 = 0.0
+        
+        self.transform.m21 = r_m21
+        self.transform.m22 = r_m22
+        self.transform.m23 = r_m23
+        self.transform.m24 = 0.0
+        
+        self.transform.m31 = r_m31
+        self.transform.m32 = r_m32
+        self.transform.m33 = r_m33
+        self.transform.m34 = 0.0
+        
+        self.transform.m41 = (fromstartPoint.x + toendPoint.x) / 2.0
+        self.transform.m42 = (fromstartPoint.y + toendPoint.y) / 2.0
+        self.transform.m43 = (fromstartPoint.z + toendPoint.z) / 2.0
+        self.transform.m44 = 1.0
+        return self
     }
 }
