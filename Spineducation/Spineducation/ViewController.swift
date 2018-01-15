@@ -147,7 +147,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
       //  sceneView.pointOfView?.addChildNode(lineNode)
         
         */
-        // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops
+        // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops 
        let camera = self.sceneView.pointOfView!
         let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
         //let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: position)
