@@ -45,6 +45,8 @@ class CaseDataVC: UIViewController {
         }
     }
     
+    
+    // this function determines which MCQ to send to the next page when the segue is hit
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "FromCaseToMCQ") {
