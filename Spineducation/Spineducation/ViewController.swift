@@ -212,8 +212,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     targetLocked = true;
                     print (targetPosition) // which is the point of view when object is tapped
                     target = targetPosition
+                    let printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
+                    showUserInstruction(instruction:  printStatement, xVal: -0.6)
+                    targetLocked = false;
                 } else {
-                    showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
+                    //showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { // let text show up a few seconds, then remove
                         self.textNode.removeFromParentNode()
                     }
@@ -231,7 +234,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
            // let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
             // check if the location the target was = a pedical
         }
-        if (targetLocked && !trajectoryExists){
+        /*if (targetLocked && !trajectoryExists){
             showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
             //print (target)
             trajectoryExists = true;
@@ -240,7 +243,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //print("new start point + trajectory")
             targetLocked = false; // allow to re-select trajectory
             trajectoryExists = false; // allow to re-select
-        }
+        }*/
         
     }
     
