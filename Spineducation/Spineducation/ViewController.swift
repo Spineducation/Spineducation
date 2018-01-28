@@ -47,7 +47,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+      //  sceneView.showsStatistics = true
         
         // makes edges smooth
         sceneView.antialiasingMode = .multisampling4X
@@ -132,43 +132,38 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func drawTrajectory (targetPosition : SCNVector3) {
-   /*     print(targetPosition)
-        let camera = self.sceneView.pointOfView!
-        let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
-        // try converting the target Position to camera position?
-   //     let targetPosition = camera.convertPosition(SCNVector3(targetPosition.x, targetPosition.y - 1, targetPosition.z), to: nil)
-     //   let targetPosition = camera.convertPosition(targetPosition, to: nil)
-        // draw a line from the targetPosition selected previously, to the
-        let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: position)
-        //let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: position)
-        let lineNode = SCNNode(geometry: line)
-     //   lineNode.position = SCNVector3Zero
-        sceneView.scene.rootNode.addChildNode(lineNode)
-      //  sceneView.pointOfView?.addChildNode(lineNode)
-        
-        */
+
+//        let targetPosition = SCNVector3Make(targetPosition.x, targetPosition.y, targetPosition.z)
         // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops 
        let camera = self.sceneView.pointOfView!
         let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
-        //let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: position)
+      //  let position = camera.convertPosition(targetPosition, to: nil)
+        let sphere = SCNSphere(radius: 0.1)
+        let sphereNode = SCNNode(geometry: sphere)
+        sphereNode.position = targetPosition
+     //   sceneView.scene.rootNode.addChildNode(sphereNode)
+        
+  //      let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: targetPosition)
         print("camera needs to be in position now - 6 second warning")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
-            let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
+          //  let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
             //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
             let twoPointsNode1 = SCNNode() //trying to make a cylinder, still doesn't point the right way
             print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
-            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: targetPosition, toendPoint: position, radius: 0.05, color: .red))
+            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
+           // I HAVENT TESTED IT AGAIN WITH SCENEVIEW POV SO CHECK THIS LATER
+            // self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
             //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: camera.position, toendPoint: targetPosition, radius: 0.05, color: .red))
-            let lineNode = SCNNode(geometry: line)
-            lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-            self.sceneView.scene.rootNode.addChildNode(lineNode)
+         //   let lineNode = SCNNode(geometry: line)
+          //  lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+         //   self.sceneView.scene.rootNode.addChildNode(lineNode)
             //self.sceneView.pointOfView?.addChildNode(lineNode)
             print("line created")
         }
         
         
 
-        //  sceneView.pointOfView?.addChildNode(lineNode)
+     //     sceneView.pointOfView?.addChildNode(lineNode)
 
     }
     
@@ -197,6 +192,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if (targetExists && !targetLocked){
            // Get the location of the target in Vector3 coordinates
             let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
+            print ("Target ", self.sceneView.pointOfView!.position)
             // Convert the SCNVector3 Point to a CGPoint to compare for hittest
             var hitTestOptions = [SCNHitTestOption: Any]()
             hitTestOptions[SCNHitTestOption.clipToZRange] = true // hit-testing searches only objects between the zNear and zFar distances of the pointOfView camera
@@ -206,17 +202,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             hitTestOptions[SCNHitTestOption.searchMode] = 1 // search mode follows old behaviour (apparently better?) not actually sure this helps
             let cgTarget = CGPoint(x:CGFloat(targetPosition.x), y: CGFloat(targetPosition.y))
             let hitResultsOther: [SCNHitTestResult]  = sceneView.hitTest(cgTarget , options: hitTestOptions)
+            
+            // get location of hit in AR plane
+            let hitResults = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
+            if let result: ARHitTestResult = hitResults.first {
+                target = SCNVector3Make(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+            }
+            // check if a pedical was hit
             if let hit = hitResultsOther.first {
                 print(hit.node.name)
                 if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
+                   // print("Hit node position is ", hit.node.position)
                     targetLocked = true;
-                    print (targetPosition) // which is the point of view when object is tapped
-                    target = targetPosition
+                    print ("Target Position is ", target) // which is the point of view when object is tapped
+                   // target = hit.node.position
                     let printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
                     showUserInstruction(instruction:  printStatement, xVal: -0.6)
-                    targetLocked = false;
+                  //  targetLocked = false;
                 } else {
-                    //showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
+                    showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { // let text show up a few seconds, then remove
                         self.textNode.removeFromParentNode()
                     }
@@ -234,16 +238,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
            // let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
             // check if the location the target was = a pedical
         }
-        /*if (targetLocked && !trajectoryExists){
+        if (targetLocked && !trajectoryExists){
             showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
-            //print (target)
+            print ("The target is", target)
             trajectoryExists = true;
             drawTrajectory(targetPosition: target);
             //showUserInstruction(instruction: "new start point + trajectory", xVal: -0.62)
             //print("new start point + trajectory")
             targetLocked = false; // allow to re-select trajectory
             trajectoryExists = false; // allow to re-select
-        }*/
+        }
         
     }
     
