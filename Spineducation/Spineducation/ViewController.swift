@@ -28,6 +28,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var target = SCNVector3();
     var trajectoryExists = false;
     var startNode: SCNNode?
+    var lineNode: SCNNode?
     //var target = SCNVector3();
     
    // clickSpine.materials = [clickMaterial]
@@ -150,7 +151,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
   //      let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: targetPosition)
         print("camera needs to be in position now - 6 second warning")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
-          //  let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
+            //let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
             //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
             let twoPointsNode1 = SCNNode() //trying to make a cylinder, still doesn't point the right way
             print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
@@ -164,6 +165,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //self.sceneView.pointOfView?.addChildNode(lineNode)
             print("line created")
         }
+        
         
         
 
@@ -367,8 +369,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let start = self.startNode else {
                     return
             }
-            let twoPointsNode1 = SCNNode()
-            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .blue))
+            self.lineNode?.removeFromParentNode()
+            let line = SCNGeometry.lineFrom(fromVector: currentPosition, toVector: start.position)
+            self.lineNode = SCNNode(geometry: line)
+            self.sceneView.scene.rootNode.addChildNode(self.lineNode!)
         }
     }
     
@@ -429,31 +433,6 @@ extension SCNGeometry {
         return SCNGeometry(sources: [source], elements: [element])
     }
 }
-
-/*class Plane: SCNNode {
-    init(anchor: ARPlaneAnchor){
-        super.init()
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    // dimensions
-    let width = CGFloat(anchor.extent.x)
-    let length = CGFloat(anchor.extent.z)
-    //height
-    let planeHeight = 0.01 as CGFloat
-    //geometry
-    self.planeGeometry = SCNBox(width: width, hieght: planeHeight, length: length, chamferRadius: 0)
-    let material = SCNMaterial()
-    let image = UIImage(named: "grid")
-    material.diffuse.contents = image
-    let transparentMaterial = SCNMaterial()
-    transparentMaterial.diffuse.contents = UIColor.white.withAlphaComponent(0.0)
-    self.planeGeometry?.materials = [transparentMaterial, transparentMaterial, transparentMaterial, transparentMaterial, material, transparentMaterial]
-}*/
-
 extension SCNNode {
     
     func cylinderLine(fromstartPoint: SCNVector3,
