@@ -27,6 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var targetLocked = false;
     var target = SCNVector3();
     var trajectoryExists = false;
+    var startNode: SCNNode?
     //var target = SCNVector3();
     
    // clickSpine.materials = [clickMaterial]
@@ -48,7 +49,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
       //  sceneView.showsStatistics = true
-        
+        self.sceneView.autoenablesDefaultLighting = true // instead of lamps in the spine image file, this just allows the scene itself to auto-light
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        //self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // makes edges smooth
         sceneView.antialiasingMode = .multisampling4X
         
@@ -111,6 +114,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal; // makes plane show up underneith detecting surfaces
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -136,8 +140,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        let targetPosition = SCNVector3Make(targetPosition.x, targetPosition.y, targetPosition.z)
         // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops 
        let camera = self.sceneView.pointOfView!
-        let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
-      //  let position = camera.convertPosition(targetPosition, to: nil)
+        //let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
+       let position = camera.convertPosition(targetPosition, to: nil)
         let sphere = SCNSphere(radius: 0.1)
         let sphereNode = SCNNode(geometry: sphere)
         sphereNode.position = targetPosition
@@ -150,9 +154,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
             let twoPointsNode1 = SCNNode() //trying to make a cylinder, still doesn't point the right way
             print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
-            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
+            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .blue))
            // I HAVENT TESTED IT AGAIN WITH SCENEVIEW POV SO CHECK THIS LATER
-            // self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
+             //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
             //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: camera.position, toendPoint: targetPosition, radius: 0.05, color: .red))
          //   let lineNode = SCNNode(geometry: line)
           //  lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
@@ -166,6 +170,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
      //     sceneView.pointOfView?.addChildNode(lineNode)
 
     }
+    
+    // new stuff from tutorial
+    func doHitTestOnExistingPlanes() -> SCNVector3? {
+        let results = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
+        if let result = results.first{
+            let hitPos = self.positionFromTransform(result.worldTransform)
+            return hitPos
+        }
+        return nil
+    }
+    
+    func positionFromTransform(_ transform: matrix_float4x4) -> SCNVector3 {
+        return SCNVector3Make(transform.columns.3.x, transform.columns.3.y,transform.columns.3.z)
+        
+    }
+    
+    func nodeWithPosition(_ position: SCNVector3) -> SCNNode {
+        //create sphere geometry with radius
+        let sphere = SCNSphere(radius: 0.003)
+        sphere.firstMaterial?.diffuse.contents = UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
+        sphere.firstMaterial?.lightingModel = .constant
+        sphere.firstMaterial?.isDoubleSided = true
+        let node = SCNNode(geometry: sphere)
+        node.position = position
+        return node
+    }
+    // new stuff from tutorial
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent? ) {
       //  var targetPosition: SCNVector3
@@ -190,6 +222,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         if (targetExists && !targetLocked){
+            print("REACHED NEW CODE")
+            if let position = self.doHitTestOnExistingPlanes(){
+                let node = self.nodeWithPosition(position)
+                sceneView.scene.rootNode.addChildNode(node)
+                startNode = node
+            }
+            
            // Get the location of the target in Vector3 coordinates
             let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
             print ("Target ", self.sceneView.pointOfView!.position)
@@ -242,7 +281,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
             print ("The target is", target)
             trajectoryExists = true;
-            drawTrajectory(targetPosition: target);
+            //drawTrajectory(targetPosition: target);
             //showUserInstruction(instruction: "new start point + trajectory", xVal: -0.62)
             //print("new start point + trajectory")
             targetLocked = false; // allow to re-select trajectory
@@ -250,6 +289,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
     }
+    
+
     
     func createSpine(position : SCNVector3){
         nodeModel =  spine.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
@@ -320,6 +361,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.addChildNode(planeNode)
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval){
+        DispatchQueue.main.async{
+            guard let currentPosition = self.doHitTestOnExistingPlanes(),
+                let start = self.startNode else {
+                    return
+            }
+            let twoPointsNode1 = SCNNode()
+            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .blue))
+        }
+    }
+    
     /*
      Called when a SceneKit node's properties have been
      updated to match the current state of its corresponding anchor.
@@ -357,6 +409,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
 }
 
+
+
 func normalizeVector(_ iv: SCNVector3) -> SCNVector3 {
     let length = sqrt(iv.x * iv.x + iv.y * iv.y + iv.z * iv.z)
     if length == 0 {
@@ -373,9 +427,32 @@ extension SCNGeometry {
         let source = SCNGeometrySource(vertices: [vector1, vector2])
         let element = SCNGeometryElement(indices: indices, primitiveType: .line)
         return SCNGeometry(sources: [source], elements: [element])
-        
     }
 }
+
+/*class Plane: SCNNode {
+    init(anchor: ARPlaneAnchor){
+        super.init()
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    // dimensions
+    let width = CGFloat(anchor.extent.x)
+    let length = CGFloat(anchor.extent.z)
+    //height
+    let planeHeight = 0.01 as CGFloat
+    //geometry
+    self.planeGeometry = SCNBox(width: width, hieght: planeHeight, length: length, chamferRadius: 0)
+    let material = SCNMaterial()
+    let image = UIImage(named: "grid")
+    material.diffuse.contents = image
+    let transparentMaterial = SCNMaterial()
+    transparentMaterial.diffuse.contents = UIColor.white.withAlphaComponent(0.0)
+    self.planeGeometry?.materials = [transparentMaterial, transparentMaterial, transparentMaterial, transparentMaterial, material, transparentMaterial]
+}*/
 
 extension SCNNode {
     
