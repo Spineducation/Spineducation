@@ -188,7 +188,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    func nodeWithPosition(_ position: SCNVector3) -> SCNNode {
+    func nodeWithPosition(_ position: SCNVector3) -> SCNNode { // starting position from touch
         //create sphere geometry with radius
         let sphere = SCNSphere(radius: 0.003)
         sphere.firstMaterial?.diffuse.contents = UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
@@ -224,11 +224,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         if (targetExists && !targetLocked){
-            print("REACHED NEW CODE")
+            
             if let position = self.doHitTestOnExistingPlanes(){
-                let node = self.nodeWithPosition(position)
-                sceneView.scene.rootNode.addChildNode(node)
-                startNode = node
+                let node = self.nodeWithPosition(position) // creates sphere node which holds initial touch position
+                sceneView.scene.rootNode.addChildNode(node) // adds this node to the scene
+                startNode = node // sets this as the "start node" so that func renderer updateAtTime can use this position, along with the users changing camera angle, to build a line and update as the user moves
             }
             
            // Get the location of the target in Vector3 coordinates
@@ -369,10 +369,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let start = self.startNode else {
                     return
             }
-            self.lineNode?.removeFromParentNode()
-            let line = SCNGeometry.lineFrom(fromVector: currentPosition, toVector: start.position)
-            self.lineNode = SCNNode(geometry: line)
-            self.sceneView.scene.rootNode.addChildNode(self.lineNode!)
+            self.lineNode?.removeFromParentNode() // remove old line, so that every update appears to allow the original line to move (instead of creating x new ones)
+            let twoPointsNode1 = SCNNode() // scnnode for cylinder
+            self.lineNode = twoPointsNode1.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .blue) // create cylinder line from currentposition and start position
+            self.sceneView.scene.rootNode.addChildNode(self.lineNode!) // add the line to the scene
         }
     }
     
