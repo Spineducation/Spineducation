@@ -371,7 +371,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             self.lineNode?.removeFromParentNode() // remove old line, so that every update appears to allow the original line to move (instead of creating x new ones)
             let twoPointsNode1 = SCNNode() // scnnode for cylinder
-            self.lineNode = twoPointsNode1.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .blue) // create cylinder line from currentposition and start position
+            self.lineNode = twoPointsNode1.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .orange) // create cylinder line from currentposition and start position
             self.sceneView.scene.rootNode.addChildNode(self.lineNode!) // add the line to the scene
         }
     }
