@@ -143,10 +143,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
        let camera = self.sceneView.pointOfView!
         //let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
        let position = camera.convertPosition(targetPosition, to: nil)
-        let sphere = SCNSphere(radius: 0.1)
+        let sphere = SCNSphere(radius: 0.01)
         let sphereNode = SCNNode(geometry: sphere)
-        sphereNode.position = targetPosition
-     //   sceneView.scene.rootNode.addChildNode(sphereNode)
+        sphereNode.position = position;
+    sceneView.scene.rootNode.addChildNode(sphereNode)
         
   //      let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: targetPosition)
         print("camera needs to be in position now - 6 second warning")
@@ -154,10 +154,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
             //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
             let twoPointsNode1 = SCNNode() //trying to make a cylinder, still doesn't point the right way
-            print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
-            self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .blue))
+      //      print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
+     
+            //       self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .blue))
            // I HAVENT TESTED IT AGAIN WITH SCENEVIEW POV SO CHECK THIS LATER
-             //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
+          
+            //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
             //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: camera.position, toendPoint: targetPosition, radius: 0.05, color: .red))
          //   let lineNode = SCNNode(geometry: line)
           //  lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
@@ -178,8 +180,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let results = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
         if let result = results.first{
             let hitPos = self.positionFromTransform(result.worldTransform)
-            return hitPos
-        }
+            return hitPos        }
         return nil
     }
     
@@ -226,11 +227,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if (targetExists && !targetLocked){
             
             if let position = self.doHitTestOnExistingPlanes(){
+                let camera = self.sceneView.pointOfView!
+                
+                // convert the position of the hit test to the camera position
+                let position = camera.convertPosition(position, to: nil)
+                // shift the position lower
+                let adjustPosition = SCNVector3(position.x, position.y - 0.2, position.z);
+                
+                startNode?.position = camera.convertPosition((startNode?.position)!, to: nil)
                 let node = self.nodeWithPosition(position) // creates sphere node which holds initial touch position
                 sceneView.scene.rootNode.addChildNode(node) // adds this node to the scene
                 startNode = node // sets this as the "start node" so that func renderer updateAtTime can use this position, along with the users changing camera angle, to build a line and update as the user moves
             }
-            
            // Get the location of the target in Vector3 coordinates
             let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
             print ("Target ", self.sceneView.pointOfView!.position)
@@ -248,16 +256,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let hitResults = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
             if let result: ARHitTestResult = hitResults.first {
                 target = SCNVector3Make(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+                let camera = self.sceneView.pointOfView!
+                //let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
+                
+                startNode?.position = camera.convertPosition(target, to: nil)
+             //   startNode = self.nodeWithPosition(target);
             }
+            
+            if let hit = sceneView.hitTest(location, types: .featurePoint).first {
+                
+                // Add new anchor to AR session
+                sceneView.session.add(anchor: ARAnchor(transform: hit.worldTransform))
+            }
+            
             // check if a pedical was hit
             if let hit = hitResultsOther.first {
                 print(hit.node.name)
                 if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
-                   // print("Hit node position is ", hit.node.position)
+                  
                     targetLocked = true;
                     print ("Target Position is ", target) // which is the point of view when object is tapped
-                   // target = hit.node.position
+                
+                //    target = hit.node.position
                     let printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
+                    print("hit node pos ",hit.node.position) // this finishes our capstone pls don't delete or we cri
                     showUserInstruction(instruction:  printStatement, xVal: -0.6)
                   //  targetLocked = false;
                 } else {
@@ -283,7 +305,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
             print ("The target is", target)
             trajectoryExists = true;
-            //drawTrajectory(targetPosition: target);
+          //  drawTrajectory(targetPosition: target);
             //showUserInstruction(instruction: "new start point + trajectory", xVal: -0.62)
             //print("new start point + trajectory")
             targetLocked = false; // allow to re-select trajectory
@@ -361,6 +383,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
          changes in the plane anchor as plane estimation continues.
          */
         node.addChildNode(planeNode)
+        
+ 
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval){
@@ -396,7 +420,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
          corresponding node for one plane, then calls this method to update the size of
          the remaining plane.
          */
-        plane.width = CGFloat(planeAnchor.extent.x)
+        plane.width = CGFloat(planeAnchor.extent.x )
         plane.height = CGFloat(planeAnchor.extent.z)
     }
     
