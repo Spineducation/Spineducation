@@ -35,6 +35,7 @@
 		A4145E621FFF34D20028F8FA /* CompletedCaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145E611FFF34D20028F8FA /* CompletedCaseVC.swift */; };
 		A434298B1FEE2F0200E0BF49 /* Case_1_images in Resources */ = {isa = PBXBuildFile; fileRef = A434298A1FEE2F0200E0BF49 /* Case_1_images */; };
 		A434298D1FF2D15500E0BF49 /* HardCodingCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434298C1FF2D15500E0BF49 /* HardCodingCases.swift */; };
+		A456A68E20255F7B00F3D586 /* icons8-report_card.png in Resources */ = {isa = PBXBuildFile; fileRef = A456A68D20255F7B00F3D586 /* icons8-report_card.png */; };
 		A49D14CD1FB61B2C000485E4 /* mcq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D14CB1FB61B2C000485E4 /* mcq.swift */; };
 		A49D14CE1FB61B2C000485E4 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D14CC1FB61B2C000485E4 /* Prompt.swift */; };
 		A4A525A81FAF6ACE0078B56F /* CasesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A525A71FAF6ACE0078B56F /* CasesVC.swift */; };
@@ -102,6 +103,7 @@
 		A4145E611FFF34D20028F8FA /* CompletedCaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedCaseVC.swift; sourceTree = "<group>"; };
 		A434298A1FEE2F0200E0BF49 /* Case_1_images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Case_1_images; sourceTree = "<group>"; };
 		A434298C1FF2D15500E0BF49 /* HardCodingCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardCodingCases.swift; sourceTree = "<group>"; };
+		A456A68D20255F7B00F3D586 /* icons8-report_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-report_card.png"; sourceTree = "<group>"; };
 		A49D14CB1FB61B2C000485E4 /* mcq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mcq.swift; sourceTree = "<group>"; };
 		A49D14CC1FB61B2C000485E4 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		A4A525A71FAF6ACE0078B56F /* CasesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesVC.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		A40D06201FD71DC200A865E6 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A456A68D20255F7B00F3D586 /* icons8-report_card.png */,
 				A40D06211FD76F6700A865E6 /* icons8-shuffle_filled.png */,
 				A40D061E1FD71D3E00A865E6 /* icons8-edit_property.png */,
 				A40D061A1FD71D1C00A865E6 /* icons8-edit_property_filled.png */,
@@ -373,6 +376,7 @@
 				A434298B1FEE2F0200E0BF49 /* Case_1_images in Resources */,
 				A40B3CC21FE7960F00B6B2CC /* MCQExample.json in Resources */,
 				55C44B461F87E86F002D5B24 /* art.scnassets in Resources */,
+				A456A68E20255F7B00F3D586 /* icons8-report_card.png in Resources */,
 				A40D061B1FD71D1C00A865E6 /* icons8-more_filled.png in Resources */,
 				55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */,
 				55C44B4D1F87E86F002D5B24 /* Assets.xcassets in Resources */,
@@ -598,10 +602,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				"CODE_SIGN_STYLE[sdk=*]" = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = QVVHNER6U3;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -616,10 +620,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = QVVHNER6U3;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
