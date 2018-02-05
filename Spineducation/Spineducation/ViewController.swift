@@ -51,7 +51,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
       //  sceneView.showsStatistics = true
         self.sceneView.autoenablesDefaultLighting = true // instead of lamps in the spine image file, this just allows the scene itself to auto-light
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        
         //self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // makes edges smooth
         sceneView.antialiasingMode = .multisampling4X
@@ -71,6 +72,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
        
         
         showUserInstruction(instruction: "Tap to add spine", xVal: -0.425)
+       /* let textNode = TextNode("Tap to add spine")
+        textNode.position = SCNVector3(0,-0.5,-1.5)
+        sceneView.pointOfView?.addChildNode(textNode)*/ // can use textnode class later and figure it out to perfect user intruction, that's a later problem though
     }
     
     // add the target to the screen
@@ -118,7 +122,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         configuration.planeDetection = .horizontal; // makes plane show up underneith detecting surfaces
         
         // Run the view's session
-        sceneView.session.run(configuration)
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
     }
     
@@ -136,7 +140,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return scenePosition
     }
     
-    func drawTrajectory (targetPosition : SCNVector3) {
+    /*func drawTrajectory (targetPosition : SCNVector3) { commented out because no longer using, just to be less confusing
 
 //        let targetPosition = SCNVector3Make(targetPosition.x, targetPosition.y, targetPosition.z)
         // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops 
@@ -153,7 +157,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
             //let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
             //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
-            let twoPointsNode1 = SCNNode() //trying to make a cylinder, still doesn't point the right way
       //      print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
      
             //       self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .blue))
@@ -173,7 +176,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
      //     sceneView.pointOfView?.addChildNode(lineNode)
 
-    }
+    }*/
     
     // new stuff from tutorial
     func doHitTestOnExistingPlanes() -> SCNVector3? {
@@ -225,7 +228,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         if (targetExists && !targetLocked){
+            let tapLocation = self.sceneView.center // Get the center point, of the SceneView.
+            let hitTestResults = sceneView.hitTest(tapLocation, types:.featurePoint)
             
+            if let result = hitTestResults.first {
+                let matrix = result.worldTransform
+                let column = matrix.columns.3
+                let position = SCNVector3(column.x,column.y,column.z)
+                let sphere = SCNSphere(radius: 0.01)
+                let sphereNode = SCNNode(geometry: sphere)
+                sphereNode.position = position
+                sceneView.scene.rootNode.addChildNode(sphereNode)
+                startNode = sphereNode
+            }
+            /*
             if let position = self.doHitTestOnExistingPlanes(){
                 let camera = self.sceneView.pointOfView!
                 
@@ -238,7 +254,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let node = self.nodeWithPosition(position) // creates sphere node which holds initial touch position
                 sceneView.scene.rootNode.addChildNode(node) // adds this node to the scene
                 startNode = node // sets this as the "start node" so that func renderer updateAtTime can use this position, along with the users changing camera angle, to build a line and update as the user moves
-            }
+            }*/
            // Get the location of the target in Vector3 coordinates
             let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
             print ("Target ", self.sceneView.pointOfView!.position)
@@ -313,7 +329,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
     }
-    
 
     
     func createSpine(position : SCNVector3){
@@ -356,6 +371,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        print("Camera State: \(camera.trackingState)") // when camera state is normal, this means we're ready to AR
+        // could not let user do anything up until tracking state is set to normal? try this iin touchesBegan
+        //can't seem to find a way to actually get the string of this value for comparison? .normal is a case, so won't let me compare camera.trackingState == "normal" or camera.trackingState == ".normal" but why does it print like a string then? smh
+
+    }
+    
     /*
      Called when a SceneKit node corresponding to a
      new AR anchor has been added to the scene.
@@ -394,8 +416,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     return
             }
             self.lineNode?.removeFromParentNode() // remove old line, so that every update appears to allow the original line to move (instead of creating x new ones)
-            let twoPointsNode1 = SCNNode() // scnnode for cylinder
-            self.lineNode = twoPointsNode1.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .orange) // create cylinder line from currentposition and start position
+            let cylinderNode = SCNNode() // scnnode for cylinder
+            self.lineNode = cylinderNode.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .orange) // create cylinder line from currentposition and start position
             self.sceneView.scene.rootNode.addChildNode(self.lineNode!) // add the line to the scene
         }
     }
@@ -432,12 +454,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                   didRemove node: SCNNode, for anchor: ARAnchor) {
         // ...
     }
-    
-
-    
 }
-
-
 
 func normalizeVector(_ iv: SCNVector3) -> SCNVector3 {
     let length = sqrt(iv.x * iv.x + iv.y * iv.y + iv.z * iv.z)
