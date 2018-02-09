@@ -37,7 +37,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     
     @IBAction func Menu(_ sender: Any) {
-        print("click")
+       // print("click")
     }
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
     
@@ -49,11 +49,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-      //  sceneView.showsStatistics = true
         self.sceneView.autoenablesDefaultLighting = true // instead of lamps in the spine image file, this just allows the scene itself to auto-light
         self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
-        //self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // makes edges smooth
         sceneView.antialiasingMode = .multisampling4X
         
@@ -64,7 +62,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene.rootNode.addChildNode(spine.rootNode)
         
         self.sceneView.autoenablesDefaultLighting = true
-        self.sceneView.antialiasingMode = .multisampling4X
+       // self.sceneView.antialiasingMode = .multisampling4X
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -72,24 +70,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
        
         
         showUserInstruction(instruction: "Tap to add spine", xVal: -0.425)
-       /* let textNode = TextNode("Tap to add spine")
-        textNode.position = SCNVector3(0,-0.5,-1.5)
-        sceneView.pointOfView?.addChildNode(textNode)*/ // can use textnode class later and figure it out to perfect user intruction, that's a later problem though
-    }
+      }
     
     // add the target to the screen
     func showTarget(){
         let bullseyeNode = make2dNode(image: bullseyeImage!, width: CGFloat(0.001), height: CGFloat(0.001)) // use width and height to adjust size of bullseye
         
-        //bullseyeNode.position = SCNVector3Make(0, 0, -0.01) // create bullseye node extremely close to camera so that user can view and target pedacles close up
+        // create bullseye node extremely close to camera so that user can view and target pedacles close up
         bullseyeNode.position = SCNVector3Make(0, 0, -0.01)
         
         sceneView.pointOfView?.addChildNode(bullseyeNode) // add the bullseyeNode as a child of the point of view (camera) so that image moves with camera
     }
     func showUserInstruction (instruction: String, xVal: Float){
-        if ((instruction == "Reposition as needed" && reposition) || (instruction == "Tap pedicle start point" && pedicle)){ // doesn't allow the textnode for instructions that have already occurred to be re-positioned, seems to fix the problem of moving instructions around screen when user repositions spine
+    /*    if ((instruction == "Reposition as needed" && reposition) || (instruction == "Tap pedicle start point" && pedicle)){ // doesn't allow the textnode for instructions that have already occurred to be re-positioned, seems to fix the problem of moving instructions around screen when user repositions spine
             return;
-        }
+        }*/
             let clickSpine = SCNText (string: instruction, extrusionDepth: 1)
             let clickMaterial = SCNMaterial()
             
@@ -97,11 +92,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             clickSpine.materials = [clickMaterial]
             let cameraPos = self.sceneView.pointOfView!.position
             textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-0.5, cameraPos.z - 2);
-            //textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-1, cameraPos.z-2);
             textNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
             textNode.geometry = clickSpine
             textNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.white
-            //sceneView.scene.rootNode.addChildNode(textNode) adds the text as a child node of the whole scene, making it show up in one static place
             sceneView.pointOfView?.addChildNode(textNode) // adds the text as a child node of the point of view, so it follows the user until they select an area for the target
     }
     
@@ -115,7 +108,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //   navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
@@ -132,51 +124,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
-    
-    func sceneSpacePosition(inFrontOf node: SCNNode) -> SCNVector3 {
-        let localPosition = SCNVector3(x: 1, y: 0, z: -1)
-        let scenePosition = node.convertPosition(localPosition, to: nil)
-        // to: nil is automatically scene space
-        return scenePosition
-    }
-    
-    /*func drawTrajectory (targetPosition : SCNVector3) { commented out because no longer using, just to be less confusing
-
-//        let targetPosition = SCNVector3Make(targetPosition.x, targetPosition.y, targetPosition.z)
-        // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops 
-       let camera = self.sceneView.pointOfView!
-        //let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
-       let position = camera.convertPosition(targetPosition, to: nil)
-        let sphere = SCNSphere(radius: 0.01)
-        let sphereNode = SCNNode(geometry: sphere)
-        sphereNode.position = position;
-    sceneView.scene.rootNode.addChildNode(sphereNode)
-        
-  //      let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: targetPosition)
-        print("camera needs to be in position now - 6 second warning")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
-            //let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
-            //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
-      //      print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
-     
-            //       self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .blue))
-           // I HAVENT TESTED IT AGAIN WITH SCENEVIEW POV SO CHECK THIS LATER
-          
-            //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
-            //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: camera.position, toendPoint: targetPosition, radius: 0.05, color: .red))
-         //   let lineNode = SCNNode(geometry: line)
-          //  lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-         //   self.sceneView.scene.rootNode.addChildNode(lineNode)
-            //self.sceneView.pointOfView?.addChildNode(lineNode)
-            print("line created")
-        }
-        
-        
-        
-
-     //     sceneView.pointOfView?.addChildNode(lineNode)
-
-    }*/
     
     // new stuff from tutorial
     func doHitTestOnExistingPlanes() -> SCNVector3? {
@@ -208,12 +155,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent? ) {
       //  var targetPosition: SCNVector3
         let location = touches.first!.location(in: sceneView)
-        // uncomment this out if create spine mode
         
          if (!targetExists){ // if the target does not exist, spine can and should still be able to be repositioned
             createSpine(position: SCNVector3Make(1,1,-0.65)) // create the spine
             textNode.removeFromParentNode() // remove instruction text asking user to tap to create spine
-            
+            /*
             showUserInstruction(instruction: "Reposition as needed", xVal: -0.62)
             reposition = true // bool will be checked when showUserInstruction gets called again on next touch, disallowing this instruction to be recreated and thus repositioned on next touch
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) { // remove "resposition as needed" text after 6 seconds
@@ -225,79 +171,65 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.textNode.removeFromParentNode()
                 }
                 self.targetExists = true
-            }
+            }*/
+            // for testing, enabled targetExists = true here, later uncomment block of code above
+            showTarget();
+            targetExists = true;
         }
         if (targetExists && !targetLocked){
             let tapLocation = self.sceneView.center // Get the center point, of the SceneView.
             let hitTestResults = sceneView.hitTest(tapLocation, types:.featurePoint)
             
-            if let result = hitTestResults.first {
-                let matrix = result.worldTransform
-                let column = matrix.columns.3
-                let position = SCNVector3(column.x,column.y,column.z)
-                let sphere = SCNSphere(radius: 0.01)
-                let sphereNode = SCNNode(geometry: sphere)
-                sphereNode.position = position
-                sceneView.scene.rootNode.addChildNode(sphereNode)
-                startNode = sphereNode
-            }
-            /*
-            if let position = self.doHitTestOnExistingPlanes(){
-                let camera = self.sceneView.pointOfView!
-                
-                // convert the position of the hit test to the camera position
-                let position = camera.convertPosition(position, to: nil)
-                // shift the position lower
-                let adjustPosition = SCNVector3(position.x, position.y - 0.2, position.z);
-                
-                startNode?.position = camera.convertPosition((startNode?.position)!, to: nil)
-                let node = self.nodeWithPosition(position) // creates sphere node which holds initial touch position
-                sceneView.scene.rootNode.addChildNode(node) // adds this node to the scene
-                startNode = node // sets this as the "start node" so that func renderer updateAtTime can use this position, along with the users changing camera angle, to build a line and update as the user moves
-            }*/
-           // Get the location of the target in Vector3 coordinates
-            let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
-            print ("Target ", self.sceneView.pointOfView!.position)
-            // Convert the SCNVector3 Point to a CGPoint to compare for hittest
             var hitTestOptions = [SCNHitTestOption: Any]()
             hitTestOptions[SCNHitTestOption.clipToZRange] = true // hit-testing searches only objects between the zNear and zFar distances of the pointOfView camera
-            //hitTestOptions[SCNHitTestOption.firstFoundOnly] = true // array of hit-test results contains only the first object found (which is not necessarily the nearest)
+      
             hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true // optimize search performance, but geometric accuracy suffers
             hitTestOptions[SCNHitTestOption.ignoreHiddenNodes] = false // DON'T COMMENT THIS OUT (default val is true, need this so that hidden nodes are included in search for node hit with hittest)
             hitTestOptions[SCNHitTestOption.searchMode] = 1 // search mode follows old behaviour (apparently better?) not actually sure this helps
+
+           // Get the location of the target in Vector3 coordinates
+            let targetPosition = sceneView.projectPoint(self.sceneView.pointOfView!.position)
+       
+            // Convert the SCNVector3 Point to a CGPoint to compare for hittest
             let cgTarget = CGPoint(x:CGFloat(targetPosition.x), y: CGFloat(targetPosition.y))
             let hitResultsOther: [SCNHitTestResult]  = sceneView.hitTest(cgTarget , options: hitTestOptions)
             
             // get location of hit in AR plane
             let hitResults = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
             if let result: ARHitTestResult = hitResults.first {
+                
                 target = SCNVector3Make(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
-                let camera = self.sceneView.pointOfView!
-                //let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
-                
-                startNode?.position = camera.convertPosition(target, to: nil)
-             //   startNode = self.nodeWithPosition(target);
             }
             
-            if let hit = sceneView.hitTest(location, types: .featurePoint).first {
-                
-                // Add new anchor to AR session
-                sceneView.session.add(anchor: ARAnchor(transform: hit.worldTransform))
-            }
-            
+
             // check if a pedical was hit
             if let hit = hitResultsOther.first {
-                print(hit.node.name)
-                if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
-                  
-                    targetLocked = true;
-                    print ("Target Position is ", target) // which is the point of view when object is tapped
                 
-                //    target = hit.node.position
+        //        print(hit.node.name)
+                if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
+                    targetLocked = true;
                     let printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
-                    print("hit node pos ",hit.node.position) // this finishes our capstone pls don't delete or we cri
+                //    print("hit node pos ",hit.node.position) // this finishes our capstone pls don't delete or we cri
                     showUserInstruction(instruction:  printStatement, xVal: -0.6)
                   //  targetLocked = false;
+                    
+                    if let result = hitTestResults.first {
+                        let matrix = result.worldTransform
+                        let column = matrix.columns.3
+                        let position = SCNVector3(column.x,column.y,column.z)
+                        let sphere = SCNSphere(radius: 0.01)
+                        let sphereNode = SCNNode(geometry: sphere)
+                        
+                        sphereNode.position = position
+                        sceneView.scene.rootNode.addChildNode(sphereNode)
+                        startNode = sphereNode;
+                        print("Spine " , spine.rootNode.position)
+                        print("Sphere " ,sphereNode.position)
+                        let positionY =  (spine.rootNode.position.y + (sphereNode.position.y))/2
+                        let positionZ =  ((spine.rootNode.position.z - sphereNode.position.z)/2)
+                        print( "spine and sphere", positionZ)
+                         startNode?.position = SCNVector3(sphereNode.position.x, positionY , sphereNode.position.z)
+                    }
                 } else {
                     showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { // let text show up a few seconds, then remove
@@ -305,25 +237,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     }
                 }
             }
-            /*
-            // let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: self.sceneView.pointOfView!)
-            let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: SCNVector3(1,1,1)) //create a line between 2 given SCNVector3 points, need to anchor to both camera and given point
-            let lineNode = SCNNode(geometry: line)
-            lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-            sceneView.pointOfView?.addChildNode(lineNode) // add as a child node to the camera's point of view
- */
-            
-            // if comparing touch location to pedical location; not necessary atm
-           // let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
+
             // check if the location the target was = a pedical
         }
         if (targetLocked && !trajectoryExists){
             showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
-            print ("The target is", target)
+         //   print ("The target is", target)
             trajectoryExists = true;
-          //  drawTrajectory(targetPosition: target);
-            //showUserInstruction(instruction: "new start point + trajectory", xVal: -0.62)
-            //print("new start point + trajectory")
             targetLocked = false; // allow to re-select trajectory
             trajectoryExists = false; // allow to re-select
         }
@@ -334,7 +254,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func createSpine(position : SCNVector3){
         nodeModel =  spine.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
         let camera = self.sceneView.pointOfView!
-        //      spine.rootNode.position = sceneSpacePosition(inFrontOf: camera)
         spine.rootNode.position = camera.convertPosition(position, to: nil)
         spine.rootNode.rotation = camera.rotation
         sceneView.scene.rootNode.addChildNode(spine.rootNode) // add this to the scene
@@ -345,17 +264,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    // MARK: - ARSCNViewDelegate
-    
-    /*
-     // Override to create and configure nodes for anchors added to the view's session.
-     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-     let node = SCNNode()
-     
-     return node
-     }
-     */
-    
+
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         

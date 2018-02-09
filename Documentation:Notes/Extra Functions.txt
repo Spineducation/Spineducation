@@ -1,3 +1,79 @@
+// calling on TextNode Class
+ /* let textNode = TextNode("Tap to add spine")
+        textNode.position = SCNVector3(0,-0.5,-1.5)
+        sceneView.pointOfView?.addChildNode(textNode)*/ // can use textnode class later and figure it out to perfect user intruction, that's a later problem though
+    
+
+    func sceneSpacePosition(inFrontOf node: SCNNode) -> SCNVector3 {
+        let localPosition = SCNVector3(x: 1, y: 0, z: -1)
+        let scenePosition = node.convertPosition(localPosition, to: nil)
+        // to: nil is automatically scene space
+        return scenePosition
+    }
+
+ /*   func drawTrajectory (targetPosition : SCNVector3) { //commented out because no longer using, just to be less confusing
+
+//        let targetPosition = SCNVector3Make(targetPosition.x, targetPosition.y, targetPosition.z)
+        // I can't figure out how to make it to go from target to camera, so I just did camera to 0,0,0 so they can select the angle whoops 
+       let camera = self.sceneView.pointOfView!
+        //let position = camera.convertPosition(SCNVector3(0, -0.1, 0), to: nil)
+       let position = camera.convertPosition(targetPosition, to: nil)
+        let sphere = SCNSphere(radius: 0.1)
+        let sphereNode = SCNNode(geometry: sphere)
+        sphereNode.position = position;
+    sceneView.scene.rootNode.addChildNode(sphereNode)
+        
+  //      let line = SCNGeometry.lineFrom(fromVector: camera.position, toVector: targetPosition)
+     //   print("camera needs to be in position now - 6 second warning")
+      //  DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
+            //let line = SCNGeometry.lineFrom(fromVector: targetPosition, toVector: camera.position)
+            //let otherLine = buildLineInTwoPointsWithRotation(fromstartPoint: targetPosition, toendPoint: camera.position, radius: 3, color: UIColor.red)
+      //      print("camera position is ", camera.position," position is ", position, "target position is ", targetPosition);
+     
+            //       self.sceneView.scene.rootNode.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .blue))
+           // I HAVENT TESTED IT AGAIN WITH SCENEVIEW POV SO CHECK THIS LATER
+          
+            //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: position, toendPoint: targetPosition, radius: 0.001, color: .red))
+            //self.sceneView.pointOfView?.addChildNode(twoPointsNode1.cylinderLine(fromstartPoint: camera.position, toendPoint: targetPosition, radius: 0.05, color: .red))
+         //   let lineNode = SCNNode(geometry: line)
+          //  lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+         //   self.sceneView.scene.rootNode.addChildNode(lineNode)
+     //       //self.sceneView.pointOfView?.addChildNode(lineNode)
+            print("line created")
+    //    }
+        */
+        
+        
+
+     //     sceneView.pointOfView?.addChildNode(lineNode)
+
+    //}
+
+
+// try to draw line
+            /*
+            // let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: self.sceneView.pointOfView!)
+            let line = SCNGeometry.lineFrom(vector: targetPosition, toVector: SCNVector3(1,1,1)) //create a line between 2 given SCNVector3 points, need to anchor to both camera and given point
+            let lineNode = SCNNode(geometry: line)
+            lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+            sceneView.pointOfView?.addChildNode(lineNode) // add as a child node to the camera's point of view
+ */
+            
+            // if comparing touch location to pedical location; not necessary atm
+           // let hitResults: [SCNHitTestResult]  = sceneView.hitTest(location, options: hitTestOptions)
+
+    // MARK: - ARSCNViewDelegate
+    
+    /*
+     // Override to create and configure nodes for anchors added to the view's session.
+     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+     let node = SCNNode()
+     
+     return node
+     }
+     */
+    
+
   // create a torus shaped object
     func createTarget(position : SCNVector3){
         let torus = SCNTorus(ringRadius: 0.05, pipeRadius: 0.02)
