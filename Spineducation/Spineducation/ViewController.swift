@@ -196,41 +196,67 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             // get location of hit in AR plane
             let hitResults = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
-            if let result: ARHitTestResult = hitResults.first {
+            /*if let result: ARHitTestResult = hitResults.first {
                 
-                target = SCNVector3Make(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
-            }
+                //target = SCNVector3Make(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+            }*/
             
 
             // check if a pedical was hit
-            if let hit = hitResultsOther.first {
+            if let hit = hitResultsOther.first { // hit test  for spine model
+                let startpoint = hit.worldCoordinates
                 
         //        print(hit.node.name)
                 if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
                     targetLocked = true;
                     let printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
                 //    print("hit node pos ",hit.node.position) // this finishes our capstone pls don't delete or we cri
+                    print("node hit is " + hit.node.name!)
                     showUserInstruction(instruction:  printStatement, xVal: -0.6)
                   //  targetLocked = false;
                     
-                    if let result = hitTestResults.first {
+                    if let result = hitTestResults.first { // hit test for sphere
                         let matrix = result.worldTransform
                         let column = matrix.columns.3
                         let position = SCNVector3(column.x,column.y,column.z)
                         let sphere = SCNSphere(radius: 0.01)
                         let sphereNode = SCNNode(geometry: sphere)
-                        
-                        sphereNode.position = position
-                        sceneView.scene.rootNode.addChildNode(sphereNode)
+                        /*let positionY =  (hit.node.position.y + column.y)/2
+                        let positionZ =  (hit.node.position.z + column.z)/2
+                        let positionX = (hit.node.position.x + column.x)/2*/
+                       // sphereNode.position = SCNVector3(hit.node.position.x, hit.node.position.y, hit.node.position.z - 0.6) //this was actually not bad
+                        sphereNode.position = startpoint
                         startNode = sphereNode;
-                        print("Spine " , spine.rootNode.position)
-                        print("Sphere " ,sphereNode.position)
-                        let positionY =  (spine.rootNode.position.y + (sphereNode.position.y))/2
-                        let positionZ =  ((spine.rootNode.position.z - sphereNode.position.z)/2)
-                        print( "spine and sphere", positionZ)
-                         startNode?.position = SCNVector3(sphereNode.position.x, positionY , sphereNode.position.z)
+                        sceneView.scene.rootNode.addChildNode((startNode)!)
+                        
+                        
+                        //tried to do this with anchor
+                        /*let anchor = ARAnchor(transform:)
+                        sceneView.session.add(anchor:anchor)*/
+                        
+                        //tried to do this with transform
+                        //sphereNode.transform = hit.node.transform
+                        
+                       // sphereNode.position = SCNVector3Make(0, 0, -0.65)
+                        //sphereNode.position = SCNVector3(positionX, positionY ,positionZ)
+                        
+                        
+                        /*startNode = sphereNode;
+                        sceneView.scene.rootNode.addChildNode((startNode)!)*/
+                    
+                        // spine root node position way too high
+                        // spherenode position slightly too low
+                        
+                        
+                        //print( "spine and sphere", positionZ)
+                        /*startNode?.position = sphereNode.position
+                        let sphereNode2 = SCNNode(geometry: sphere, color:.red)
+                        sceneView.scene.rootNode.addChildNode(sphereNode2)*/
+                        
+                        
+                         //startNode?.position = SCNVector3(sphereNode.position.x, positionY, positionZ)
                     }
-                } else {
+                } else { // if no spine object hit on 3d image
                     showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { // let text show up a few seconds, then remove
                         self.textNode.removeFromParentNode()
