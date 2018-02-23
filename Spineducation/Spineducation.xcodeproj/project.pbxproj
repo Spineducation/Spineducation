@@ -602,10 +602,17 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				"CODE_SIGN_STYLE[sdk=*]" = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 42W6XQB2U5;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+=======
+				DEVELOPMENT_TEAM = QVVHNER6U3;
+				INFOPLIST_FILE = Spineducation/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
+>>>>>>> 52750eb7383a870a545313ba905cfd9f39d5aa30
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -620,10 +627,17 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 42W6XQB2U5;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+=======
+				DEVELOPMENT_TEAM = QVVHNER6U3;
+				INFOPLIST_FILE = Spineducation/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Spineducation.Spineducation;
+>>>>>>> 52750eb7383a870a545313ba905cfd9f39d5aa30
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
