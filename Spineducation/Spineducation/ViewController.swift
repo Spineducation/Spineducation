@@ -15,6 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     var nodeModel:SCNNode!
+    var screwModel:SCNNode!
     var targetModel:SCNNode!
     var bullseyeNode:SCNNode!
     var clickSpineNode:SCNNode!
@@ -25,11 +26,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var reposition = false;
     var pedicle = false;
     var targetLocked = false;
+    var trajectoryLocked = false;
     var target = SCNVector3();
     var trajectoryExists = false;
     var startNode: SCNNode?
     var lineNode: SCNNode?
-    //var target = SCNVector3();
+    
+    var sphereNode: SCNNode?
+    var clickPosition = SCNVector3();
     
    // clickSpine.materials = [clickMaterial]
     
@@ -40,6 +44,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
        // print("click")
     }
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
+    
+    let screw = SCNScene(named: "art.scnassets/screw.dae")! // sets the screw to screw dae file
     
     
     override func viewDidLoad() {
@@ -220,14 +226,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         let column = matrix.columns.3
                         let position = SCNVector3(column.x,column.y,column.z)
                         let sphere = SCNSphere(radius: 0.01)
-                        let sphereNode = SCNNode(geometry: sphere)
+                        sphereNode = SCNNode(geometry: sphere)
+                        targetLocked = true;
                         /*let positionY =  (hit.node.position.y + column.y)/2
                         let positionZ =  (hit.node.position.z + column.z)/2
                         let positionX = (hit.node.position.x + column.x)/2*/
                        // sphereNode.position = SCNVector3(hit.node.position.x, hit.node.position.y, hit.node.position.z - 0.6) //this was actually not bad
-                        sphereNode.position = startpoint
+                        sphereNode?.position = startpoint
                         startNode = sphereNode;
                         sceneView.scene.rootNode.addChildNode((startNode)!)
+                        clickPosition = startpoint;
+                        
                         
                         
                         //tried to do this with anchor
@@ -255,6 +264,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         
                         
                          //startNode?.position = SCNVector3(sphereNode.position.x, positionY, positionZ)
+                        
                     }
                 } else { // if no spine object hit on 3d image
                     showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
@@ -266,12 +276,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
             // check if the location the target was = a pedical
         }
-        if (targetLocked && !trajectoryExists){
+        // get angle of trajectory on click
+        else if (targetLocked && !trajectoryExists){
             showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
-         //   print ("The target is", target)
+            
+            // remove the trajectory line and node
+            sphereNode!.removeFromParentNode()
+            startNode!.removeFromParentNode()
+            // create the screw object
+            createScrew(position: clickPosition);
+            
             trajectoryExists = true;
-            targetLocked = false; // allow to re-select trajectory
-            trajectoryExists = false; // allow to re-select
+            trajectoryLocked = true;
+            
+            
+          //  targetLocked = false; // allow to re-select trajectory
+           // trajectoryExists = false; // allow to re-select
         }
         
     }
@@ -283,6 +303,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         spine.rootNode.position = camera.convertPosition(position, to: nil)
         spine.rootNode.rotation = camera.rotation
         sceneView.scene.rootNode.addChildNode(spine.rootNode) // add this to the scene
+    }
+    
+    func createScrew(position : SCNVector3){
+        let camera = self.sceneView.pointOfView!
+        screwModel =  screw.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
+        screw.rootNode.position = position
+        
+        let angle = camera.rotation.w  + 90;//+ Float(Double.pi + Double.pi/2);
+        print("The angle is",angle)
+        screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, camera.rotation.y, screw.rootNode.rotation.z, angle);
+        
+        screw.rootNode.eulerAngles = camera.eulerAngles;    //    screw.rootNode.rotation = camera.rotation
+      //  screw.rootNode.orientation = camera.orientation
+        sceneView.scene.rootNode.addChildNode(screw.rootNode) // add this to the scene
     }
     
     override func didReceiveMemoryWarning() {
@@ -351,9 +385,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     return
             }
             self.lineNode?.removeFromParentNode() // remove old line, so that every update appears to allow the original line to move (instead of creating x new ones)
-            let cylinderNode = SCNNode() // scnnode for cylinder
-            self.lineNode = cylinderNode.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .orange) // create cylinder line from currentposition and start position
-            self.sceneView.scene.rootNode.addChildNode(self.lineNode!) // add the line to the scene
+            
+            if (!self.trajectoryExists){
+                let cylinderNode = SCNNode() // scnnode for cylinder
+                self.lineNode = cylinderNode.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .orange) // create cylinder line from currentposition and start position
+                self.sceneView.scene.rootNode.addChildNode(self.lineNode!) // add the line to the scene
+            }
         }
     }
     
