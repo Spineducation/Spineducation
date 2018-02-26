@@ -32,6 +32,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var startNode: SCNNode?
     var lineNode: SCNNode?
     
+    var printStatement = "";
+    
     var sphereNode: SCNNode?
     var clickPosition = SCNVector3();
     
@@ -215,7 +217,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //        print(hit.node.name)
                 if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
                     targetLocked = true;
-                    let printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
+                   printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
                 //    print("hit node pos ",hit.node.position) // this finishes our capstone pls don't delete or we cri
                     print("node hit is " + hit.node.name!)
                     showUserInstruction(instruction:  printStatement, xVal: -0.6)
@@ -237,6 +239,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         sceneView.scene.rootNode.addChildNode((startNode)!)
                         clickPosition = startpoint;
                         
+                        showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
                         
                         
                         //tried to do this with anchor
@@ -278,7 +281,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         // get angle of trajectory on click
         else if (targetLocked && !trajectoryExists){
-            showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
+          //
             
             // remove the trajectory line and node
             sphereNode!.removeFromParentNode()
@@ -288,7 +291,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             trajectoryExists = true;
             trajectoryLocked = true;
-            
+            // alternative: not case sensitive
+            if printStatement.lowercased().range(of:"cylinder") != nil {
+               // showUserInstruction(instruction:  printStatement, xVal: -0.6)
+                showUserInstruction(instruction:  "Successfully placed screw!", xVal: -0.8)
+            }
+            else {
+                 showUserInstruction(instruction:  "Screw Incorrectly placed.", xVal: -0.8)
+            }
+         
             
           //  targetLocked = false; // allow to re-select trajectory
            // trajectoryExists = false; // allow to re-select
@@ -309,15 +320,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let camera = self.sceneView.pointOfView!
         screwModel =  screw.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
         screw.rootNode.position = position
-        
-        let angle = camera.rotation.w  + 180;//+ Float(Double.pi + Double.pi/2);
-        print("The angle is",angle)
-      //  screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, camera.rotation.y + 90, screw.rootNode.rotation.z, angle);
-        screw.rootNode.rotation = SCNVector4(camera.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
+        //screw.rootNode.rotation = SCNVector4(camera.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
+        screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
         
       //  screw.rootNode.rotation = camera.rotation;
-    //    screw.rootNode.eulerAngles = camera.eulerAngles;    //    screw.rootNode.rotation = camera.rotation
-      //  screw.rootNode.orientation = camera.orientation
+    //    screw.rootNode.eulerAngles = camera.eulerAngles;
+    //    screw.rootNode.orientation = camera.orientation
         sceneView.scene.rootNode.addChildNode(screw.rootNode) // add this to the scene
     }
     
