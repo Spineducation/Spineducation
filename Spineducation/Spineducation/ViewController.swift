@@ -310,11 +310,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         screwModel =  screw.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
         screw.rootNode.position = position
         
-        let angle = camera.rotation.w // + 90;//+ Float(Double.pi + Double.pi/2);
+        let angle = camera.rotation.w  + 180;//+ Float(Double.pi + Double.pi/2);
         print("The angle is",angle)
-        screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, camera.rotation.y, screw.rootNode.rotation.z, angle);
+      //  screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, camera.rotation.y + 90, screw.rootNode.rotation.z, angle);
+        screw.rootNode.rotation = SCNVector4(camera.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
         
-        screw.rootNode.eulerAngles = camera.eulerAngles;    //    screw.rootNode.rotation = camera.rotation
+      //  screw.rootNode.rotation = camera.rotation;
+    //    screw.rootNode.eulerAngles = camera.eulerAngles;    //    screw.rootNode.rotation = camera.rotation
       //  screw.rootNode.orientation = camera.orientation
         sceneView.scene.rootNode.addChildNode(screw.rootNode) // add this to the scene
     }
