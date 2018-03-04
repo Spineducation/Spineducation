@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2018-03-04T17:55:31Z</created>
-  <modified>2018-03-04T17:55:31Z</modified>
+  <created>2018-03-04T19:51:14Z</created>
+  <modified>2018-03-04T19:51:14Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Z_UP</up_axis>
  </asset>
@@ -91,7 +91,7 @@
  <library_visual_scenes>
   <visual_scene id="scene5">
    <node id="PedicleScrew1" name="PedicleScrew1">
-    <matrix>0.000487185 -4.97935e-05 -0.0008723998 0 -0.0008438293 -0.0003502635 -0.000458575 0 -0.0002249511 0.001206057 -0.0001691976 1.284838e-05 0 0 0 1 </matrix>
+    <matrix>-0.0001503837 -0.0003224075 -0.0009547696 0 -0.0008528685 -0.0005715888 0.000256515 0 -0.0005 0.00107195 -0.0001503837 1.284838e-05 0 0 0 1 </matrix>
     <instance_geometry url="#geometry1">
      <bind_material>
       <technique_common>

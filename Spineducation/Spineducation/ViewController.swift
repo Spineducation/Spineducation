@@ -35,6 +35,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var printStatement = "";
     var sphereNode: SCNNode?
     var clickPosition = SCNVector3();
+    var latestStartPoint = SCNVector3();
+    var latestEndPoint = SCNVector3();
     let bullseyeImage = UIImage(named: "bullseye.png")?.withRenderingMode(.alwaysOriginal)
     
     
@@ -170,6 +172,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         if (targetExists && !targetLocked){
+            textNode.removeFromParentNode();
             let tapLocation = self.sceneView.center // Get the center point, of the SceneView.
             let hitTestResults = sceneView.hitTest(tapLocation, types:.featurePoint)
             
@@ -199,9 +202,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if let hit = hitResultsOther.first { // hit test  for spine model
                 let startpoint = hit.worldCoordinates
                 
-        //        print(hit.node.name)
+                // print(hit.node.name)
                 if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
                     targetLocked = true;
+                    //let hitTestNode = hit.node;
                    printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
                 //    print("hit node pos ",hit.node.position) // this finishes our capstone pls don't delete or we cri
                     print("node hit is " + hit.node.name!)
@@ -237,26 +241,52 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // remove the trajectory line and node
             sphereNode!.removeFromParentNode() // remove nodes for start point
             startNode!.removeFromParentNode()
-            startNode = nil; // remove line for trajectory
+            startNode = nil; // removes line for trajectory
             // create the screw object
             createScrew(position: clickPosition);
-            //screwExists = true;
             self.lineNode?.removeFromParentNode()
-            
             trajectoryExists = true;
             trajectoryLocked = true;
             // alternative: not case sensitive
+            //let temp = NSIntersectionRange(lineNode, hitTestNode) // just trynna make the hit test work
+            /*var hitTestOptions = [SCNHitTestOption: Any]()
+            hitTestOptions[SCNHitTestOption.clipToZRange] = true // hit-testing searches only objects between the zNear and zFar distances of the pointOfView camera
+            
+            hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true // optimize search performance, but geometric accuracy suffers
+            hitTestOptions[SCNHitTestOption.ignoreHiddenNodes] = false // (default val is true, need this so that hidden nodes are included in search for node hit with hittest)
+            hitTestOptions[SCNHitTestOption.searchMode] = 1 // search mode follows old behaviour (apparently better?) not actually sure this helps*/
+            
+            
+            print("got to kat's code");
+            
+            print(latestStartPoint);
+            print(latestEndPoint);
+            // use hit test segment or check for whether or not our original hit node hit the cylinder
+            let hitResultsLine = sceneView.scene.rootNode.hitTestWithSegment(from: latestStartPoint, to: latestEndPoint);
+            if let hitLine = hitResultsLine.first {
+                if (hitLine.node.name?.lowercased().range(of:"cylinder") != nil || printStatement.lowercased().range(of:"cylinder") != nil){
+                    showUserInstruction(instruction:  "kat stmt says screw placed", xVal: 0)
+                    print("screw in position");
+                } else {
+                    showUserInstruction(instruction:  "kat stmt says screw wasn't placed properly", xVal: 0)
+                     print("screw !in position");
+                }
+            }
+            /*
+             
             if printStatement.lowercased().range(of:"cylinder") != nil {
                // showUserInstruction(instruction:  printStatement, xVal: -0.6)
                 showUserInstruction(instruction:  "Successfully placed screw!", xVal: -0.8)
+                //print("screw placed")
             }
             else {
                  showUserInstruction(instruction:  "Screw Incorrectly placed.", xVal: -0.8)
-            }
+                //print("screw not placed")
+            }*/
          
           targetLocked = false; // allow to re-select trajectory
             trajectoryExists = false; // allow to re-select
-            showUserInstruction(instruction:  "Select new pedicle start point", xVal: -0.8)
+            //showUserInstruction(instruction:  "Select new pedicle start point", xVal: 0)
         }
         
     }
@@ -352,6 +382,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if (!self.trajectoryExists){
                 let cylinderNode = SCNNode() // scnnode for cylinder
+                self.latestStartPoint = currentPosition;
+                self.latestEndPoint = start.position;
                 self.lineNode = cylinderNode.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .orange) // create cylinder line from currentposition and start position
                 self.sceneView.scene.rootNode.addChildNode(self.lineNode!) // add the line to the scene
             }
