@@ -23,6 +23,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let textNode = SCNNode()
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var targetExists = false;
+   // var screwExists = false;
     var reposition = false;
     var pedicle = false;
     var targetLocked = false;
@@ -31,22 +32,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var trajectoryExists = false;
     var startNode: SCNNode?
     var lineNode: SCNNode?
-    
     var printStatement = "";
-    
     var sphereNode: SCNNode?
     var clickPosition = SCNVector3();
-    
-   // clickSpine.materials = [clickMaterial]
-    
     let bullseyeImage = UIImage(named: "bullseye.png")?.withRenderingMode(.alwaysOriginal)
     
     
     @IBAction func Menu(_ sender: Any) {
-       // print("click")
     }
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
-    
     let screw = SCNScene(named: "art.scnassets/screw.dae")! // sets the screw to screw dae file
     
     
@@ -74,9 +68,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
-        
-       
-        
         showUserInstruction(instruction: "Tap to add spine", xVal: -0.425)
       }
     
@@ -90,9 +81,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.pointOfView?.addChildNode(bullseyeNode) // add the bullseyeNode as a child of the point of view (camera) so that image moves with camera
     }
     func showUserInstruction (instruction: String, xVal: Float){
-    /*    if ((instruction == "Reposition as needed" && reposition) || (instruction == "Tap pedicle start point" && pedicle)){ // doesn't allow the textnode for instructions that have already occurred to be re-positioned, seems to fix the problem of moving instructions around screen when user repositions spine
-            return;
-        }*/
             let clickSpine = SCNText (string: instruction, extrusionDepth: 1)
             let clickMaterial = SCNMaterial()
             
@@ -167,7 +155,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
          if (!targetExists){ // if the target does not exist, spine can and should still be able to be repositioned
             createSpine(position: SCNVector3Make(1,1,-0.65)) // create the spine
             textNode.removeFromParentNode() // remove instruction text asking user to tap to create spine
-            /*
+            
             showUserInstruction(instruction: "Reposition as needed", xVal: -0.62)
             reposition = true // bool will be checked when showUserInstruction gets called again on next touch, disallowing this instruction to be recreated and thus repositioned on next touch
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) { // remove "resposition as needed" text after 6 seconds
@@ -179,10 +167,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.textNode.removeFromParentNode()
                 }
                 self.targetExists = true
-            }*/
-            // for testing, enabled targetExists = true here, later uncomment block of code above
-            showTarget();
-            targetExists = true;
+            }
         }
         if (targetExists && !targetLocked){
             let tapLocation = self.sceneView.center // Get the center point, of the SceneView.
@@ -192,7 +177,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             hitTestOptions[SCNHitTestOption.clipToZRange] = true // hit-testing searches only objects between the zNear and zFar distances of the pointOfView camera
       
             hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true // optimize search performance, but geometric accuracy suffers
-            hitTestOptions[SCNHitTestOption.ignoreHiddenNodes] = false // DON'T COMMENT THIS OUT (default val is true, need this so that hidden nodes are included in search for node hit with hittest)
+            hitTestOptions[SCNHitTestOption.ignoreHiddenNodes] = false // (default val is true, need this so that hidden nodes are included in search for node hit with hittest)
             hitTestOptions[SCNHitTestOption.searchMode] = 1 // search mode follows old behaviour (apparently better?) not actually sure this helps
 
            // Get the location of the target in Vector3 coordinates
@@ -223,51 +208,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     showUserInstruction(instruction:  printStatement, xVal: -0.6)
                   //  targetLocked = false;
                     
-                    if let result = hitTestResults.first { // hit test for sphere
+                    if let result = hitTestResults.first { // hit test for sphere / start point
                         let matrix = result.worldTransform
                         let column = matrix.columns.3
                         let position = SCNVector3(column.x,column.y,column.z)
-                        let sphere = SCNSphere(radius: 0.01)
+                        let sphere = SCNSphere(radius: 0.001)
                         sphereNode = SCNNode(geometry: sphere)
                         targetLocked = true;
-                        /*let positionY =  (hit.node.position.y + column.y)/2
-                        let positionZ =  (hit.node.position.z + column.z)/2
-                        let positionX = (hit.node.position.x + column.x)/2*/
-                       // sphereNode.position = SCNVector3(hit.node.position.x, hit.node.position.y, hit.node.position.z - 0.6) //this was actually not bad
                         sphereNode?.position = startpoint
                         startNode = sphereNode;
-                        sceneView.scene.rootNode.addChildNode((startNode)!)
+                        sceneView.scene.rootNode.addChildNode((startNode)!) // add the sphere node (which represents start node) to the scene
                         clickPosition = startpoint;
                         
                         showUserInstruction(instruction: "Select Trajectory Angle", xVal: -0.62) // user should now select trajectory angle by positioning camera
-                        
-                        
-                        //tried to do this with anchor
-                        /*let anchor = ARAnchor(transform:)
-                        sceneView.session.add(anchor:anchor)*/
-                        
-                        //tried to do this with transform
-                        //sphereNode.transform = hit.node.transform
-                        
-                       // sphereNode.position = SCNVector3Make(0, 0, -0.65)
-                        //sphereNode.position = SCNVector3(positionX, positionY ,positionZ)
-                        
-                        
-                        /*startNode = sphereNode;
-                        sceneView.scene.rootNode.addChildNode((startNode)!)*/
-                    
-                        // spine root node position way too high
-                        // spherenode position slightly too low
-                        
-                        
-                        //print( "spine and sphere", positionZ)
-                        /*startNode?.position = sphereNode.position
-                        let sphereNode2 = SCNNode(geometry: sphere, color:.red)
-                        sceneView.scene.rootNode.addChildNode(sphereNode2)*/
-                        
-                        
-                         //startNode?.position = SCNVector3(sphereNode.position.x, positionY, positionZ)
-                        
                     }
                 } else { // if no spine object hit on 3d image
                     showUserInstruction(instruction: "Pedicle not selected,\n    Try again", xVal: -0.55) // if "nil" object selected, let the user try again
@@ -281,13 +234,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         // get angle of trajectory on click
         else if (targetLocked && !trajectoryExists){
-          //
-            
             // remove the trajectory line and node
-            sphereNode!.removeFromParentNode()
+            sphereNode!.removeFromParentNode() // remove nodes for start point
             startNode!.removeFromParentNode()
+            startNode = nil; // remove line for trajectory
             // create the screw object
             createScrew(position: clickPosition);
+            //screwExists = true;
+            self.lineNode?.removeFromParentNode()
             
             trajectoryExists = true;
             trajectoryLocked = true;
@@ -300,9 +254,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                  showUserInstruction(instruction:  "Screw Incorrectly placed.", xVal: -0.8)
             }
          
-            
-          //  targetLocked = false; // allow to re-select trajectory
-           // trajectoryExists = false; // allow to re-select
+          targetLocked = false; // allow to re-select trajectory
+            trajectoryExists = false; // allow to re-select
+            showUserInstruction(instruction:  "Select new pedicle start point", xVal: -0.8)
         }
         
     }
@@ -321,7 +275,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         screwModel =  screw.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
         screw.rootNode.position = position
         //screw.rootNode.rotation = SCNVector4(camera.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
-        screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
+        //screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
         
       //  screw.rootNode.rotation = camera.rotation;
     //    screw.rootNode.eulerAngles = camera.eulerAngles;

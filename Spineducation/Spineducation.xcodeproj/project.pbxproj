@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5576F2212027A1C400AB228B /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5576F2202027A1C400AB228B /* TextNode.swift */; };
 		55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B431F87E86F002D5B24 /* AppDelegate.swift */; };
 		55C44B461F87E86F002D5B24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C44B451F87E86F002D5B24 /* art.scnassets */; };
 		55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B471F87E86F002D5B24 /* ViewController.swift */; };
@@ -17,7 +16,6 @@
 		55C44B5B1F87E870002D5B24 /* SpineducationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B5A1F87E870002D5B24 /* SpineducationTests.swift */; };
 		55C44B661F87E870002D5B24 /* SpineducationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B651F87E870002D5B24 /* SpineducationUITests.swift */; };
 		55FD35A01FD8F03C002ADEFA /* bullseye.png in Resources */ = {isa = PBXBuildFile; fileRef = 55FD359F1FD8F03B002ADEFA /* bullseye.png */; };
-		7DFE97FE1FDDC02300C41259 /* bullseye_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE97FD1FDDC02200C41259 /* bullseye_black.png */; };
 		A40B3CBE1FE6FC7400B6B2CC /* FetchRandomMcq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */; };
 		A40B3CC01FE795B700B6B2CC /* CasesExample.json in Resources */ = {isa = PBXBuildFile; fileRef = A40B3CBF1FE795B700B6B2CC /* CasesExample.json */; };
 		A40B3CC21FE7960F00B6B2CC /* MCQExample.json in Resources */ = {isa = PBXBuildFile; fileRef = A40B3CC11FE7960F00B6B2CC /* MCQExample.json */; };
@@ -69,7 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5576F2202027A1C400AB228B /* TextNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNode.swift; sourceTree = "<group>"; };
 		55C44B401F87E86F002D5B24 /* Spineducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spineducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C44B431F87E86F002D5B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C44B451F87E86F002D5B24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -85,7 +82,6 @@
 		55C44B651F87E870002D5B24 /* SpineducationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineducationUITests.swift; sourceTree = "<group>"; };
 		55C44B671F87E870002D5B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55FD359F1FD8F03B002ADEFA /* bullseye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullseye.png; sourceTree = "<group>"; };
-		7DFE97FD1FDDC02200C41259 /* bullseye_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullseye_black.png; sourceTree = SOURCE_ROOT; };
 		A40B3CBD1FE6FC7400B6B2CC /* FetchRandomMcq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRandomMcq.swift; sourceTree = "<group>"; };
 		A40B3CBF1FE795B700B6B2CC /* CasesExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CasesExample.json; sourceTree = "<group>"; };
 		A40B3CC11FE7960F00B6B2CC /* MCQExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MCQExample.json; sourceTree = "<group>"; };
@@ -147,7 +143,6 @@
 		55C44B371F87E86F002D5B24 = {
 			isa = PBXGroup;
 			children = (
-				5576F2202027A1C400AB228B /* TextNode.swift */,
 				55C44B411F87E86F002D5B24 /* Products */,
 				55C44B421F87E86F002D5B24 /* Spineducation */,
 				55C44B591F87E870002D5B24 /* SpineducationTests */,
@@ -172,7 +167,6 @@
 				55C44B431F87E86F002D5B24 /* AppDelegate.swift */,
 				55C44B451F87E86F002D5B24 /* art.scnassets */,
 				55C44B4C1F87E86F002D5B24 /* Assets.xcassets */,
-				7DFE97FD1FDDC02200C41259 /* bullseye_black.png */,
 				55FD359F1FD8F03B002ADEFA /* bullseye.png */,
 				A4A525B11FAF8A980078B56F /* Cases */,
 				A40D06201FD71DC200A865E6 /* Icons */,
@@ -381,7 +375,6 @@
 				55C44B501F87E86F002D5B24 /* LaunchScreen.storyboard in Resources */,
 				55C44B4D1F87E86F002D5B24 /* Assets.xcassets in Resources */,
 				A40D061C1FD71D1C00A865E6 /* icons8-screenshot.png in Resources */,
-				7DFE97FE1FDDC02300C41259 /* bullseye_black.png in Resources */,
 				A40B3CC01FE795B700B6B2CC /* CasesExample.json in Resources */,
 				A40D061D1FD71D1C00A865E6 /* icons8-edit_property_filled.png in Resources */,
 				55C44B4B1F87E86F002D5B24 /* Main.storyboard in Resources */,
@@ -422,7 +415,6 @@
 				A49D14CD1FB61B2C000485E4 /* mcq.swift in Sources */,
 				55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */,
 				A434298D1FF2D15500E0BF49 /* HardCodingCases.swift in Sources */,
-				5576F2212027A1C400AB228B /* TextNode.swift in Sources */,
 				A4145E391FFED6EE0028F8FA /* PostOpImageViewerVC.swift in Sources */,
 				A49D14CE1FB61B2C000485E4 /* Prompt.swift in Sources */,
 				A40D06141FD6FF5700A865E6 /* MCQcategoriesVC.swift in Sources */,
@@ -602,10 +594,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				"CODE_SIGN_STYLE[sdk=*]" = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -620,10 +612,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42W6XQB2U5;
+				DEVELOPMENT_TEAM = NWVTD7H53D;
 				INFOPLIST_FILE = Spineducation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.csgirls.Spineducation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katrinerachitsky.Spineducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
