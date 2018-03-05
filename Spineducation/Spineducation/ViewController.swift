@@ -257,18 +257,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             hitTestOptions[SCNHitTestOption.searchMode] = 1 // search mode follows old behaviour (apparently better?) not actually sure this helps*/
             
             
-            print("got to kat's code");
-            
             print(latestStartPoint);
             print(latestEndPoint);
             // use hit test segment or check for whether or not our original hit node hit the cylinder
             let hitResultsLine = sceneView.scene.rootNode.hitTestWithSegment(from: latestStartPoint, to: latestEndPoint);
             if let hitLine = hitResultsLine.first {
                 if (hitLine.node.name?.lowercased().range(of:"cylinder") != nil || printStatement.lowercased().range(of:"cylinder") != nil){
-                    showUserInstruction(instruction:  "kat stmt says screw placed", xVal: 0)
+                    showUserInstruction(instruction:  "The screw placed\n correctly", xVal: -0.5)
                     print("screw in position");
                 } else {
-                    showUserInstruction(instruction:  "kat stmt says screw wasn't placed properly", xVal: 0)
+                    showUserInstruction(instruction:  "The screw wasn't\n placed properly", xVal: -0.5)
                      print("screw !in position");
                 }
             }
@@ -304,7 +302,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let camera = self.sceneView.pointOfView!
         screwModel =  screw.rootNode.childNode( withName: nodeName, recursively: true)// recursively binds child node to root
         screw.rootNode.position = position
-        //screw.rootNode.rotation = SCNVector4(camera.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
+        screw.rootNode.rotation = SCNVector4(camera.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
         //screw.rootNode.rotation = SCNVector4(screw.rootNode.rotation.x, -camera.rotation.y, -camera.rotation.z, camera.rotation.w);
         
       //  screw.rootNode.rotation = camera.rotation;
