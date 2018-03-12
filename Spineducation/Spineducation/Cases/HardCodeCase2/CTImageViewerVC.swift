@@ -14,8 +14,9 @@ class CTImageViewerVC: UIViewController {
     var CoronalImageArray = [UIImage]()
     var SagitalImageArray = [UIImage]()
     
-    @IBOutlet weak var MainScrollView: UIScrollView!
-    
+    //@IBOutlet weak var MainScrollView: UIScrollView!
+    @IBOutlet weak var mainImageView: ImageStackView!
+
     @IBAction func ClickedAxial(_ sender: Any) {
         displayeImages(array: AxialImageArray)
 
@@ -33,7 +34,7 @@ class CTImageViewerVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        MainScrollView.frame = view.frame
+        mainImageView.frame = view.frame
         
         AxialImageArray = [#imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.34.08"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.34.25"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.34.38"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.34.52"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.35.06"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.35.26"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.35.36"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.35.50"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.36.01"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.36.13"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.36.32")]
         CoronalImageArray = [ #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.31.01"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.31.17"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.31.36"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.31.49"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.32.01"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.32.15"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.32.24"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.32.24"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.32.37"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.32.50"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.33.02")]
@@ -49,6 +50,8 @@ class CTImageViewerVC: UIViewController {
     }
     
     func displayeImages(array: [UIImage]){
+        mainImageView.setImages(array)
+        /*
         for i in 0..<array.count {
             let imageView = UIImageView()
             imageView.image = array[i]
@@ -61,6 +64,7 @@ class CTImageViewerVC: UIViewController {
             
             MainScrollView.addSubview(imageView)
         }
+        */
     }
     
     /*

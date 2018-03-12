@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		174C7B7A205694A9003CEE4B /* ImageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C7B79205694A9003CEE4B /* ImageStackView.swift */; };
 		55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B431F87E86F002D5B24 /* AppDelegate.swift */; };
 		55C44B461F87E86F002D5B24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C44B451F87E86F002D5B24 /* art.scnassets */; };
 		55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B471F87E86F002D5B24 /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		174C7B79205694A9003CEE4B /* ImageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStackView.swift; sourceTree = "<group>"; };
 		55C44B401F87E86F002D5B24 /* Spineducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spineducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C44B431F87E86F002D5B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C44B451F87E86F002D5B24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		55C44B371F87E86F002D5B24 = {
 			isa = PBXGroup;
 			children = (
+				174C7B79205694A9003CEE4B /* ImageStackView.swift */,
 				55C44B411F87E86F002D5B24 /* Products */,
 				55C44B421F87E86F002D5B24 /* Spineducation */,
 				55C44B591F87E870002D5B24 /* SpineducationTests */,
@@ -406,6 +409,7 @@
 				A4145E621FFF34D20028F8FA /* CompletedCaseVC.swift in Sources */,
 				A4145E371FFED6D40028F8FA /* IntraOPImageViewerVC.swift in Sources */,
 				A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */,
+				174C7B7A205694A9003CEE4B /* ImageStackView.swift in Sources */,
 				A4A525AA1FAF6B020078B56F /* HomeModel.swift in Sources */,
 				DC24C2A01FD4F91A0074A499 /* SpinnerPageVC.swift in Sources */,
 				A4A525AE1FAF6B570078B56F /* StudyMainPageVC.swift in Sources */,

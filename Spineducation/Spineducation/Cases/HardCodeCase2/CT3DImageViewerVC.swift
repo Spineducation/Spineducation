@@ -12,28 +12,19 @@ class CT3DImageViewerVC: UIViewController {
 
     var ImageArray = [UIImage]()
 
-    @IBOutlet weak var CT_3D_Image_Scroller: UIScrollView!
+    @IBOutlet weak var ct3dImageView: ImageStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        CT_3D_Image_Scroller.frame = view.frame
+        ct3dImageView.frame = view.frame
         
         ImageArray = [#imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.09"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.32"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.38.52"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.12"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.30"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.45"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.39.58"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.10"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.21"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.36"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.40.51"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.41.03"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.41.16"), #imageLiteral(resourceName: "Screen Shot 2017-10-01 at 22.41.27")]
-        
-        for i in 0..<ImageArray.count {
-            let imageView = UIImageView()
-            imageView.image = ImageArray[i]
-            imageView.contentMode = .scaleAspectFit
-            
-            let xPosition = self.CT_3D_Image_Scroller.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPosition, y: 0, width: self.CT_3D_Image_Scroller.frame.width, height: self.CT_3D_Image_Scroller.frame.height )
-            
-            CT_3D_Image_Scroller.contentSize.width = CT_3D_Image_Scroller.frame.width *  CGFloat(i + 1)
-            CT_3D_Image_Scroller.addSubview(imageView)
-        }
+
+        ct3dImageView.setImages(ImageArray)
+
     }
 
     override func didReceiveMemoryWarning() {
