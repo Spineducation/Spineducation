@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		174C7B7A205694A9003CEE4B /* ImageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C7B79205694A9003CEE4B /* ImageStackView.swift */; };
+		1774896520607610000137D0 /* MCQGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774896420607610000137D0 /* MCQGraphVC.swift */; };
+		177489692061096A000137D0 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177489682061096A000137D0 /* GraphView.swift */; };
 		55C44B441F87E86F002D5B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B431F87E86F002D5B24 /* AppDelegate.swift */; };
 		55C44B461F87E86F002D5B24 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C44B451F87E86F002D5B24 /* art.scnassets */; };
 		55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C44B471F87E86F002D5B24 /* ViewController.swift */; };
@@ -69,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		174C7B79205694A9003CEE4B /* ImageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStackView.swift; sourceTree = "<group>"; };
+		1774896420607610000137D0 /* MCQGraphVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCQGraphVC.swift; sourceTree = "<group>"; };
+		177489682061096A000137D0 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		55C44B401F87E86F002D5B24 /* Spineducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spineducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C44B431F87E86F002D5B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C44B451F87E86F002D5B24 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				A49D14CB1FB61B2C000485E4 /* mcq.swift */,
 				A40D06121FD6FF5600A865E6 /* MCQcategoriesVC.swift */,
 				A40D06131FD6FF5700A865E6 /* MCQdynamicVC.swift */,
+				1774896420607610000137D0 /* MCQGraphVC.swift */,
+				177489682061096A000137D0 /* GraphView.swift */,
 				A40B3CC11FE7960F00B6B2CC /* MCQExample.json */,
 				DC24C29D1FD4F3720074A499 /* MCQExampleVC.swift */,
 				A4A525AB1FAF6B340078B56F /* MedicalCase.swift */,
@@ -406,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177489692061096A000137D0 /* GraphView.swift in Sources */,
 				A4145E621FFF34D20028F8FA /* CompletedCaseVC.swift in Sources */,
 				A4145E371FFED6D40028F8FA /* IntraOPImageViewerVC.swift in Sources */,
 				A4A525AC1FAF6B340078B56F /* MedicalCase.swift in Sources */,
@@ -413,6 +420,7 @@
 				A4A525AA1FAF6B020078B56F /* HomeModel.swift in Sources */,
 				DC24C2A01FD4F91A0074A499 /* SpinnerPageVC.swift in Sources */,
 				A4A525AE1FAF6B570078B56F /* StudyMainPageVC.swift in Sources */,
+				1774896520607610000137D0 /* MCQGraphVC.swift in Sources */,
 				A4A525B01FAF6B760078B56F /* CaseDataVC.swift in Sources */,
 				A4AF4CEF1FFAD77A00E727DD /* CTImageViewerVC.swift in Sources */,
 				55C44B481F87E86F002D5B24 /* ViewController.swift in Sources */,
