@@ -23,12 +23,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let textNode = SCNNode()
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
     var targetExists = false;
-   // var screwExists = false;
     var reposition = false;
     var pedicle = false;
     var targetLocked = false;
     var trajectoryLocked = false;
-    var target = SCNVector3();
     var trajectoryExists = false;
     var startNode: SCNNode?
     var lineNode: SCNNode?
@@ -66,7 +64,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene.rootNode.addChildNode(spine.rootNode)
         
         self.sceneView.autoenablesDefaultLighting = true
-       // self.sceneView.antialiasingMode = .multisampling4X
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -123,12 +120,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-    // new stuff from tutorial
+    // does a hit test on the horizontal plane to check if clicked position was on the plane
     func doHitTestOnExistingPlanes() -> SCNVector3? {
         let results = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
         if let result = results.first{
             let hitPos = self.positionFromTransform(result.worldTransform)
-            return hitPos        }
+            return hitPos
+        }
         return nil
     }
     
@@ -147,7 +145,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.position = position
         return node
     }
-    // new stuff from tutorial
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent? ) {
@@ -192,11 +189,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             // get location of hit in AR plane
             let hitResults = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
-            /*if let result: ARHitTestResult = hitResults.first {
-                
-                //target = SCNVector3Make(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
-            }*/
-            
 
             // check if a pedical was hit
             if let hit = hitResultsOther.first { // hit test  for spine model
@@ -205,13 +197,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 // print(hit.node.name)
                 if (!(hit.node.name == nil)){ // if a valid node has been hit, mark the start point and set target as locked so that line can be drawn from candle to target
                     targetLocked = true;
-                    //let hitTestNode = hit.node;
                    printStatement = "You have hit " + hit.node.name! // this finishes our capstone pls don't delete or we cri
-                //    print("hit node pos ",hit.node.position) // this finishes our capstone pls don't delete or we cri
                     print("node hit is " + hit.node.name!)
                     showUserInstruction(instruction:  printStatement, xVal: -0.6)
-                  //  targetLocked = false;
-                    
+                
                     if let result = hitTestResults.first { // hit test for sphere / start point
                         let matrix = result.worldTransform
                         let column = matrix.columns.3
@@ -247,15 +236,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             self.lineNode?.removeFromParentNode()
             trajectoryExists = true;
             trajectoryLocked = true;
-            // alternative: not case sensitive
-            //let temp = NSIntersectionRange(lineNode, hitTestNode) // just trynna make the hit test work
-            /*var hitTestOptions = [SCNHitTestOption: Any]()
-            hitTestOptions[SCNHitTestOption.clipToZRange] = true // hit-testing searches only objects between the zNear and zFar distances of the pointOfView camera
-            
-            hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true // optimize search performance, but geometric accuracy suffers
-            hitTestOptions[SCNHitTestOption.ignoreHiddenNodes] = false // (default val is true, need this so that hidden nodes are included in search for node hit with hittest)
-            hitTestOptions[SCNHitTestOption.searchMode] = 1 // search mode follows old behaviour (apparently better?) not actually sure this helps*/
-            
             
             print(latestStartPoint);
             print(latestEndPoint);
@@ -270,21 +250,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                      print("screw !in position");
                 }
             }
-            /*
-             
-            if printStatement.lowercased().range(of:"cylinder") != nil {
-               // showUserInstruction(instruction:  printStatement, xVal: -0.6)
-                showUserInstruction(instruction:  "Successfully placed screw!", xVal: -0.8)
-                //print("screw placed")
-            }
-            else {
-                 showUserInstruction(instruction:  "Screw Incorrectly placed.", xVal: -0.8)
-                //print("screw not placed")
-            }*/
+        
          
           targetLocked = false; // allow to re-select trajectory
             trajectoryExists = false; // allow to re-select
-            //showUserInstruction(instruction:  "Select new pedicle start point", xVal: 0)
         }
         
     }
@@ -334,8 +303,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         print("Camera State: \(camera.trackingState)") // when camera state is normal, this means we're ready to AR
-        // could not let user do anything up until tracking state is set to normal? try this iin touchesBegan
-        //can't seem to find a way to actually get the string of this value for comparison? .normal is a case, so won't let me compare camera.trackingState == "normal" or camera.trackingState == ".normal" but why does it print like a string then? smh
 
     }
     
@@ -382,7 +349,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let cylinderNode = SCNNode() // scnnode for cylinder
                 self.latestStartPoint = currentPosition;
                 self.latestEndPoint = start.position;
-                self.lineNode = cylinderNode.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001, color: .orange) // create cylinder line from currentposition and start position
+                self.lineNode = cylinderNode.cylinderLine(fromstartPoint: currentPosition, toendPoint: start.position, radius: 0.001) // create cylinder line from currentposition and start position
                 self.sceneView.scene.rootNode.addChildNode(self.lineNode!) // add the line to the scene
             }
         }
@@ -442,69 +409,65 @@ extension SCNGeometry {
 }
 extension SCNNode {
     
-    func cylinderLine(fromstartPoint: SCNVector3,
-                                          toendPoint: SCNVector3,
-                                          radius: CGFloat,
-                                          color: UIColor) -> SCNNode {
-        let w = SCNVector3(x: toendPoint.x-fromstartPoint.x,
-                           y: toendPoint.y-fromstartPoint.y,
-                           z: toendPoint.z-fromstartPoint.z)
-        let l = CGFloat(sqrt(w.x * w.x + w.y * w.y + w.z * w.z))
+    func cylinderLine(fromstartPoint: SCNVector3, toendPoint: SCNVector3,radius: CGFloat) -> SCNNode {
+        let coordinates = SCNVector3(x: toendPoint.x - fromstartPoint.x,
+                                     y: toendPoint.y - fromstartPoint.y,
+                                     z: toendPoint.z - fromstartPoint.z)
+        let hyp = CGFloat(sqrt(coordinates.x * coordinates.x + coordinates.y * coordinates.y + coordinates.z * coordinates.z))
         
-        if l == 0.0 {
+        if hyp == 0.0 {
             // two points together.
             let sphere = SCNSphere(radius: radius)
-            sphere.firstMaterial?.diffuse.contents = color
+            //UIColor colour = UIcolor.orange;
+            sphere.firstMaterial?.diffuse.contents = UIColor.orange
             self.geometry = sphere
             self.position = fromstartPoint
             return self
-            
         }
+        let cylinder = SCNCylinder(radius: radius, height: hyp)
+        cylinder.firstMaterial?.diffuse.contents = UIColor.orange
         
-        let cyl = SCNCylinder(radius: radius, height: l)
-        cyl.firstMaterial?.diffuse.contents = color
-        
-        self.geometry = cyl
+        self.geometry = cylinder
         
         //original vector of cylinder above 0,0,0
-        let ov = SCNVector3(0, l/2.0,0)
+        let original_vector = SCNVector3(0, hyp/2.0,0)
         //target vector, in new coordination
-        let nv = SCNVector3((toendPoint.x - fromstartPoint.x)/2.0, (toendPoint.y - fromstartPoint.y)/2.0,
-                            (toendPoint.z-fromstartPoint.z)/2.0)
+        let new_vector = SCNVector3((toendPoint.x - fromstartPoint.x)/2.0, (toendPoint.y - fromstartPoint.y)/2.0,
+                                    (toendPoint.z-fromstartPoint.z)/2.0)
         
         // axis between two vector
-        let av = SCNVector3( (ov.x + nv.x)/2.0, (ov.y+nv.y)/2.0, (ov.z+nv.z)/2.0)
+        let axis = SCNVector3( (original_vector.x + new_vector.x)/2.0, (original_vector.y+new_vector.y)/2.0, (original_vector.z+new_vector.z)/2.0)
         
         //normalized axis vector
-        let av_normalized = normalizeVector(av)
-        let q0 = Float(0.0) //cos(angel/2), angle is always 180 or M_PI
-        let q1 = Float(av_normalized.x) // x' * sin(angle/2)
-        let q2 = Float(av_normalized.y) // y' * sin(angle/2)
-        let q3 = Float(av_normalized.z) // z' * sin(angle/2)
+        let axis_normalized = normalizeVector(axis)
+        let angle_0 = Float(0.0)
+        let angle_1 = Float(axis_normalized.x)
+        let angle_2 = Float(axis_normalized.y)
+        let angle_3 = Float(axis_normalized.z)
         
-        let r_m11 = q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3
-        let r_m12 = 2 * q1 * q2 + 2 * q0 * q3
-        let r_m13 = 2 * q1 * q3 - 2 * q0 * q2
-        let r_m21 = 2 * q1 * q2 - 2 * q0 * q3
-        let r_m22 = q0 * q0 - q1 * q1 + q2 * q2 - q3 * q3
-        let r_m23 = 2 * q2 * q3 + 2 * q0 * q1
-        let r_m31 = 2 * q1 * q3 + 2 * q0 * q2
-        let r_m32 = 2 * q2 * q3 - 2 * q0 * q1
-        let r_m33 = q0 * q0 - q1 * q1 - q2 * q2 + q3 * q3
+        let m11 = angle_0 * angle_0 + angle_1 * angle_1 - angle_2 * angle_2 - angle_3 * angle_3
+        let m12 = 2 * angle_1 * angle_2 + 2 * angle_0 * angle_3
+        let m13 = 2 * angle_1 * angle_3 - 2 * angle_0 * angle_2
+        let m21 = 2 * angle_1 * angle_2 - 2 * angle_0 * angle_3
+        let m22 = angle_0 * angle_0 - angle_1 * angle_1 + angle_2 * angle_2 - angle_3 * angle_3
+        let m23 = 2 * angle_2 * angle_3 + 2 * angle_0 * angle_1
+        let m31 = 2 * angle_1 * angle_3 + 2 * angle_0 * angle_2
+        let m32 = 2 * angle_2 * angle_3 - 2 * angle_0 * angle_1
+        let m33 = angle_0 * angle_0 - angle_1 * angle_1 - angle_2 * angle_2 + angle_3 * angle_3
         
-        self.transform.m11 = r_m11
-        self.transform.m12 = r_m12
-        self.transform.m13 = r_m13
+        self.transform.m11 = m11
+        self.transform.m12 = m12
+        self.transform.m13 = m13
         self.transform.m14 = 0.0
         
-        self.transform.m21 = r_m21
-        self.transform.m22 = r_m22
-        self.transform.m23 = r_m23
+        self.transform.m21 = m21
+        self.transform.m22 = m22
+        self.transform.m23 = m23
         self.transform.m24 = 0.0
         
-        self.transform.m31 = r_m31
-        self.transform.m32 = r_m32
-        self.transform.m33 = r_m33
+        self.transform.m31 = m31
+        self.transform.m32 = m32
+        self.transform.m33 = m33
         self.transform.m34 = 0.0
         
         self.transform.m41 = (fromstartPoint.x + toendPoint.x) / 2.0
