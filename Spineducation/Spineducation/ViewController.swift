@@ -12,34 +12,45 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
-    
+    // set the sceneview variable
     @IBOutlet var sceneView: ARSCNView!
+    
+    // nodes for the various 3D objects
     var nodeModel:SCNNode!
     var screwModel:SCNNode!
     var targetModel:SCNNode!
     var bullseyeNode:SCNNode!
     var clickSpineNode:SCNNode!
-    
-    let textNode = SCNNode()
     let nodeName = "l4_Default" // Same name we set for the node on SceneKit's editor
+    
+    // text node
+    let textNode = SCNNode()
+    var printStatement = "";
+    
+    // variables to keep track of progress
     var targetExists = false;
     var reposition = false;
     var pedicle = false;
     var targetLocked = false;
     var trajectoryLocked = false;
     var trajectoryExists = false;
+    
+    // SCNNode objects for line
     var startNode: SCNNode?
     var lineNode: SCNNode?
-    var printStatement = "";
     var sphereNode: SCNNode?
     var clickPosition = SCNVector3();
     var latestStartPoint = SCNVector3();
     var latestEndPoint = SCNVector3();
+    
+    // bullseye object
     let bullseyeImage = UIImage(named: "bullseye.png")?.withRenderingMode(.alwaysOriginal)
     
     
     @IBAction func Menu(_ sender: Any) {
     }
+    
+    // create 3D objects
     let spine = SCNScene(named: "art.scnassets/spine-collection-of-thunthu/4cylinders.dae")! // sets the spine to spine 3d image file
     let screw = SCNScene(named: "art.scnassets/screw.dae")! // sets the screw to screw dae file
     
@@ -79,6 +90,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.pointOfView?.addChildNode(bullseyeNode) // add the bullseyeNode as a child of the point of view (camera) so that image moves with camera
     }
+    
     func showUserInstruction (instruction: String, xVal: Float){
             let clickSpine = SCNText (string: instruction, extrusionDepth: 1)
             let clickMaterial = SCNMaterial()
@@ -135,7 +147,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    func nodeWithPosition(_ position: SCNVector3) -> SCNNode { // starting position from touch
+    ._ position: SCNVector3) -> SCNNode { // starting position from touch
         //create sphere geometry with radius
         let sphere = SCNSphere(radius: 0.003)
         sphere.firstMaterial?.diffuse.contents = UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
@@ -277,6 +289,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
       //  screw.rootNode.rotation = camera.rotation;
     //    screw.rootNode.eulerAngles = camera.eulerAngles;
     //    screw.rootNode.orientation = camera.orientation
+        screw.rootNode.orientation = SCNVector4(camera.orientation.x, -camera.orientation.y, -camera.orientation.z, camera.orientation.w)
         sceneView.scene.rootNode.addChildNode(screw.rootNode) // add this to the scene
     }
     
