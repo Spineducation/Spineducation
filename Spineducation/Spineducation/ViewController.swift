@@ -147,7 +147,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    ._ position: SCNVector3) -> SCNNode { // starting position from touch
+    func nodeWithPosition(_ position: SCNVector3) -> SCNNode { // starting position from touch
         //create sphere geometry with radius
         let sphere = SCNSphere(radius: 0.003)
         sphere.firstMaterial?.diffuse.contents = UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
