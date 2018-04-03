@@ -98,7 +98,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             clickMaterial.diffuse.contents = UIColor.white
             clickSpine.materials = [clickMaterial]
             let cameraPos = self.sceneView.pointOfView!.position
-            textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-0.5, cameraPos.z - 2);
+            textNode.position = SCNVector3(cameraPos.x + xVal, cameraPos.y-0.3, cameraPos.z - 2);
             textNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
             textNode.geometry = clickSpine
             textNode.geometry?.firstMaterial?.diffuse.contents  = UIColor.white

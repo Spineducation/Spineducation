@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2018-03-29T18:54:25Z</created>
-  <modified>2018-03-29T18:54:25Z</modified>
+  <created>2018-04-02T20:35:23Z</created>
+  <modified>2018-04-02T20:35:23Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Z_UP</up_axis>
  </asset>
@@ -1289,6 +1289,11 @@
    <node id="Cylinder_001" name="Cylinder_001">
     <matrix>-0.007919247 -0.00015008 0.01185677 -1.43011 0.001673987 -0.00717153 0.01577866 -0.1881623 -0.002520074 -0.004292146 -0.02677834 -1.060044 0 0 0 1 </matrix>
     <instance_geometry url="#geometry9"/>
+    <extra>
+     <technique profile="SceneKit">
+      <visibility>0</visibility>
+     </technique>
+    </extra>
    </node>
    <node id="Camera" name="Camera">
     <matrix>0.6859207 -0.3240135 0.6515582 7.481132 0.7276763 0.3054208 -0.6141704 -6.50764 0 0.8953956 0.4452714 5.343665 0 0 0 1 </matrix>
@@ -1555,7 +1560,13 @@
    </node>
    <node id="Cylinder1" name="Cylinder1">
     <matrix>-0.008082883 -0.000675677 0.00966379 -1.436119 0.000523767 -0.008320143 -0.002467226 -0.1421877 -0.002502029 0.000441083 -0.03173567 -1.045647 0 0 0 1 </matrix>
-    <instance_geometry url="#geometry125"/>
+    <instance_geometry url="#geometry125">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="geometryElement128" target="#Default_001-material"/>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
    </node>
   </visual_scene>
  </library_visual_scenes>
